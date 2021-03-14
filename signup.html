@@ -21,23 +21,27 @@
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
                                     <div class="card-body">
                                         <form>
-                                            <div class="form-row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="small mb-1" for="inputFirstName">First Name</label>
-                                                        <input class="form-control py-4" id="inputFirstName" type="text" placeholder="Enter first name" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="small mb-1" for="inputLastName">Last Name</label>
-                                                        <input class="form-control py-4" id="inputLastName" type="text" placeholder="Enter last name" />
-                                                    </div>
-                                                </div>
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputName">Name</label>
+                                                <input class="form-control py-4" id="inputName" type="text" placeholder="Enter name" autofocus/>
                                             </div>
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputEmailAddress">Email</label>
                                                 <input class="form-control py-4" id="inputEmailAddress" type="email" aria-describedby="emailHelp" placeholder="Enter email address" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputPhoneNum">Phone Number</label>
+                                                <input class="form-control py-4" id="inputPhoneNum" type="tel" placeholder="Enter phone number" />
+                                            </div>
+                                            <!-- <div class="form-group">
+                                                <label class="small mb-1" for="inputPhoneNum">Phone Number</label>
+                                                <input class="py-4" name="tel1" type="tel" pattern="[0-9]{3}" placeholder="###" aria-label="3-digit area code" size="2"/>-
+                                                <input class="py-4" name="tel2" type="tel" pattern="[0-9]{3}" placeholder="###" aria-label="3-digit prefix" size="2"/> -
+                                                <input class="py-4" name="tel3" type="tel" pattern="[0-9]{4}" placeholder="####" aria-label="4-digit number" size="3"/>
+                                            </div> -->
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputUsername">Username</label>
+                                                <input class="form-control py-4" id="inputUsername" type="text" placeholder="Enter username" />
                                             </div>
                                             <div class="form-row">
                                                 <div class="col-md-6">
@@ -80,8 +84,9 @@
                 </footer>
             </div>
         </div>
+        
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
+        <script src="js/signup.js"></script>
     </body>
 </html>
