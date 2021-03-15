@@ -8,6 +8,14 @@
         <meta name="description" content="View aggregated news in multiple languages" />
         <meta name="author" content="" />
         <link href="css/stylesheet.css" rel="stylesheet" />
+        <style>
+            .error_message {
+                color: crimson; 
+                /* font-style:italic;  */
+                font-weight: bold;
+                /* padding:10px; */
+            }
+        </style>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="bg-primary">
@@ -20,44 +28,54 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
                                     <div class="card-body">
-                                        <form>
+                                        <form action="landing.html" onsubmit="return validateInput()">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputName">Name</label>
-                                                <input class="form-control py-4" id="inputName" type="text" placeholder="Enter name" autofocus/>
+                                                <input class="form-control py-4" id="inputName" type="text" placeholder="Enter name" autofocus required/>
+                                                <span class="error_message" id="msg_name"></span>
                                             </div>
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                                <input class="form-control py-4" id="inputEmailAddress" type="email" aria-describedby="emailHelp" placeholder="Enter email address" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="small mb-1" for="inputPhoneNum">Phone Number</label>
-                                                <input class="form-control py-4" id="inputPhoneNum" type="tel" placeholder="Enter phone number" />
+                                                <input class="form-control py-4" id="inputEmailAddress" type="email" aria-describedby="emailHelp" placeholder="Enter email address" required/>
+                                                <span class="error_message" id="msg_email"></span>
                                             </div>
                                             <!-- <div class="form-group">
                                                 <label class="small mb-1" for="inputPhoneNum">Phone Number</label>
-                                                <input class="py-4" name="tel1" type="tel" pattern="[0-9]{3}" placeholder="###" aria-label="3-digit area code" size="2"/>-
-                                                <input class="py-4" name="tel2" type="tel" pattern="[0-9]{3}" placeholder="###" aria-label="3-digit prefix" size="2"/> -
-                                                <input class="py-4" name="tel3" type="tel" pattern="[0-9]{4}" placeholder="####" aria-label="4-digit number" size="3"/>
+                                                <input class="form-control py-4" id="inputPhoneNum" type="tel" placeholder="Enter phone number" />
+                                                <span class="error_message" id="msg_num"></span>
+                                            </div> -->
+                                            <!-- <div class="form-group">
+                                                <label class="small mb-1" for="inputPhoneNum">Phone Number</label><br>
+                                                <input class="py-2" name="tel1" type="tel" pattern="[0-9]{3}" placeholder="###" aria-label="3-digit area code" size="2" required/> - 
+                                                <input class="py-2" name="tel2" type="tel" pattern="[0-9]{3}" placeholder="###" aria-label="3-digit prefix" size="2" required/> -
+                                                <input class="py-2" name="tel3" type="tel" pattern="[0-9]{4}" placeholder="####" aria-label="4-digit number" size="3" required/>
+                                                <span class="error_message" id="msg_phone"></span>
                                             </div> -->
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputUsername">Username</label>
-                                                <input class="form-control py-4" id="inputUsername" type="text" placeholder="Enter username" />
+                                                <input class="form-control py-4" id="inputUsername" type="text" placeholder="Enter username" required/>
+                                                <span class="error_message" id="msg_username"></span>
                                             </div>
                                             <div class="form-row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="small mb-1" for="inputPassword">Password</label>
-                                                        <input class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password" />
+                                                        <input class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password" required/>
+                                                        <span class="error_message" id="msg_pwd"></span>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="small mb-1" for="inputConfirmPassword">Confirm Password</label>
-                                                        <input class="form-control py-4" id="inputConfirmPassword" type="password" placeholder="Confirm password" />
+                                                        <input class="form-control py-4" id="inputConfirmPassword" type="password" placeholder="Confirm password" required/>
+                                                        <span class="error_message" id="msg_confirm_pwd"></span>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group mt-4 mb-0"><a class="btn btn-primary btn-block" href="landing.html">Create Account</a></div>
+                                            <!-- <div class="form-group mt-4 mb-0"><a class="btn btn-primary btn-block" id="create_btn" href="landing.html">Create Account</a></div> -->
+                                            <div class="form-group mt-4 mb-0">
+                                                <button class="btn btn-primary btn-block" id="create-btn">Create Account</button>
+                                            </div>
                                         </form>
                                     </div>
                                     <div class="card-footer text-center">
