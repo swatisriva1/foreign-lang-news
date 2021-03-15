@@ -10,9 +10,71 @@
         <link href="css/stylesheet.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+
+        <style>
+            /* start common CSS */
+            .btn {
+                background-color: #508991; 
+                border-color:  #508991;
+            }
+            .menu-header {
+                color: #c7c7c7 !important;
+            }
+            #menu-label {
+                color: #c7c7c7 !important;
+            }
+            .sb-sidenav-menu-heading {
+                color: #adadad !important; /* ensures that this overrides the stylesheet */
+            }
+            .sb-topnav {
+                background-color: #09bc8a; 
+            }
+            .sb-nav-link-icon {
+                color: #c7c7c7 !important;
+            }
+            #sidebarToggle {
+                background-color: #09bc8a;
+                border-color:  #09bc8a;
+            }
+            
+            /* end common CSS */
+            .account-label, .pref-label {
+                font-weight: bold;
+            }
+            .avatar {
+                display: block;
+                padding-top: 20px;
+                margin-left: auto;
+                margin-right: auto;
+                width: 10%;
+                border-radius: 50%;
+            }
+            .button-wrapper {
+                color: #74b3ce;
+                text-align: center;
+            }
+            .card-header {
+                font-size: 20px;
+                font-weight: bold;
+            }
+            .column {
+                padding-left: 20px;
+                float: left;
+                width: 33%;
+            }
+            input[type=checkbox] {
+                transform: scale(1.5);
+                margin: .4rem;
+            }
+            .msg {
+                color: red;
+                font-style: italic;
+            }            
+        </style>
+
     </head>
     <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark">
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <a class="navbar-brand" href="index.html">Foreign Language News Aggregator</a>
             <!-- Navbar Search-->
@@ -38,54 +100,152 @@
             </ul>
         </nav>
         <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <h3 style="margin-left: 15px; margin-top: 20px;" class="menu-header">Following</h3>
+                            <div class="sb-sidenav-menu-heading">Languages</div>
+                            <a class="nav-link" id="menu-label" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-globe"></i></div>
+                                Spanish
+                            </a>
+                            <a class="nav-link" id="menu-label" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-globe"></i></div>
+                                Korean
+                            </a>
+                            <a class="nav-link" id="menu-label" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-globe"></i></div>
+                                German
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Topics</div>
+                            <a class="nav-link" id="menu-label" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-bookmark"></i></div>
+                                Entertainment
+                            </a>
+                            <a class="nav-link" id="menu-label" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-bookmark"></i></div>
+                                Sports
+                            </a>
+                            <a class="nav-link" id="menu-label" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-bookmark"></i></div>
+                                Technology
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Newspapers</div>
+                            <a class="nav-link" id="menu-label" href="charts.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                El Pais
+                            </a>
+                            <a class="nav-link" id="menu-label" href="tables.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                El Mundo
+                            </a>
+                            <a class="nav-link" id="menu-label" href="tables.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                El Chosun Ilbo
+                            </a>
+                        </div>
+                        <button style="margin-left: 15px; margin-top: 20px; margin-bottom: 20px;" class="btn btn-primary" type="button">Edit Preferences</button> 
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        Megan Reddy
+                    </div>
+                </nav>
+            </div>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">My Profile</h1>
-                        <div>
-                            <h3 class="mt-4">Your Account</h3>
-                            <div class="row">
-                                <div class="col-xl-3 col-md-6">
-                                    <div class="card bg-primary text-white mb-4">
-                                        <div class="card-body">Profile Picture</div>
-                                        <div class="card-footer d-flex align-items-center justify-content-between">
-                                            <a class="small text-white stretched-link" href="#">View</a>
-                                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        <img src="avatar.jpg" alt="Avatar" class="avatar">
+                        <h1 style="text-align: center; margin-bottom: 50px;" class="mt-4">Megan Reddy</h1>
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div style="height: 420px;" class="card mb-4">
+                                    <div class="card-header">
+                                        Account Information
+                                    </div>
+                                    <div class="card-body">
+                                        <form name="user-settings" >
+    
+                                            <div class="form-group">
+                                              <label for="name" class="account-label">Name</label>
+                                              <input type="text" id="name" class="form-control"/>
+                                              <span class="error" id="name-note"></span>        
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                              <label for="email" class="account-label">Email</label>  
+                                              <input type="text" id="email" class="form-control" />  
+                                              <span class="error" id="email-note"></span>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                              <label for="phone" class="account-label">Phone</label>
+                                              <input type="text" id="phone" class="form-control" />  
+                                              <span class="error" id="phone-note"></span>
+                                            </div>  
+                                            
+                                            <label for="changeavatar" class="account-label">Avatar</label>
+                                            <div class="form-group">
+                                                <form action="change_avatar.php">
+                                                    <input type="file" id="changeavatar" name="avatar-file">
+                                                </form>
+                                            </div> 
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div style="height: 420px;" class="card mb-4">
+                                    <div class="card-header">
+                                        Preferences
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="column">
+                                                <label for="lang-options" class="pref-label">Languages</label>
+                                                <div id="lang-options">
+                                                    <input type="checkbox" id="lang1" name="lang" value="span" checked/>
+                                                    <label for="lang1">Spanish</label><br>
+                                                    <input type="checkbox" id="lang2" name="lang" value="kor"/>
+                                                    <label for="lang2">Korean</label><br>
+                                                    <input type="checkbox" id="lang3" name="lang" value="germ" checked/>
+                                                    <label for="lang3">German</label><br>
+                                                </div>
+                                                <span class="msg"><p id="lang_error"></p></span>
+                                            </div>
+                                            <div class="column">
+                                                <label for="topic-options" class="pref-label">Topics</label>
+                                                <div id="topic-options">
+                                                    <label><input type="checkbox" id="topic1" name="topic" value="sports"/>
+                                                    <label for="topic1">Sports</label><br>
+                                                    <label><input type="checkbox" id="topic2" name="topic" value="health" checked/>
+                                                    <label for="topic2">Health/Science</label><br>
+                                                    <label><input type="checkbox" id="topic3" name="topic" value="entertainment" checked/>
+                                                    <label for="topic3">Entertainment</label><br>
+                                                </div>
+                                                <span class="msg"><p id="topic_error"></p></span>
+                                            </div>
+                                            <div class="column">
+                                                <label for="newspaper-options" class="pref-label">Newspapers</label>
+                                                <div id="newspaper-options">
+                                                    <label><input type="checkbox" id="news1" name="news" value="elpais"/>
+                                                    <label for="topic1">El Pais</label><br>
+                                                    <label><input type="checkbox" id="news2" name="news" value="elmundo" checked/>
+                                                    <label for="topic2">El Mundo</label><br>
+                                                    <label><input type="checkbox" id="news3" name="news" value="chosun" checked/>
+                                                    <label for="topic3">El Chosun Ilbo</label><br>
+                                                </div>
+                                                <span class="msg"><p id="news_error"></p></span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <button class="btn btn-primary" type="button">Change avatar</button>
                                 </div>
-                                <div class="col-xl-3 col-md-6">
-                                    <p>Jane Doe</p>
-                                    <p>jdoe@gmail.com</p>
-                                    <p>(571)-123-4567</p>
-                                    <button class="btn btn-primary" type="button">Edit</button>
-                                </div>
-                                
                             </div>
                         </div>
-                        <div>
-                            <h3 class="mt-4">Preferences</h3>
-                            <!-- Multi-select -->
-                            <div>
-                                <h4>Languages</h4>
-                                <div id="">
-                                    <label><input type="checkbox" name="lang" value="span" checked/>Spanish</label>
-                                    <label><input type="checkbox" name="lang" value="kor"/>Korean</label>
-                                    <label><input type="checkbox" name="lang" value="germ" checked/>German</label>
-                                </div>
-                                <span class="msg"><p id="lang_error"></p></span>
-                            </div>
-                            <div>
-                                <h4>News Topics</h4>
-                                <div id="">
-                                    <label><input type="checkbox" name="topic" value="sports"/>Sports</label>
-                                    <label><input type="checkbox" name="topic" value="health" checked/>Health/Science</label>
-                                    <label><input type="checkbox" name="topic" value="entertainment" checked/>Entertainment</label>
-                                    <label><input type="checkbox" name="topic" value="politics"/>Politics</label>
-                                </div>
-                                <span class="msg"><p id="topic_error"></p></span>
-                            </div>
+                        <div class="button-wrapper">
+                            <button style="margin-bottom: 30px;" class="btn btn-primary" type="button" href="index.html">Save Changes</button>
                         </div>
                     </div>
                 </main>
@@ -113,5 +273,6 @@
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/datatables-demo.js"></script>
         <script src="js/settings.js"></script>
+        <script src="js/common.js"></script>
     </body>
 </html>

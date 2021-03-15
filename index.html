@@ -3,16 +3,45 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Home - Foreign Language News Aggregator</title> <!-- name of our app -->
+        <title>Home - Foreign Language News Aggregator</title> 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="View aggregated news in multiple languages" />
         <meta name="author" content="" />
         <link href="css/stylesheet.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+
+        <style>
+            /* start common CSS */
+            .btn {
+                background-color: #508991; 
+                border-color:  #508991;
+            }
+            .menu-header {
+                color: #c7c7c7 !important;
+            }
+            #menu-label {
+                color: #c7c7c7 !important;
+            }
+            .sb-sidenav-menu-heading {
+                color: #adadad !important; /* ensures that this overrides the stylesheet */
+            }
+            .sb-topnav {
+                background-color: #09bc8a; 
+            }
+            .sb-nav-link-icon {
+                color: #c7c7c7 !important;
+            }
+            #sidebarToggle {
+                background-color: #09bc8a;
+                border-color:  #09bc8a;
+            }
+            /* end common CSS */
+        </style>
     </head>
     <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark"> -->
+        <nav class="sb-topnav navbar navbar-expand navbar-dark">
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <a class="navbar-brand" href="index.html">Foreign Language News Aggregator</a>
             <!-- Navbar Search-->
@@ -30,7 +59,7 @@
                     <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                         <a class="dropdown-item" href="settings.html">Settings</a>
-                        <a class="dropdown-item" href="activity.html">Activity Log</a>
+                        <a class="dropdown-item" href="#">Activity Log</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="landing.html">Logout</a>
                     </div>
@@ -42,48 +71,48 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <h3>Following</h3>
+                            <h3 style="margin-left: 15px; margin-top: 20px;" class="menu-header">Following</h3>
                             <div class="sb-sidenav-menu-heading">Languages</div>
-                            <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <a class="nav-link" id="menu-label" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-globe"></i></div>
                                 Spanish
                             </a>
-                            <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <a class="nav-link" id="menu-label" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-globe"></i></div>
                                 Korean
                             </a>
-                            <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <a class="nav-link" id="menu-label" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-globe"></i></div>
                                 German
                             </a>
                             <div class="sb-sidenav-menu-heading">Topics</div>
-                            <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <a class="nav-link" id="menu-label" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-bookmark"></i></div>
                                 Entertainment
                             </a>
-                            <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <a class="nav-link" id="menu-label" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-bookmark"></i></div>
                                 Sports
                             </a>
-                            <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <a class="nav-link" id="menu-label" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-bookmark"></i></div>
                                 Technology
                             </a>
                             <div class="sb-sidenav-menu-heading">Newspapers</div>
-                            <a class="nav-link" href="charts.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            <a class="nav-link" id="menu-label" href="charts.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 El Pais
                             </a>
-                            <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            <a class="nav-link" id="menu-label" href="tables.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 El Mundo
                             </a>
-                            <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            <a class="nav-link" id="menu-label" href="tables.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 El Chosun Ilbo
                             </a>
                         </div>
-                        <button class="btn btn-primary" type="button">Edit Preferences</button>
+                        <button style="margin-left: 15px; margin-top: 20px; margin-bottom: 20px;" class="btn btn-primary" type="button">Edit Preferences</button>
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>

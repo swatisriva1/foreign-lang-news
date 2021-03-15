@@ -1,4 +1,4 @@
-// Check to make sure that users have selected at least one language and topic 
+// Check to make sure that users have selected at least one language, topic, and newspaper
 
 var check_preferences = setInterval(checkPreferences, 1000);
 
@@ -8,6 +8,7 @@ function checkPreferences()
 
     var lang_count = 0;
     var topic_count = 0;
+    var news_count = 0;
     for (var i=0; i < inputs.length; i++) {
         if (inputs[i].type == "checkbox") {
             if (inputs[i].name == "lang") {
@@ -18,6 +19,11 @@ function checkPreferences()
             else if (inputs[i].name == "topic") {
                 if (inputs[i].checked) {
                     topic_count++;
+                }
+            }
+            else if (inputs[i].name == "news") {
+                if (inputs[i].checked) {
+                    news_count++;
                 }
             }  
         }
@@ -34,5 +40,11 @@ function checkPreferences()
     }
     else {
         document.getElementById('topic_error').innerHTML = '';
+    }
+    if (news_count < 1) {
+        document.getElementById('news_error').innerHTML = 'Please select at least one newspaper';   
+    }
+    else {
+        document.getElementById('news_error').innerHTML = '';
     }
 }
