@@ -17,7 +17,7 @@ function validateInput() {
         fullValid = true;
     }
     if(fullValid) {
-        window.alert("Thanks for creating an account! You will now be redirected to login");
+        window.alert("Thanks for creating an account! You will now be redirected to login.");
     }
     return fullValid;
 
