@@ -23,6 +23,7 @@ function validateInput() {
 
 }
 
+// regex from https://www.w3resource.com/javascript/form/all-letters-field.php
 function validateName() {
     var valid = false;
     var nameInput = document.getElementById("inputName");
