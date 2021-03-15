@@ -11,6 +11,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
         <style>
             #layoutAuthentication {
+                /* background-color: #172A3A; */
+                background-color: #004346;
+            }
+            #layoutAuthentication_footer {
+                /* background-color: #508991; */
                 background-color: #172A3A;
             }
             #appHeader {
@@ -22,8 +27,16 @@
                 position: absolute;
                 text-align: center; 
             }
+            #login-btn {
+                background-color: #09BC8A;
+            }
             div.card {
                 background-color: #74B3CE;
+                display: block;
+                /* margin: auto; */
+            }
+            .container {
+                justify-content: center;
             }
         </style>
     </head>
@@ -48,7 +61,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-5">
-                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5" id="login-card" style="margin-bottom: 30px;">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                     <div class="card-body">
                                         <form action="" method="POST" class="login">
@@ -77,7 +90,7 @@
                 </main>
             </div>
             <div id="layoutAuthentication_footer">
-                <footer class="py-4 bg-light mt-auto">
+                <footer class="py-4 mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; Foreign Language News Aggregator 2021</div>

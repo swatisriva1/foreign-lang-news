@@ -9,8 +9,27 @@
         <meta name="author" content="" />
         <link href="css/stylesheet.css" rel="stylesheet" />
         <style>
+            #layoutAuthentication {
+                /* background-color: #172A3A; */
+                background-color: #004346;
+            }
+            #layoutAuthentication_footer {
+                /* background-color: #508991; */
+                background-color: #172A3A;
+            }
+            div.card {
+                background-color: #74B3CE;
+                display: block;
+                /* margin: auto; */
+            }
+            .small.mb-1 {
+                color: black;
+            }
+            /* #create-btn {
+                background-color: #09BC8A
+            } */
             .error_message {
-                color: crimson; 
+                color: rgb(184, 20, 20); 
                 /* font-style:italic;  */
                 font-weight: bold;
                 /* padding:10px; */
@@ -25,7 +44,7 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-lg-7">
-                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5" style="margin-bottom: 35px;">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
                                     <div class="card-body">
                                         <form action="landing.html" onsubmit="return validateInput()">
@@ -44,6 +63,7 @@
                                                 <input class="form-control py-4" id="inputPhoneNum" type="tel" placeholder="Enter phone number" />
                                                 <span class="error_message" id="msg_num"></span>
                                             </div> -->
+                                            <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/pattern -->
                                             <!-- <div class="form-group">
                                                 <label class="small mb-1" for="inputPhoneNum">Phone Number</label><br>
                                                 <input class="py-2" name="tel1" type="tel" pattern="[0-9]{3}" placeholder="###" aria-label="3-digit area code" size="2" required/> - 
@@ -74,7 +94,7 @@
                                             </div>
                                             <!-- <div class="form-group mt-4 mb-0"><a class="btn btn-primary btn-block" id="create_btn" href="landing.html">Create Account</a></div> -->
                                             <div class="form-group mt-4 mb-0">
-                                                <button class="btn btn-primary btn-block" id="create-btn">Create Account</button>
+                                                <button class="btn btn-light btn-block" id="create-btn" style="background-color: #09BC8A;">Create Account</button>
                                             </div>
                                         </form>
                                     </div>
@@ -88,10 +108,10 @@
                 </main>
             </div>
             <div id="layoutAuthentication_footer">
-                <footer class="py-4 bg-light mt-auto">
+                <footer class="py-4 mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                            <div class="text-muted">Copyright &copy; Foreign Language News Aggregator 2021</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;
