@@ -1,3 +1,5 @@
+// Swati Srivastava (ss3ck)
+
 document.getElementById("inputName").addEventListener("keyup", validateName);
 document.getElementById("inputEmailAddress").addEventListener("keyup", validateEmail);
 document.getElementById("inputUsername").addEventListener("keyup", validateUsername);

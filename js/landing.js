@@ -1,3 +1,5 @@
+// Swati Srivastava (ss3ck)
+
 // redirect user to sign up for account upon button click
 var clicked_btn = document.getElementById("sign-up-btn");
 clicked_btn.addEventListener('click', () => {

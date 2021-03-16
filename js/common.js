@@ -1,3 +1,5 @@
+// Megan Reddy (mr8vn)
+
 // expand and collapse menu
 
 var toggle = document.getElementById('sidebarToggle');
