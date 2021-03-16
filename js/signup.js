@@ -30,7 +30,7 @@ function validateName() {
     var valid = false;
     var nameInput = document.getElementById("inputName");
     var nameError = document.getElementById("msg_name");
-    var letters = /^[A-Za-z]+$/;
+    var letters = /^[A-Za-z]+(\s[A-Za-z]+)$/;
     if(nameInput.value == "") {
         nameError.textContent = "Name is required";
     }

@@ -3,14 +3,14 @@
 // redirect user to sign up for account upon button click
 var clicked_btn = document.getElementById("sign-up-btn");
 clicked_btn.addEventListener('click', () => {
-    window.location.href = "http://localhost/cs4640/foreign-lang-news/signup.html";
+    window.location.href = "signup.html";
 });
 
 
 // redirect user to home page upon login button click
 var login_btn_click = document.getElementById("login-btn");
 login_btn_click.addEventListener('click', () => {
-    window.location.href = "http://localhost/cs4640/foreign-lang-news/index.html";
+    window.location.href = "index.html";
 });
 
 
