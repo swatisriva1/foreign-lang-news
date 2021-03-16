@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title></title> <!-- name of our app -->
+        <title>Foreign Language News Aggregator</title> <!-- name of our app -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="View aggregated news in multiple languages" />
         <meta name="author" content="" />
@@ -25,15 +25,35 @@
             .small.mb-1 {
                 color: black;
             }
-            /* #create-btn {
-                background-color: #09BC8A
-            } */
+            #create-btn {
+                color: #eeeeee;
+                background-color: #09BC8A;
+                border-color: #09BC8A;
+            }
+            #create-btn:hover {
+                background-color: #12aa7f;
+                border-color: #12aa7f;
+            }
+            #return-btn {
+                color: #eeeeee;
+                background-color: #004346;
+                border: none;
+                padding: 8px;
+                border-radius: 6px;
+            }
+            #return-btn:hover {
+                background-color: #508991;
+                border-color: #508991;
+            }
             .error_message {
                 color: rgb(184, 20, 20); 
                 /* font-style:italic;  */
                 font-weight: bold;
                 /* padding:10px; */
             }
+            .text-muted {
+                color: #eeeeee !important;
+            } 
         </style>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
@@ -94,12 +114,12 @@
                                             </div>
                                             <!-- <div class="form-group mt-4 mb-0"><a class="btn btn-primary btn-block" id="create_btn" href="landing.html">Create Account</a></div> -->
                                             <div class="form-group mt-4 mb-0">
-                                                <button class="btn btn-light btn-block" id="create-btn" style="background-color: #09BC8A;">Create Account</button>
+                                                <button class="btn btn-light btn-block" id="create-btn">Create Account</button>
                                             </div>
                                         </form>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <div class="small"><a href="landing.html">Have an account? Go to login</a></div>
+                                        <div class="small"><a href="landing.html"><button id="return-btn" type="button">Have an account? Go to login</button></a></div>
                                     </div>
                                 </div>
                             </div>
@@ -123,8 +143,8 @@
             </div>
         </div>
         
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/signup.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>      
     </body>
 </html>

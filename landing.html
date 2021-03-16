@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title></title> <!-- name of our app -->
+        <title>Foreign Language News Aggregator</title> <!-- name of our app -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="View aggregated news in multiple languages" />
         <meta name="author" content="" />
@@ -14,7 +14,7 @@
             #layoutAuthentication {
                 /* background-color: #172A3A; */
                 background-color: #004346;
-                background-image: url('globe_background.jpg');
+                background-image: url('images/globe_background.jpg');
                 background-size: cover;
             }
             .overlay {
@@ -23,7 +23,7 @@
                 min-width: 100%;
                 left: 0;
                 top: 0;
-                background: rgba(200, 244, 244, 0.3);
+                background: rgba(200, 244, 244, 0.25);
             }
             #layoutAuthentication_footer {
                 /* background-color: #508991; */
@@ -32,40 +32,41 @@
                 background-color: #172A3A;
             }
             #appHeader {
-                color: white;
+                color: #eeeeee;
                 /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
                 /* position: relative; */
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                 padding-top: 10px;
-            }
-            #appTitle {
-                /* position: absolute; */
-                text-align: center; 
-            }
-            #appSlogan {
-                /* position: absolute; */
-                text-align: center; 
+                text-align: center;
             }
             #login-btn {
                 color: #eeeeee;
                 background-color: #09BC8A;
                 border-color: #09BC8A;
                 padding-left: 20px;
-                padding-right: 20px
+                padding-right: 20px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             }
-            #login-btn:hover {
+            #login-btn:hover:enabled {
                 background-color: #508991;
                 border-color: #508991;
             }
             #sign-up-btn {
+                color: #eeeeee;
+                background-color: #004346;
                 border: none;
                 padding: 8px;
-                border-radius: 8px;
+                border-radius: 6px;
+            }
+            #sign-up-btn:hover {
+                background-color: #508991;
+                border-color: #508991;
             }
             div.card {
                 background-color: #172a3a;
-                /* display: block; */
+                /* display: block; */ 
                 margin-bottom: 30px;
+                /* padding: 10px; */
             }
             .container {
                 justify-content: center;
@@ -81,11 +82,9 @@
             <div class="overlay">
                 <div id="layoutAuthentication_content">
                     <main>
-                        <div class="text-left" id="appHeader">
+                        <div id="appHeader">
                             <h1 id="appTitle">Foreign Language News Aggregator</h1>
-                            <div>
-                                <h2 id="appSlogan">Be a global citizen</h2>
-                            </div>
+                            <h2 id="appSlogan">Be a global citizen</h2>
                         </div>
                         <div class="container">
                             <div class="row justify-content-center">
@@ -95,29 +94,22 @@
                                         <div class="card-body">
                                             <form action="" method="POST" class="login">
                                                 <div class="form-group">
-                                                    <label style="color: #eeeeee" class="small mb-1" for="inputEmailAddress">Email</label>
-                                                    <input class="form-control py-4" id="inputEmailAddress" type="email" placeholder="Enter email address" />
+                                                    <label style="color: #eeeeee" class="small mb-1" for="inputUsername">Username</label>
+                                                    <input class="form-control py-4" id="inputUsername" type="email" placeholder="Enter username" />
                                                 </div>
                                                 <div class="form-group">
                                                     <label style="color: #eeeeee" class="small mb-1" for="inputPassword">Password</label>
                                                     <input class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password" />
                                                 </div>
-                                                <!-- <div class="form-group">
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" />
-                                                        <label class="custom-control-label" for="rememberPasswordCheck">Remember password</label>
-                                                    </div>
-                                                </div> -->
                                                 <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                    <!-- <a class="small" href="password.html">Forgot Password?</a> -->
-                                                    <a class="btn btn-primary" id="login-btn" type="button">Login</a>
+                                                    <button class="btn btn-primary" id="login-btn" type="button">Login</button>
                                                 </div>
                                             </form>
                                         </div>
                                         <div class="card-footer text-center">
                                             <div class="small">
                                                 <!--<a href="register.html">Need an account? Sign up!</a>-->
-                                                <button id="sign-up-btn" name="sign-up">Need an account? Sign up</button> <!-- new addition -->
+                                                <button id="sign-up-btn" name="sign-up">Need an account? Sign up</button> 
                                             </div>
                                         </div>
                                     </div>
@@ -142,9 +134,8 @@
                 </div>
             </div>
         </div>
+        <script src="js/landing.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-        <script src="js/landing.js" async defer></script>
     </body>
 </html>
