@@ -14,14 +14,28 @@
         <style>
             /* start common CSS */
             .btn {
-                background-color: #508991; 
-                border-color:  #508991;
+                background-color: #74b3ce; 
+                border-color:  #74b3ce;
+            }
+            .btn:hover {
+                background-color: #508991;
+                border-color: #508991;
+            }
+            #layoutAuthentication_footer {
+                /* background-color: #508991; */
+                background-color: #172A3A;
             }
             .menu-header {
                 color: #c7c7c7 !important;
             }
             #menu-label {
                 color: #c7c7c7 !important;
+            }
+            #menu-label:hover {
+                background-color: #2a4c68;
+            } 
+            .sb-sidenav-menu {
+                background-color: #172a3a;
             }
             .sb-sidenav-menu-heading {
                 color: #adadad !important; /* ensures that this overrides the stylesheet */
@@ -69,7 +83,7 @@
             .msg {
                 color: red;
                 font-style: italic;
-            }            
+            }           
         </style>
 
     </head>
@@ -112,7 +126,7 @@
                             </a>
                             <a class="nav-link" id="menu-label" href="index.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-globe"></i></div>
-                                Korean
+                                Italian
                             </a>
                             <a class="nav-link" id="menu-label" href="index.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-globe"></i></div>
@@ -142,14 +156,10 @@
                             </a>
                             <a class="nav-link" id="menu-label" href="tables.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                El Chosun Ilbo
+                                Bild
                             </a>
                         </div>
-                        <button style="margin-left: 15px; margin-top: 20px; margin-bottom: 20px;" class="btn btn-primary" type="button">Edit Preferences</button> 
-                    </div>
-                    <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Megan Reddy
+                        <button style="margin-left: 15px; margin-top: 20px; margin-bottom: 20px;" class="btn btn-primary" id="preferences-btn" type="button">Edit Preferences</button> 
                     </div>
                 </nav>
             </div>
@@ -157,7 +167,7 @@
                 <main>
                     <div class="container-fluid">
                         <img src="avatar.jpg" alt="Avatar" class="avatar">
-                        <h1 style="text-align: center; margin-bottom: 50px;" class="mt-4">Megan Reddy</h1>
+                        <h1 style="text-align: center; margin-bottom: 50px;" class="mt-4">Jane Doe</h1>
                         <div class="row">
                             <div class="col-xl-6">
                                 <div style="height: 420px;" class="card mb-4">
@@ -169,20 +179,20 @@
     
                                             <div class="form-group">
                                               <label for="name" class="account-label">Name</label>
-                                              <input type="text" id="name" class="form-control"/>
+                                              <input type="text" id="name" class="form-control" value="Jane Doe"/>
                                               <span class="error" id="name-note"></span>        
                                             </div>
                                             
                                             <div class="form-group">
                                               <label for="email" class="account-label">Email</label>  
-                                              <input type="text" id="email" class="form-control" />  
+                                              <input type="text" id="email" class="form-control" value="jdoe@gmail.com"/>  
                                               <span class="error" id="email-note"></span>
                                             </div>
                                             
                                             <div class="form-group">
-                                              <label for="phone" class="account-label">Phone</label>
-                                              <input type="text" id="phone" class="form-control" />  
-                                              <span class="error" id="phone-note"></span>
+                                              <label for="username" class="account-label">Username</label>
+                                              <input type="text" id="username" class="form-control" value="jdoe27"/>  
+                                              <span class="error" id="username-note"></span>
                                             </div>  
                                             
                                             <label for="changeavatar" class="account-label">Avatar</label>
@@ -208,8 +218,8 @@
                                                 <div id="lang-options">
                                                     <input type="checkbox" id="lang1" name="lang" value="span" checked/>
                                                     <label for="lang1">Spanish</label><br>
-                                                    <input type="checkbox" id="lang2" name="lang" value="kor"/>
-                                                    <label for="lang2">Korean</label><br>
+                                                    <input type="checkbox" id="lang2" name="lang" value="ital"/>
+                                                    <label for="lang2">Italian</label><br>
                                                     <input type="checkbox" id="lang3" name="lang" value="germ" checked/>
                                                     <label for="lang3">German</label><br>
                                                 </div>
@@ -234,8 +244,8 @@
                                                     <label for="topic1">El Pais</label><br>
                                                     <label><input type="checkbox" id="news2" name="news" value="elmundo" checked/>
                                                     <label for="topic2">El Mundo</label><br>
-                                                    <label><input type="checkbox" id="news3" name="news" value="chosun" checked/>
-                                                    <label for="topic3">El Chosun Ilbo</label><br>
+                                                    <label><input type="checkbox" id="news3" name="news" value="bild" checked/>
+                                                    <label for="topic3">Bild</label><br>
                                                 </div>
                                                 <span class="msg"><p id="news_error"></p></span>
                                             </div>
@@ -245,22 +255,24 @@
                             </div>
                         </div>
                         <div class="button-wrapper">
-                            <button style="margin-bottom: 30px;" class="btn btn-primary" type="button" href="index.html">Save Changes</button>
+                            <button style="margin-bottom: 30px;" class="btn btn-primary" id="save-btn" type="button">Save Changes</button>
                         </div>
                     </div>
                 </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Foreign Language News Aggregator 2021</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
+                <div id="layoutAuthentication_footer">
+                    <footer class="py-4 mt-auto">
+                        <div class="container-fluid">
+                            <div class="d-flex align-items-center justify-content-between small">
+                                <div style="color: #eeeeee !important" class="text-muted">Copyright &copy; Foreign Language News Aggregator 2021</div>
+                                <div>
+                                    <a href="#">Privacy Policy</a>
+                                    &middot;
+                                    <a href="#">Terms &amp; Conditions</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </footer>
+                    </footer>
+                </div>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>

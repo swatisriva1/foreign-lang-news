@@ -17,11 +17,25 @@
                 background-color: #508991; 
                 border-color:  #508991;
             }
+            .btn:hover {
+                background-color: #508991;
+                border-color: #508991;
+            }
+            #layoutAuthentication_footer {
+                /* background-color: #508991; */
+                background-color: #172A3A;
+            }
             .menu-header {
                 color: #c7c7c7 !important;
             }
             #menu-label {
                 color: #c7c7c7 !important;
+            }
+            #menu-label:hover {
+                background-color: #2a4c68;
+            } 
+            .sb-sidenav-menu {
+                background-color: #172a3a;
             }
             .sb-sidenav-menu-heading {
                 color: #adadad !important; /* ensures that this overrides the stylesheet */
@@ -37,6 +51,13 @@
                 border-color:  #09bc8a;
             }
             /* end common CSS */
+            .breadcrumb-item {
+                font-size: 20px;
+                font-weight: bold;
+            }
+            .card {
+                background-color: #3e6486 !important;
+            }
         </style>
     </head>
     <body class="sb-nav-fixed">
@@ -79,7 +100,7 @@
                             </a>
                             <a class="nav-link" id="menu-label" href="index.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-globe"></i></div>
-                                Korean
+                                Italian
                             </a>
                             <a class="nav-link" id="menu-label" href="index.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-globe"></i></div>
@@ -109,14 +130,10 @@
                             </a>
                             <a class="nav-link" id="menu-label" href="tables.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                El Chosun Ilbo
+                                Bild
                             </a>
                         </div>
-                        <button style="margin-left: 15px; margin-top: 20px; margin-bottom: 20px;" class="btn btn-primary" type="button">Edit Preferences</button>
-                    </div>
-                    <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Megan Reddy
+                        <button style="margin-left: 15px; margin-top: 20px; margin-bottom: 20px;" class="btn btn-primary" id="preferences-btn" type="button">Edit Preferences</button>
                     </div>
                 </nav>
             </div>
@@ -127,6 +144,7 @@
                         <h1 class="mt-4">Top Stories</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Spanish</li>
+                            <!-- <button style="display: flex; margin-left: 1000px;" class="btn btn-primary" type="button">See More</button> -->
                         </ol>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
@@ -140,18 +158,27 @@
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Adolescentes engullidos por las pantallas: "Pierden horas de sueño, no salen de su habitación ni para comer"</div>
+                                    <div class="card-body">Hazard vuelve a caer y no jugará contra el Atalanta</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="https://www.elmundo.es/papel/historias/2021/03/13/604b4d2b21efa025158b4683.html">Read More</a>
+                                        <a class="small text-white stretched-link" href="https://www.elmundo.es/deportes/futbol/champions-league/2021/03/15/604f3a2afc6c837c2c8b463e.html">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Los Grammy 2021 quieren inaugurar la vuelta a la normalidad</div>
+                                    <div class="card-body">La 63ª entrega de los premios Grammy, en imágenes 14 fotos</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="https://elpais.com/cultura/2021-03-13/los-grammy-2021-quieren-inaugurar-la-vuelta-a-la-normalidad.html">Read More</a>
+                                        <a class="small text-white stretched-link" href="https://elpais.com/elpais/2021/03/15/album/1615777382_203475.html">Read More</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body">Cinco grandes enigmas del coronavirus aún por resolver</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="https://elpais.com/ciencia/2021-03-13/cinco-grandes-enigmas-del-coronavirus-aun-por-resolver.html">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -159,32 +186,42 @@
                         </div>
 
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Korean</li>
+                            <li class="breadcrumb-item active">Italian</li>
+                            <!-- <button style="margin-left: 1015px;" class="btn btn-primary" type="button">See More</button> -->
                         </ol>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Article #1</div>
+                                    <div class="card-body">Real Madrid, Zidane apre al ritorno di Ronaldo: "Può darsi"</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Read More</a>
+                                        <a class="small text-white stretched-link" href="https://www.repubblica.it/sport/calcio/champions/2021/03/15/news/zidane_carica_il_real_con_l_atalanta_e_come_una_finale_ritorna_cr7_puo_darsi_-292346264/">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Article #2</div>
+                                    <div class="card-body">Ginevra Bompiani: "Si traduce la lingua non il colore"</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Read More</a>
+                                        <a class="small text-white stretched-link" href="https://rep.repubblica.it/pwa/robinson/2021/03/14/news/amanda_gorman_ginevra_bompiani_traduttore_identita_-292240255/">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Article #3</div>
+                                    <div class="card-body">Scuola, da lunedì a casa 7 milioni di studenti</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Read More</a>
+                                        <a class="small text-white stretched-link" href="https://www.repubblica.it/cronaca/2021/03/14/news/scuola_da_lunedi_7_milioni_di_studenti_a_casa-292158643/">Read More</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body">Giulietta e le altre ragazze di Skakespeare in love</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="https://www.repubblica.it/cultura/2021/03/08/news/giulietta_e_le_altre_ragazze_si_skakespeare_in_love-291083786/">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -193,31 +230,41 @@
 
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">German</li>
+                            <!-- <button style="margin-left: 1005px;" class="btn btn-primary" type="button">See More</button> -->
                         </ol>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Article #1</div>
+                                    <div class="card-body">Kuntz nimmt Wunderstürmer Moukoko mit</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Read More</a>
+                                        <a class="small text-white stretched-link" href="https://www.bild.de/sport/fussball/nationalmannschaft/kader-fuer-u21-em-stefan-kuntz-nominiert-youssoufa-moukoko-und-baku-75743806.bild.html">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Article #2</div>
+                                    <div class="card-body">Das Horrorjahr begann mit einem Kuss</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Read More</a>
+                                        <a class="small text-white stretched-link" href="https://www.bild.de/unterhaltung/royals/royals/die-royals-eine-familie-in-der-krise-das-horrorjahr-begann-mit-einem-kuss-70718246.bild.html">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Article #3</div>
+                                    <div class="card-body">Streit um Hakenkreuze an Kirchen-Decke</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Read More</a>
+                                        <a class="small text-white stretched-link" href="https://www.bild.de/regional/ruhrgebiet/ruhrgebiet-aktuell/essen-nazi-symbole-an-der-decke-durchkreuzen-kapellen-oeffnung-75720148.bild.html">Read More</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body">Zeitplan für die Olympischen Spiele in Tokio</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="https://www.bild.de/sport/olympia/sport/2021-statt-2020-alle-infos-zu-olympia-2020-in-tokio-66103626.bild.html">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -226,18 +273,20 @@
 
                     </div>
                 </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Foreign Language News Aggregator 2021</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
+                <div id="layoutAuthentication_footer">
+                    <footer class="py-4 mt-auto">
+                        <div class="container-fluid">
+                            <div class="d-flex align-items-center justify-content-between small">
+                                <div style="color: #eeeeee !important" class="text-muted">Copyright &copy; Foreign Language News Aggregator 2021</div>
+                                <div>
+                                    <a href="#">Privacy Policy</a>
+                                    &middot;
+                                    <a href="#">Terms &amp; Conditions</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </footer>
+                    </footer>
+                </div>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
@@ -249,6 +298,7 @@
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/datatables-demo.js"></script>
-        <script src="js/home.js"></script>
+        <!-- <script src="js/home.js"></script> -->
+        <script src="js/common.js"></script>
     </body>
 </html>

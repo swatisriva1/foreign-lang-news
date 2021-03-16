@@ -1,5 +1,10 @@
-// Check to make sure that users have selected at least one language, topic, and newspaper
+// redirect user to settings/preferences page for edit preferences button click
+var save_btn_click = document.getElementById("save-btn");
+save_btn_click.addEventListener('click', () => {
+    window.location.href = "index.html";
+});
 
+// check to make sure that users have selected at least one language, topic, and newspaper
 var check_preferences = setInterval(checkPreferences, 1000);
 
 function checkPreferences()
@@ -48,3 +53,4 @@ function checkPreferences()
         document.getElementById('news_error').innerHTML = '';
     }
 }
+
