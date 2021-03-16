@@ -35,7 +35,7 @@ function validateName() {
         nameError.textContent = "Name is required";
     }
     else if(!nameInput.value.match(letters)) {
-        nameError.textContent = "Name may only contain letters";
+        nameError.textContent = "Please enter full name, name may only contain letters";
     }
     else if(nameInput.value.length > 30) {
         nameError.textContent = "Name may not be longer than 30 letters";
