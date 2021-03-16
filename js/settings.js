@@ -1,3 +1,5 @@
+// Megan Reddy (mr8vn)
+
 // redirect user to settings/preferences page for edit preferences button click
 var save_btn_click = document.getElementById("save-btn");
 save_btn_click.addEventListener('click', () => {

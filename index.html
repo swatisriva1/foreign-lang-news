@@ -6,51 +6,13 @@
         <title>Home - Foreign Language News Aggregator</title> 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="View aggregated news in multiple languages" />
-        <meta name="author" content="" />
+        <meta name="author" content="Megan Reddy (mr8vn)" />
         <link href="css/stylesheet.css" rel="stylesheet" />
+        <link href="css/common.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
 
         <style>
-            /* start common CSS */
-            .btn {
-                background-color: #508991; 
-                border-color:  #508991;
-            }
-            .btn:hover {
-                background-color: #508991;
-                border-color: #508991;
-            }
-            #layoutAuthentication_footer {
-                /* background-color: #508991; */
-                background-color: #172A3A;
-            }
-            .menu-header {
-                color: #c7c7c7 !important;
-            }
-            #menu-label {
-                color: #c7c7c7 !important;
-            }
-            #menu-label:hover {
-                background-color: #2a4c68;
-            } 
-            .sb-sidenav-menu {
-                background-color: #172a3a;
-            }
-            .sb-sidenav-menu-heading {
-                color: #adadad !important; /* ensures that this overrides the stylesheet */
-            }
-            .sb-topnav {
-                background-color: #09bc8a; 
-            }
-            .sb-nav-link-icon {
-                color: #c7c7c7 !important;
-            }
-            #sidebarToggle {
-                background-color: #09bc8a;
-                border-color:  #09bc8a;
-            }
-            /* end common CSS */
             .breadcrumb-item {
                 font-size: 20px;
                 font-weight: bold;
@@ -58,7 +20,14 @@
             .card {
                 background-color: #3e6486 !important;
             }
+            @media only screen and (max-width: 768px) {
+                .breadcrumb-item {
+                    font-size: 1rem;
+                    font-weight: bold;
+                }
+            }
         </style>
+        
     </head>
     <body class="sb-nav-fixed">
         <!-- <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark"> -->
@@ -87,6 +56,7 @@
                 </li>
             </ul>
         </nav>
+        <!-- Side navigation-->
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -120,15 +90,15 @@
                                 Technology
                             </a>
                             <div class="sb-sidenav-menu-heading">Newspapers</div>
-                            <a class="nav-link" id="menu-label" href="charts.html">
+                            <a class="nav-link" id="menu-label" href="index.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 El Pais
                             </a>
-                            <a class="nav-link" id="menu-label" href="tables.html">
+                            <a class="nav-link" id="menu-label" href="index.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 El Mundo
                             </a>
-                            <a class="nav-link" id="menu-label" href="tables.html">
+                            <a class="nav-link" id="menu-label" href="index.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Bild
                             </a>
@@ -137,10 +107,10 @@
                     </div>
                 </nav>
             </div>
+            <!-- News section-->
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <!-- News Section -->
                         <h1 class="mt-4">Top Stories</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Spanish</li>
@@ -151,7 +121,8 @@
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">La escasez de diésel paraliza una vez más a Venezuela</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="https://elpais.com/internacional/2021-03-13/la-escasez-de-diesel-paraliza-una-vez-mas-a-venezuela.html">Read More</a>
+                                        <!-- learned about target and rel attribute here: https://www.freecodecamp.org/news/how-to-use-html-to-open-link-in-new-tab/ -->
+                                        <a class="small text-white stretched-link" href="https://elpais.com/internacional/2021-03-13/la-escasez-de-diesel-paraliza-una-vez-mas-a-venezuela.html" target="_blank" rel="noopener noreferrer">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -160,7 +131,7 @@
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">Hazard vuelve a caer y no jugará contra el Atalanta</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="https://www.elmundo.es/deportes/futbol/champions-league/2021/03/15/604f3a2afc6c837c2c8b463e.html">Read More</a>
+                                        <a class="small text-white stretched-link" href="https://www.elmundo.es/deportes/futbol/champions-league/2021/03/15/604f3a2afc6c837c2c8b463e.html" target="_blank" rel="noopener noreferrer">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -169,7 +140,7 @@
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">La 63ª entrega de los premios Grammy, en imágenes 14 fotos</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="https://elpais.com/elpais/2021/03/15/album/1615777382_203475.html">Read More</a>
+                                        <a class="small text-white stretched-link" href="https://elpais.com/elpais/2021/03/15/album/1615777382_203475.html" target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -178,7 +149,7 @@
                                 <div class="card bg-danger text-white mb-4">
                                     <div class="card-body">Cinco grandes enigmas del coronavirus aún por resolver</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="https://elpais.com/ciencia/2021-03-13/cinco-grandes-enigmas-del-coronavirus-aun-por-resolver.html">Read More</a>
+                                        <a class="small text-white stretched-link" href="https://elpais.com/ciencia/2021-03-13/cinco-grandes-enigmas-del-coronavirus-aun-por-resolver.html" target="_blank" rel="noopener noreferrer">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -194,7 +165,7 @@
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Real Madrid, Zidane apre al ritorno di Ronaldo: "Può darsi"</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="https://www.repubblica.it/sport/calcio/champions/2021/03/15/news/zidane_carica_il_real_con_l_atalanta_e_come_una_finale_ritorna_cr7_puo_darsi_-292346264/">Read More</a>
+                                        <a class="small text-white stretched-link" href="https://www.repubblica.it/sport/calcio/champions/2021/03/15/news/zidane_carica_il_real_con_l_atalanta_e_come_una_finale_ritorna_cr7_puo_darsi_-292346264/" target="_blank" rel="noopener noreferrer">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -203,7 +174,7 @@
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">Ginevra Bompiani: "Si traduce la lingua non il colore"</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="https://rep.repubblica.it/pwa/robinson/2021/03/14/news/amanda_gorman_ginevra_bompiani_traduttore_identita_-292240255/">Read More</a>
+                                        <a class="small text-white stretched-link" href="https://rep.repubblica.it/pwa/robinson/2021/03/14/news/amanda_gorman_ginevra_bompiani_traduttore_identita_-292240255/" target="_blank" rel="noopener noreferrer">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -212,7 +183,7 @@
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">Scuola, da lunedì a casa 7 milioni di studenti</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="https://www.repubblica.it/cronaca/2021/03/14/news/scuola_da_lunedi_7_milioni_di_studenti_a_casa-292158643/">Read More</a>
+                                        <a class="small text-white stretched-link" href="https://www.repubblica.it/cronaca/2021/03/14/news/scuola_da_lunedi_7_milioni_di_studenti_a_casa-292158643/" target="_blank" rel="noopener noreferrer">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -221,7 +192,7 @@
                                 <div class="card bg-danger text-white mb-4">
                                     <div class="card-body">Giulietta e le altre ragazze di Skakespeare in love</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="https://www.repubblica.it/cultura/2021/03/08/news/giulietta_e_le_altre_ragazze_si_skakespeare_in_love-291083786/">Read More</a>
+                                        <a class="small text-white stretched-link" href="https://www.repubblica.it/cultura/2021/03/08/news/giulietta_e_le_altre_ragazze_si_skakespeare_in_love-291083786/" target="_blank" rel="noopener noreferrer">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -237,7 +208,7 @@
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Kuntz nimmt Wunderstürmer Moukoko mit</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="https://www.bild.de/sport/fussball/nationalmannschaft/kader-fuer-u21-em-stefan-kuntz-nominiert-youssoufa-moukoko-und-baku-75743806.bild.html">Read More</a>
+                                        <a class="small text-white stretched-link" href="https://www.bild.de/sport/fussball/nationalmannschaft/kader-fuer-u21-em-stefan-kuntz-nominiert-youssoufa-moukoko-und-baku-75743806.bild.html" target="_blank" rel="noopener noreferrer">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -246,7 +217,7 @@
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">Das Horrorjahr begann mit einem Kuss</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="https://www.bild.de/unterhaltung/royals/royals/die-royals-eine-familie-in-der-krise-das-horrorjahr-begann-mit-einem-kuss-70718246.bild.html">Read More</a>
+                                        <a class="small text-white stretched-link" href="https://www.bild.de/unterhaltung/royals/royals/die-royals-eine-familie-in-der-krise-das-horrorjahr-begann-mit-einem-kuss-70718246.bild.html" target="_blank" rel="noopener noreferrer">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -255,7 +226,7 @@
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">Streit um Hakenkreuze an Kirchen-Decke</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="https://www.bild.de/regional/ruhrgebiet/ruhrgebiet-aktuell/essen-nazi-symbole-an-der-decke-durchkreuzen-kapellen-oeffnung-75720148.bild.html">Read More</a>
+                                        <a class="small text-white stretched-link" href="https://www.bild.de/regional/ruhrgebiet/ruhrgebiet-aktuell/essen-nazi-symbole-an-der-decke-durchkreuzen-kapellen-oeffnung-75720148.bild.html" target="_blank" rel="noopener noreferrer">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -264,7 +235,7 @@
                                 <div class="card bg-danger text-white mb-4">
                                     <div class="card-body">Zeitplan für die Olympischen Spiele in Tokio</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="https://www.bild.de/sport/olympia/sport/2021-statt-2020-alle-infos-zu-olympia-2020-in-tokio-66103626.bild.html">Read More</a>
+                                        <a class="small text-white stretched-link" href="https://www.bild.de/sport/olympia/sport/2021-statt-2020-alle-infos-zu-olympia-2020-in-tokio-66103626.bild.html" target="_blank" rel="noopener noreferrer">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -273,11 +244,12 @@
 
                     </div>
                 </main>
+                <!-- Footer-->
                 <div id="layoutAuthentication_footer">
                     <footer class="py-4 mt-auto">
                         <div class="container-fluid">
                             <div class="d-flex align-items-center justify-content-between small">
-                                <div style="color: #eeeeee !important" class="text-muted">Copyright &copy; Foreign Language News Aggregator 2021</div>
+                                <div class="text-muted">Copyright &copy; Foreign Language News Aggregator 2021</div>
                                 <div>
                                     <a href="#">Privacy Policy</a>
                                     &middot;
