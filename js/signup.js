@@ -121,7 +121,7 @@ function confirmPassword() {
         confirmPwdError.textContent = 'Passwords match ✔';
     } 
     else {
-        confirmPwdError.style.color = 'crimson';
+        confirmPwdError.style.color = '#b81414'; 
         confirmPwdError.textContent = "Passwords don't match";
     }
     return valid;

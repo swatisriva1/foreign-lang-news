@@ -21,12 +21,9 @@ for (var i = 0; i < inputs.length; i++) {
     inputs[i].addEventListener("input", function() {  // fires upon any keystroke that changes input value
         if(document.getElementById("inputUsername").value == "" || document.getElementById("inputPassword").value == "") {
             login_btn.disabled = true;
-           // window.alert("button is disabled");
         } 
         else {
             login_btn.disabled = false;
-           // window.alert("button is enabled");
-
         }
     });
 }
