@@ -70,10 +70,26 @@
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
                                     <div class="card-body">
                                         <form action="landing.html" onsubmit="return validateInput()">
-                                            <div class="form-group">
+                                            <!-- <div class="form-group">
                                                 <label class="small mb-1" for="inputName">Name</label>
                                                 <input class="form-control py-4" id="inputName" type="text" placeholder="Enter name" autofocus required/>
                                                 <span class="error_message" id="msg_name"></span>
+                                            </div> -->
+                                            <div class="form-row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1" for="inputFname">First Name</label>
+                                                        <input class="form-control py-4" id="inputFname" type="text" placeholder="Enter first name" required/>
+                                                        <span class="error_message" id="msg_fname"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1" for="inputLname">Last Name</label>
+                                                        <input class="form-control py-4" id="inputLname" type="text" placeholder="Enter last name" required/>
+                                                        <span class="error_message" id="msg_lname"></span>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputEmailAddress">Email</label>
@@ -117,6 +133,7 @@
                                             <!-- <div class="form-group mt-4 mb-0"><a class="btn btn-primary btn-block" id="create_btn" href="landing.html">Create Account</a></div> -->
                                             <div class="form-group mt-4 mb-0">
                                                 <button class="btn btn-light btn-block" id="create-btn">Create Account</button>
+                                                <span class="error_message" id="msg_submit" style="text-align: center; display: block; margin-top: 10px;"></span>
                                             </div>
                                         </form>
                                     </div>
