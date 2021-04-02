@@ -8,6 +8,15 @@ document.getElementById("inputPassword").addEventListener("keyup", validatePassw
 document.getElementById("inputPassword").addEventListener("keyup", confirmPassword);
 document.getElementById("inputConfirmPassword").addEventListener("keyup", confirmPassword);
 
+// disable submit button until all input validated client-side
+// adapted from https://stackoverflow.com/questions/36813148/javascript-enable-submit-button-when-all-input-is-valid
+var create_button = document.getElementById("create-btn"); 
+create_button.disabled = true;
+var create_form = document.getElementById('create-act-form');
+create_form.addEventListener("input", () => {
+    create_button.disabled = !validateInput();
+});
+
 // when form is submitted
 function validateInput() {
     var fullValid = false;
@@ -17,17 +26,17 @@ function validateInput() {
     var emailCheck = validateEmail();
     var pwdCheck = validatePassword();
     var confirmPwd = confirmPassword();
-    submit_err = document.getElementById("msg_submit");
+    // submit_err = document.getElementById("msg_submit");
     if(fnameCheck && lnameCheck && userCheck && emailCheck && pwdCheck && confirmPwd) {
         fullValid = true;
-        submit_err.textContent = "";
+        // submit_err.textContent = "";
     }
-    if(fullValid) {
-        window.alert("Thanks for creating an account! You will now be redirected to login.");
-    }
-    else {  
-        submit_err.textContent = "Please fix the above errors.";
-    }
+    // if(fullValid) {
+    //     window.alert("Thanks for creating an account! You will now be redirected to login.");
+    // }
+    // else {  
+    //     submit_err.textContent = "Please fix the above errors.";
+    // }
     return fullValid;
 
 }
