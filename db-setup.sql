@@ -22,3 +22,18 @@ ENGINE = InnoDB;
 CREATE TABLE `ss3ck_foreign_lang_news_db`.`langs` 
 ( `language` VARCHAR(255) NOT NULL , `lang_id` VARCHAR(10) NOT NULL , PRIMARY KEY (`lang_id`)) 
 ENGINE = InnoDB;
+
+
+CREATE TABLE `ss3ck_foreign_lang_news_db`.`topics` 
+( `topic` VARCHAR(255) NOT NULL , `topic_id` VARCHAR(10) NOT NULL , PRIMARY KEY(`topic_id`));
+ENGINE = InnoDB;
+
+
+CREATE TABLE `ss3ck_foreign_lang_news_db`.`avatars` 
+(`image_path` VARCHAR(255) NOT NULL, `image_id` VARCHAR(10) NOT NULL , PRIMARY KEY(`image_id`));
+ENGINE = InnoDB;
+
+
+CREATE TABLE `ss3ck_foreign_lang_news_db`.`user_history`
+(`username` VARCHAR(255) NOT NULL , `article_1` VARCHAR(255) NOT NULL, `article_2` VARCHAR(255) NOT NULL , `article_3` VARCHAR(255) NOT NULL , PRIMARY KEY(`username`));
+ENGINE = InnoDB;
