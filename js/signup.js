@@ -87,12 +87,15 @@ function validateLname() {
 }
 
 // email regex from https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
+// also referenced https://stackoverflow.com/questions/2049502/what-characters-are-allowed-in-an-email-address
 function validateEmail() {
     valid = false;
     var emailInput = document.getElementById("inputEmailAddress");
     var emailError = document.getElementById("msg_email");
     // var emailPattern = /^[^\s@]+@[^\s@]+$/;
-    var emailPattern = /\S+@\S+\.\S+/;
+    // var emailPattern = /\S+@\S+\.\S+/;
+    // var emailPattern = /\w+@\w+\.\w+/;
+    var emailPattern = /^[A-Za-z0-9_-]+@[A-Za-z0-9-]+\.[A-Za-z]+$/;
     if(emailInput.value == "") {
         emailError.textContent = "Email is required";
     }
