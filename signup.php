@@ -2,7 +2,7 @@
     // require('connectDB.php'); //allow to specify what files to include in file
     // require('signupDB.php');
 
-    $unique_err = "";
+    $unique_err = $create_success = "";
 
     function checkUnique($user) {
         if($user == "jdoe25") {
@@ -38,11 +38,13 @@
             cleanInput($_POST["inputEmailAddress"]);
         }
 
-        // if(empty($unique_err)) {
-        //     addNewUser($_POST['full_name'], $_POST['username'], $_POST['password'], $_POST['email'], $_POST['phone']);
-        //     header("Location: log_in.php");
-        //     echo "Thanks for signing up! Please log in.";
-        // }
+        if(empty($unique_err)) {
+            // addNewUser($_POST['full_name'], $_POST['username'], $_POST['password'], $_POST['email'], $_POST['phone']);
+            // header("Location: log_in.php");
+            // echo "Thanks for signing up! Please log in.";
+            header("Refresh:3; url=landing.html");
+            $create_success = "Thanks for signing up! You will now be redirected to login.";
+        }
 
     }
     //     $userCred = checkUserCredentials($_POST["username"], $_POST["password"]);
@@ -116,6 +118,12 @@
                 font-weight: bold;
                 /* padding:10px; */
             }
+            .success_message {
+                color: #0f9138; 
+                /* font-style:italic;  */
+                font-weight: bold;
+                /* padding:10px; */
+            }
             /* .text-muted {
                 color: #eeeeee !important;
             }  */
@@ -132,6 +140,7 @@
                             <div class="col-lg-7">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5" style="margin-bottom: 35px;">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
+                                    <span class="success_message" id="msg_create_success" style="text-align: center; display: block; margin-top: 10px;"><?php if(!empty($create_success)) echo $create_success ?></span>
                                     <div class="card-body">
                                         <form id="create-act-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                                             <!-- <div class="form-group">
@@ -199,6 +208,7 @@
                                             <div class="form-group mt-4 mb-0">
                                                 <button class="btn btn-light btn-block" id="create-btn" name="create-btn">Create Account</button>
                                                 <!-- <span class="error_message" id="msg_submit" style="text-align: center; display: block; margin-top: 10px;"></span> -->
+                                                <!-- <span class="success_message" id="msg_create_success" style="text-align: center; display: block; margin-top: 10px;"><?php if(!empty($create_success)) echo $create_success ?></span> -->
                                             </div>
                                         </form>
                                     </div>
