@@ -1,9 +1,10 @@
 <?php 
+    require("env.php");
     include "vendor/autoload.php";
                         
     use jcobhams\NewsApi\NewsApi;
-
-    $api_key = "6054b0add35944369d184792164c6618";
+    
+    $api_key = getenv("api_key");
 
     $newsapi = new NewsApi($api_key);
 
