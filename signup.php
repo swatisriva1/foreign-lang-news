@@ -1,3 +1,69 @@
+<?php
+    // require('connectDB.php'); //allow to specify what files to include in file
+    // require('signupDB.php');
+
+    // $unique_err = $create_success = "";
+
+    // function checkUnique($user) {
+    //     if($user == "jdoe25") {
+    //         return true;
+    //     }
+    //     return false;
+    // }
+
+    // // taken from https://www.w3schools.com/php/php_form_validation.asp
+    // function cleanInput($input) {
+    //     $input = trim($input);
+    //     $input = stripslashes($input);
+    //     $input = htmlspecialchars($input);
+    //     return $input;
+    // }
+
+    // if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    //     if(isset($_POST["inputUsername"])) {
+    //         $uniqueUser = checkUnique($_POST["inputUsername"]);
+    //         if(!$uniqueUser) $unique_err = "Username " . $_POST["inputUsername"] . " is taken, please try another.";
+    //         else cleanInput($_POST["inputUsername"]);
+    //     }
+    //     if(isset($_POST["inputFname"])) {
+    //         cleanInput($_POST["inputFname"]);
+    //     }
+    //     if(isset($_POST["inputLname"])) {
+    //         cleanInput($_POST["inputLname"]);
+    //     }
+    //     if(isset($_POST["inputEmailAddress"])) {
+    //         cleanInput($_POST["inputEmailAddress"]);
+    //     }
+    //     if(isset($_POST["inputEmailAddress"])) {
+    //         cleanInput($_POST["inputEmailAddress"]);
+    //     }
+
+    //     if(empty($unique_err)) {
+    //         // addNewUser($_POST['full_name'], $_POST['username'], $_POST['password'], $_POST['email'], $_POST['phone']);
+    //         // header("Location: log_in.php");
+    //         // echo "Thanks for signing up! Please log in.";
+    //         header("Refresh:3; url=landing.html");
+    //         $create_success = "Thanks for signing up! You will now be redirected to login.";
+    //     }
+
+    // }
+    //     $userCred = checkUserCredentials($_POST["username"], $_POST["password"]);
+    //     // echo $userCred;
+        
+    //     if(checkUserCredentials($_POST["username"], $_POST["password"])){ 
+    //    // if($userCred == 1) {
+    //         session_start();
+    //         $_SESSION['user'] = $_POST["username"];
+    //         $_SESSION['loggedInToCR'] = true;
+            
+    //     //     print_r($_SESSION);
+    //         header("Location: landing_page.php");
+    //     }
+    //     else {
+    //         $login_err = "You entered an incorrect username or password.";
+    //     }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -52,6 +118,12 @@
                 font-weight: bold;
                 /* padding:10px; */
             }
+            .success_message {
+                color: #0f9138; 
+                /* font-style:italic;  */
+                font-weight: bold;
+                /* padding:10px; */
+            }
             /* .text-muted {
                 color: #eeeeee !important;
             }  */
@@ -68,8 +140,9 @@
                             <div class="col-lg-7">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5" style="margin-bottom: 35px;">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
+                                    <span class="success_message" id="msg_create_success" style="text-align: center; display: block; margin-top: 10px;"><?php if(!empty($create_success)) echo $create_success ?></span>
                                     <div class="card-body">
-                                        <form id="create-act-form" action="signup-validate.php" method="POST">
+                                        <form id="create-act-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                                             <!-- <div class="form-group">
                                                 <label class="small mb-1" for="inputName">Name</label>
                                                 <input class="form-control py-4" id="inputName" type="text" placeholder="Enter name" autofocus required/>
@@ -79,21 +152,21 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="small mb-1" for="inputFname">First Name</label>
-                                                        <input class="form-control py-4" id="inputFname" type="text" placeholder="Enter first name" required/>
+                                                        <input class="form-control py-4" id="inputFname" name="inputFname" value="<?php if(isset($_POST["inputFname"])) echo $_POST['inputFname']?>" type="text" placeholder="Enter first name" required />
                                                         <span class="error_message" id="msg_fname"></span>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="small mb-1" for="inputLname">Last Name</label>
-                                                        <input class="form-control py-4" id="inputLname" type="text" placeholder="Enter last name" required/>
+                                                        <input class="form-control py-4" id="inputLname" name="inputLname" value="<?php if(isset($_POST["inputLname"])) echo $_POST['inputLname']?>" type="text" placeholder="Enter last name" required/>
                                                         <span class="error_message" id="msg_lname"></span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                                <input class="form-control py-4" id="inputEmailAddress" type="email" aria-describedby="emailHelp" placeholder="Enter email address" required/>
+                                                <input class="form-control py-4" id="inputEmailAddress" name="inputEmailAddress" value="<?php if(isset($_POST["inputEmailAddress"])) echo $_POST['inputEmailAddress']?>" type="email" aria-describedby="emailHelp" placeholder="Enter email address" required/>
                                                 <span class="error_message" id="msg_email"></span>
                                             </div>
                                             <!-- <div class="form-group">
@@ -111,29 +184,31 @@
                                             </div> -->
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputUsername">Username</label>
-                                                <input class="form-control py-4" id="inputUsername" type="text" placeholder="Enter username" required/>
-                                                <span class="error_message" id="msg_username"></span>
+                                                <input class="form-control py-4" id="inputUsername" name="inputUsername" value="<?php if(isset($_POST["inputUsername"])) echo $_POST['inputUsername']?>" type="text" placeholder="Enter username" required/>
+                                                <span class="error_message" id="msg_username"></span><br>
+                                                <span class="error_message" id="msg_username_server"><?php if(!empty($unique_err)) echo $unique_err; ?></span>
                                             </div>
                                             <div class="form-row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="small mb-1" for="inputPassword">Password</label>
-                                                        <input class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password" required/>
+                                                        <input class="form-control py-4" id="inputPassword" name="inputPassword" value="<?php if(isset($_POST["inputPassword"])) echo $_POST['inputPassword']?>" type="password" placeholder="Enter password" required/>
                                                         <span class="error_message" id="msg_pwd"></span>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="small mb-1" for="inputConfirmPassword">Confirm Password</label>
-                                                        <input class="form-control py-4" id="inputConfirmPassword" type="password" placeholder="Confirm password" required/>
+                                                        <input class="form-control py-4" id="inputConfirmPassword" name="inputConfirmPassword" value="<?php if(isset($_POST["inputConfirmPassword"])) echo $_POST['inputConfirmPassword']?>" type="password" placeholder="Confirm password" required/>
                                                         <span class="error_message" id="msg_confirm_pwd"></span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- <div class="form-group mt-4 mb-0"><a class="btn btn-primary btn-block" id="create_btn" href="landing.html">Create Account</a></div> -->
                                             <div class="form-group mt-4 mb-0">
-                                                <button class="btn btn-light btn-block" id="create-btn">Create Account</button>
+                                                <button class="btn btn-light btn-block" id="create-btn" name="create-btn">Create Account</button>
                                                 <!-- <span class="error_message" id="msg_submit" style="text-align: center; display: block; margin-top: 10px;"></span> -->
+                                                <!-- <span class="success_message" id="msg_create_success" style="text-align: center; display: block; margin-top: 10px;"><?php if(!empty($create_success)) echo $create_success ?></span> -->
                                             </div>
                                         </form>
                                     </div>
