@@ -37,8 +37,9 @@ $dbname = getenv('db_name');
 // $username = 'ss3ck';
 // $password = 'F4ll2020!!';
 // $host = 'usersrv01.cs.virginia.edu';
+// // $dbname = 'ss3ck_foreign_lang_news_db';
 // $dbname = 'ss3ck';
-
+//  // z3TNabqvJXGiMEOM
 
 /******************************/
 
