@@ -2,51 +2,51 @@
     // require('connectDB.php'); //allow to specify what files to include in file
     // require('signupDB.php');
 
-    $unique_err = $create_success = "";
+    // $unique_err = $create_success = "";
 
-    function checkUnique($user) {
-        if($user == "jdoe25") {
-            return true;
-        }
-        return false;
-    }
+    // function checkUnique($user) {
+    //     if($user == "jdoe25") {
+    //         return true;
+    //     }
+    //     return false;
+    // }
 
-    // taken from https://www.w3schools.com/php/php_form_validation.asp
-    function cleanInput($input) {
-        $input = trim($input);
-        $input = stripslashes($input);
-        $input = htmlspecialchars($input);
-        return $input;
-    }
+    // // taken from https://www.w3schools.com/php/php_form_validation.asp
+    // function cleanInput($input) {
+    //     $input = trim($input);
+    //     $input = stripslashes($input);
+    //     $input = htmlspecialchars($input);
+    //     return $input;
+    // }
 
-    if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if(isset($_POST["inputUsername"])) {
-            $uniqueUser = checkUnique($_POST["inputUsername"]);
-            if(!$uniqueUser) $unique_err = "Username " . $_POST["inputUsername"] . " is taken, please try another.";
-            else cleanInput($_POST["inputUsername"]);
-        }
-        if(isset($_POST["inputFname"])) {
-            cleanInput($_POST["inputFname"]);
-        }
-        if(isset($_POST["inputLname"])) {
-            cleanInput($_POST["inputLname"]);
-        }
-        if(isset($_POST["inputEmailAddress"])) {
-            cleanInput($_POST["inputEmailAddress"]);
-        }
-        if(isset($_POST["inputEmailAddress"])) {
-            cleanInput($_POST["inputEmailAddress"]);
-        }
+    // if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    //     if(isset($_POST["inputUsername"])) {
+    //         $uniqueUser = checkUnique($_POST["inputUsername"]);
+    //         if(!$uniqueUser) $unique_err = "Username " . $_POST["inputUsername"] . " is taken, please try another.";
+    //         else cleanInput($_POST["inputUsername"]);
+    //     }
+    //     if(isset($_POST["inputFname"])) {
+    //         cleanInput($_POST["inputFname"]);
+    //     }
+    //     if(isset($_POST["inputLname"])) {
+    //         cleanInput($_POST["inputLname"]);
+    //     }
+    //     if(isset($_POST["inputEmailAddress"])) {
+    //         cleanInput($_POST["inputEmailAddress"]);
+    //     }
+    //     if(isset($_POST["inputEmailAddress"])) {
+    //         cleanInput($_POST["inputEmailAddress"]);
+    //     }
 
-        if(empty($unique_err)) {
-            // addNewUser($_POST['full_name'], $_POST['username'], $_POST['password'], $_POST['email'], $_POST['phone']);
-            // header("Location: log_in.php");
-            // echo "Thanks for signing up! Please log in.";
-            header("Refresh:3; url=landing.html");
-            $create_success = "Thanks for signing up! You will now be redirected to login.";
-        }
+    //     if(empty($unique_err)) {
+    //         // addNewUser($_POST['full_name'], $_POST['username'], $_POST['password'], $_POST['email'], $_POST['phone']);
+    //         // header("Location: log_in.php");
+    //         // echo "Thanks for signing up! Please log in.";
+    //         header("Refresh:3; url=landing.html");
+    //         $create_success = "Thanks for signing up! You will now be redirected to login.";
+    //     }
 
-    }
+    // }
     //     $userCred = checkUserCredentials($_POST["username"], $_POST["password"]);
     //     // echo $userCred;
         
@@ -186,7 +186,7 @@
                                                 <label class="small mb-1" for="inputUsername">Username</label>
                                                 <input class="form-control py-4" id="inputUsername" name="inputUsername" value="<?php if(isset($_POST["inputUsername"])) echo $_POST['inputUsername']?>" type="text" placeholder="Enter username" required/>
                                                 <span class="error_message" id="msg_username"></span><br>
-                                                <span class="error_message" id="msg_username_server"><?php echo $unique_err; ?></span>
+                                                <span class="error_message" id="msg_username_server"><?php if(!empty($unique_err)) echo $unique_err; ?></span>
                                             </div>
                                             <div class="form-row">
                                                 <div class="col-md-6">
