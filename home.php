@@ -7,15 +7,30 @@
 
     $newsapi = new NewsApi($api_key);
 
+    // remove once connected to login
+    $_SESSION['loggedInFNA'] = true;
+    $_SESSION['user'] = 'jdoe27';
+    $_SESSION['Fname'] = 'Jane';
+
     if(!$_SESSION['loggedInFNA']) {
       header("Location: landing.php");
     }
 
-    if ($_SESSION['user']){
+    if ($_SESSION['user'] && $_SESSION['Fname']){
         $username = $_SESSION['user'];
+        $Fname = $_SESSION['Fname'];
     }
     else {
         header("Location: landing.php");    
+    }
+
+    if($_SERVER['REQUEST_METHOD'] == 'GET')
+    {
+        if(!empty($_GET['action']) && ($_GET['action']=='Logout')) {
+            session_unset();
+            session_destroy();
+            header("Location:landing.php");
+        }
     }
 
     $languages = getUserLanguages($username); // replace with $_SESSION['user']
@@ -71,6 +86,7 @@
                     </div>
                 </div>
             </form>
+            <h5 class="my-md-0">Hi, <?php echo $Fname ?></h5>
             <!-- Navbar-->
             <ul class="navbar-nav ml-auto ml-md-0">
                 <li class="nav-item dropdown">
@@ -79,7 +95,10 @@
                         <a class="dropdown-item" href="settings.html">Settings</a>
                         <a class="dropdown-item" href="#">Activity Log</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="landing.html">Logout</a>
+                        <!-- <a class="dropdown-item" href="landing.html">Logout</a> -->
+                        <form action="<?php $_SERVER['PHP_SELF'] ?>" method="GET">
+                            <input class="dropdown-item" type="submit" name="action" value="Logout" title="Logout"/>
+                        </form> 
                     </div>
                 </li>
             </ul>
