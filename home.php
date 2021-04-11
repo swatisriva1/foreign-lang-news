@@ -1,13 +1,25 @@
 <?php                     
     use jcobhams\NewsApi\NewsApi;
     require("homeDB.php");
+    session_start();
 
     $api_key = getenv("api_key");
 
     $newsapi = new NewsApi($api_key);
 
-    $languages = getUserLanguages("jdoe27"); // replace with $_SESSION['user']
-    $topics = getUserTopics("jdoe27");
+    if(!$_SESSION['loggedInFNA']) {
+      header("Location: landing.php");
+    }
+
+    if ($_SESSION['user']){
+        $username = $_SESSION['user'];
+    }
+    else {
+        header("Location: landing.php");    
+    }
+
+    $languages = getUserLanguages($username); // replace with $_SESSION['user']
+    $topics = getUserTopics($username);
     $lang1 = getArticles($languages[0]);
     $lang2 = getArticles($languages[1]);
     $lang3 = getArticles($languages[2]);
