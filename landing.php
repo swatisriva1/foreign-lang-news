@@ -17,7 +17,7 @@
             session_start();
             $_SESSION['user'] = $_POST["username"];
             $_SESSION['loggedInFNA'] = true;
-            header("Location: index.html");
+            header("Location: home.php");
         }
         else {
             $login_err = "You entered an incorrect username or password.";
