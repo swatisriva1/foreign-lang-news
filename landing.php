@@ -1,3 +1,33 @@
+<?php
+    //Code adapted from https://www.tutorialrepublic.com/php-tutorial/php-mysql-login-system.php
+    require('connectDB.php'); //allow to specify what files to include in file
+    require('loginDB.php');
+
+    $login_err = "";
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST')
+    {
+      if(!empty($_POST['action']) && $_POST['action'] == "login") {    
+        // header("Location: index.html");
+        // echo "hi";
+        // echo password_hash("Hello!23", PASSWORD_BCRYPT);   // $2y$10$co0cPNDQ.r.njTpnSs9WFePZeBcz/Ip/ppsu/9xRtCdqwoMZ1MOIS
+        $userCred = checkUserCredentials($_POST["inputUsername"], $_POST["inputPassword"]);
+        
+        if(checkUserCredentials($_POST["inputUsername"], $_POST["inputPassword"])){ 
+            session_start();
+            $_SESSION['user'] = $_POST["username"];
+            $_SESSION['loggedInFNA'] = true;
+            header("Location: index.html");
+        }
+        else {
+            $login_err = "You entered an incorrect username or password.";
+        }
+      }
+    }
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -72,6 +102,14 @@
             .container {
                 justify-content: center;
             }
+            .error_message {
+                color: rgb(184, 20, 20); 
+                /* font-style:italic;  */
+                font-weight: bold;
+                text-align: center;
+                display: block;
+                padding: 10px;
+            }
             /* .text-muted {
                 color: #eeeeee !important;
             }  */
@@ -94,18 +132,22 @@
                                     <div class="card shadow-lg border-0 rounded-lg mt-5">
                                         <div class="card-header"><h3 style="color: #eeeeee" class="text-center font-weight-light my-4">Login</h3></div>
                                         <div class="card-body">
-                                            <form action="" method="POST" class="login">
+                                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="login">
                                                 <div class="form-group">
                                                     <label style="color: #eeeeee" class="small mb-1" for="inputUsername">Username</label>
-                                                    <input class="form-control py-4" id="inputUsername" type="email" placeholder="Enter username" />
+                                                    <input class="form-control py-4" id="inputUsername" name="inputUsername" 
+                                                        type="text" placeholder="Enter username" autofocus
+                                                        value="<?php if(isset($_POST['inputUsername'])) echo $_POST['inputUsername']; ?>"/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label style="color: #eeeeee" class="small mb-1" for="inputPassword">Password</label>
-                                                    <input class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password" />
+                                                    <input class="form-control py-4" id="inputPassword" name="inputPassword" type="password" 
+                                                        placeholder="Enter password"/> 
                                                 </div>
                                                 <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                    <button class="btn btn-primary" id="login-btn" type="button">Login</button>
+                                                    <button class="btn btn-primary" id="login-btn" type="submit" name="action" value="login">Login</button>
                                                 </div>
+                                                <span class="error_message"><?php if(!empty($login_err)) echo $login_err; ?></span>
                                             </form>
                                         </div>
                                         <div class="card-footer text-center">
