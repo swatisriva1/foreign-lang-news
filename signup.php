@@ -1,67 +1,64 @@
 <?php
-    // require('connectDB.php'); //allow to specify what files to include in file
-    // require('signupDB.php');
+    require('connectDB.php'); //allow to specify what files to include in file
+    require('signupDB.php');
 
-    // $unique_err = $create_success = "";
+    $unique_err = $create_success = $create_fail = "";
 
-    // function checkUnique($user) {
-    //     if($user == "jdoe25") {
-    //         return true;
-    //     }
-    //     return false;
-    // }
+    // taken from https://www.w3schools.com/php/php_form_validation.asp
+    function cleanInput($input) {
+        $input = trim($input);
+        $input = stripslashes($input);
+        $input = htmlspecialchars($input);
+        return $input;
+    }
 
-    // // taken from https://www.w3schools.com/php/php_form_validation.asp
-    // function cleanInput($input) {
-    //     $input = trim($input);
-    //     $input = stripslashes($input);
-    //     $input = htmlspecialchars($input);
-    //     return $input;
-    // }
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if(isset($_POST["inputUsername"])) {
+            $uniqueUser = checkUniqueUsername($_POST["inputUsername"]);
+            if(!$uniqueUser) $unique_err = "Username " . $_POST["inputUsername"] . " is taken, please try another.";
+            else cleanInput($_POST["inputUsername"]);
+        }
+        if(isset($_POST["inputFname"])) {
+            cleanInput($_POST["inputFname"]);
+        }
+        if(isset($_POST["inputLname"])) {
+            cleanInput($_POST["inputLname"]);
+        }
+        if(isset($_POST["inputEmailAddress"])) {
+            cleanInput($_POST["inputEmailAddress"]);
+        }
+        if(isset($_POST["inputEmailAddress"])) {
+            cleanInput($_POST["inputEmailAddress"]);
+        }
 
-    // if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    //     if(isset($_POST["inputUsername"])) {
-    //         $uniqueUser = checkUnique($_POST["inputUsername"]);
-    //         if(!$uniqueUser) $unique_err = "Username " . $_POST["inputUsername"] . " is taken, please try another.";
-    //         else cleanInput($_POST["inputUsername"]);
-    //     }
-    //     if(isset($_POST["inputFname"])) {
-    //         cleanInput($_POST["inputFname"]);
-    //     }
-    //     if(isset($_POST["inputLname"])) {
-    //         cleanInput($_POST["inputLname"]);
-    //     }
-    //     if(isset($_POST["inputEmailAddress"])) {
-    //         cleanInput($_POST["inputEmailAddress"]);
-    //     }
-    //     if(isset($_POST["inputEmailAddress"])) {
-    //         cleanInput($_POST["inputEmailAddress"]);
-    //     }
+        if(empty($unique_err)) {
+            // cleanInput($_POST["inputUsername"]);
 
-    //     if(empty($unique_err)) {
-    //         // addNewUser($_POST['full_name'], $_POST['username'], $_POST['password'], $_POST['email'], $_POST['phone']);
-    //         // header("Location: log_in.php");
-    //         // echo "Thanks for signing up! Please log in.";
-    //         header("Refresh:3; url=landing.html");
-    //         $create_success = "Thanks for signing up! You will now be redirected to login.";
-    //     }
+            // if(isset($_POST["inputFname"])) {
+            //     cleanInput($_POST["inputFname"]);
+            // }
+            // if(isset($_POST["inputLname"])) {
+            //     cleanInput($_POST["inputLname"]);
+            // }
+            // if(isset($_POST["inputEmailAddress"])) {
+            //     cleanInput($_POST["inputEmailAddress"]);
+            // }
+            // if(isset($_POST["inputEmailAddress"])) {
+            //     cleanInput($_POST["inputEmailAddress"]);
+            // }
+            $create_result = addNewUser($_POST['inputUsername'], $_POST['inputPassword'], $_POST['inputFname'], 
+                    $_POST['inputLname'], $_POST['inputEmailAddress']);
+            // header("Location: log_in.php");
+            // echo "Thanks for signing up! Please log in.";
+            if($create_result) {
+                header("Refresh:3; url=landing.php");
+                $create_success = "Thanks for signing up! You will now be redirected to login.";
+            }
+            else $create_fail = "Something went wrong. Please try again later.";
 
-    // }
-    //     $userCred = checkUserCredentials($_POST["username"], $_POST["password"]);
-    //     // echo $userCred;
-        
-    //     if(checkUserCredentials($_POST["username"], $_POST["password"])){ 
-    //    // if($userCred == 1) {
-    //         session_start();
-    //         $_SESSION['user'] = $_POST["username"];
-    //         $_SESSION['loggedInToCR'] = true;
-            
-    //     //     print_r($_SESSION);
-    //         header("Location: landing_page.php");
-    //     }
-    //     else {
-    //         $login_err = "You entered an incorrect username or password.";
-    //     }
+        }
+
+    }
 ?>
 
 <!DOCTYPE html>
@@ -141,6 +138,7 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5" style="margin-bottom: 35px;">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
                                     <span class="success_message" id="msg_create_success" style="text-align: center; display: block; margin-top: 10px;"><?php if(!empty($create_success)) echo $create_success ?></span>
+                                    <span class="error_message" id="msg_create_success" style="text-align: center; display: block; margin-top: 10px;"><?php if(!empty($create_fail)) echo $create_fail ?></span>
                                     <div class="card-body">
                                         <form id="create-act-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                                             <!-- <div class="form-group">
@@ -208,7 +206,6 @@
                                             <div class="form-group mt-4 mb-0">
                                                 <button class="btn btn-light btn-block" id="create-btn" name="create-btn">Create Account</button>
                                                 <!-- <span class="error_message" id="msg_submit" style="text-align: center; display: block; margin-top: 10px;"></span> -->
-                                                <!-- <span class="success_message" id="msg_create_success" style="text-align: center; display: block; margin-top: 10px;"><?php if(!empty($create_success)) echo $create_success ?></span> -->
                                             </div>
                                         </form>
                                     </div>
