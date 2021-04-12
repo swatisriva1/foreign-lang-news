@@ -15,7 +15,7 @@
         
         if(checkUserCredentials($_POST["inputUsername"], $_POST["inputPassword"])){ 
             session_start();
-            $_SESSION['user'] = $_POST["username"];
+            $_SESSION['user'] = $_POST["inputUsername"];
             $_SESSION['loggedInFNA'] = true;
             header("Location: home.php");
         }
