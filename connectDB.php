@@ -23,7 +23,7 @@
 // $host = 'localhost:3306';
 // $dbname = 'ss3ck_foreign_lang_news_db';
 
-// require_once('env.php');
+require_once('env.php');
 
 $username = getenv('db_username');
 $password = getenv('db_pwd');
