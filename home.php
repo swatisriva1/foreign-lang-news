@@ -32,7 +32,7 @@
         }
     }
 
-    $languages = getUserLanguages($username); // replace with $_SESSION['user']
+    $languages = getUserLanguages($username);
     $topics = getUserTopics($username);
     $lang1 = getArticles($languages[0]);
     $lang2 = getArticles($languages[1]);
@@ -159,7 +159,7 @@
 
                     // for testing
 
-                    // echo getUserFname($_COOKIE['user']);
+                    // var_dump($languages);
 
                     // foreach ($languages as $language) {
                     //     echo $language;
