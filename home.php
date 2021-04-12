@@ -11,16 +11,12 @@
     // $_SESSION['loggedInFNA'] = true;
     // $_SESSION['user'] = 'jdoe27';
 
-    //REPLACE WITH COOKIE
-    $_SESSION['Fname'] = 'Jane';
-
     if(!$_SESSION['loggedInFNA']) {
       header("Location: landing.php");
     }
 
-    if ($_SESSION['user'] && $_SESSION['Fname']){
+    if ($_SESSION['user']){
         $username = $_SESSION['user'];
-        $Fname = $_SESSION['Fname'];
     }
     else {
         header("Location: landing.php");    
@@ -31,6 +27,7 @@
         if(!empty($_GET['action']) && ($_GET['action']=='Logout')) {
             session_unset();
             session_destroy();
+            setcookie("user", "", time()-3600, "/");
             header("Location:landing.php");
         }
     }
@@ -88,7 +85,7 @@
                     </div>
                 </div>
             </form>
-            <h5 class="my-md-0">Hi, <?php echo $Fname ?></h5>
+            <h5 class="my-md-0">Hi, <?php if (isset($_COOKIE['user'])) echo getUserFname($_COOKIE['user']) ?></h5>
             <!-- Navbar-->
             <ul class="navbar-nav ml-auto ml-md-0">
                 <li class="nav-item dropdown">
@@ -161,6 +158,8 @@
                 <?php
 
                     // for testing
+
+                    // echo getUserFname($_COOKIE['user']);
 
                     // foreach ($languages as $language) {
                     //     echo $language;
