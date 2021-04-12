@@ -60,23 +60,17 @@ function getUserLanguages($username) {
 
     global $db, $newsapi;
 
-    $query = "SELECT lang_id FROM user_lang WHERE username = :username";
+    $query = "SELECT * FROM user_lang WHERE username = :username";
 	
     // get array of all language ids
     $statement = $db->prepare($query);
     $statement->bindValue(':username', $username);
     $statement->execute();
-    $user_languages = $statement->fetchAll();
+    $user_languages = $statement->fetch();
     $statement->closeCursor();
-
-    $len_lang = count($user_languages);
     
     // make list of ids
-    $language_names = array();
-    for ($i = 0; $i < 3; $i++) {
-        $language_name = $user_languages[$i]['lang_id'];
-        $language_names[] = $language_name;
-    }
+    $language_names = array($user_languages['lang_1'], $user_languages['lang_2'], $user_languages['lang_3']);
 
     return $language_names;
 }
@@ -86,21 +80,17 @@ function getUserTopics($username) {
 
     global $db, $newsapi;
 
-    $query = "SELECT topic_id FROM user_topic WHERE username = :username";   // change to current user session
+    $query = "SELECT * FROM user_topic WHERE username = :username";
 	
     // get array of all topic ids
     $statement = $db->prepare($query);
     $statement->bindValue(':username', $username);
     $statement->execute();
-    $user_topics = $statement->fetchAll();  
+    $user_topics = $statement->fetch();  
     $statement->closeCursor();
     
     // make list of ids
-    $topic_names = array();
-    for ($i = 0; $i < 3; $i++) {
-        $topic_name = $user_topics[$i]['topic_id'];
-        $topic_names[] = $topic_name;
-    }
+    $topic_names = array($user_topics['topic_1'], $user_topics['topic_2'], $user_topics['topic_3']);
 
     return $topic_names;
 }
