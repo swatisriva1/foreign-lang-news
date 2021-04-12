@@ -7,7 +7,7 @@
 
     $newsapi = new NewsApi($api_key);
 
-    // remove once connected to login
+    // !!! remove once connected to login
     $_SESSION['loggedInFNA'] = true;
     $_SESSION['user'] = 'jdoe27';
     $_SESSION['Fname'] = 'Jane';
