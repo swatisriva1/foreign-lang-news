@@ -8,10 +8,10 @@ clicked_btn.addEventListener('click', () => {
 
 
 // redirect user to home page upon login button click
-var login_btn_click = document.getElementById("login-btn");
-login_btn_click.addEventListener('click', () => {
-    window.location.href = "home.php";
-});
+// var login_btn_click = document.getElementById("login-btn");
+// login_btn_click.addEventListener('click', () => {
+//     window.location.href = "index.html";
+// });
 
 
 // disable login page until both username and password are filled
