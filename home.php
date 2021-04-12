@@ -8,8 +8,10 @@
     $newsapi = new NewsApi($api_key);
 
     // !!! remove once connected to login
-    $_SESSION['loggedInFNA'] = true;
-    $_SESSION['user'] = 'jdoe27';
+    // $_SESSION['loggedInFNA'] = true;
+    // $_SESSION['user'] = 'jdoe27';
+
+    //REPLACE WITH COOKIE
     $_SESSION['Fname'] = 'Jane';
 
     if(!$_SESSION['loggedInFNA']) {
