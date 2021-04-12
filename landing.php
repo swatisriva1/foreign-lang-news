@@ -17,6 +17,7 @@
             session_start();
             $_SESSION['user'] = $_POST["inputUsername"];
             $_SESSION['loggedInFNA'] = true;
+            // ADD FNAME COOKIE
             header("Location: home.php");
         }
         else {
