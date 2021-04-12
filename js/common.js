@@ -15,5 +15,5 @@ function toggleMenu() {
 // redirect user to settings/preferences page for edit preferences button click
 var preferences_btn_click = document.getElementById("preferences-btn");
 preferences_btn_click.addEventListener('click', () => {
-    window.location.href = "settings.html";
+    window.location.href = "settings.php";
 });

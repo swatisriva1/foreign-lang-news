@@ -18,17 +18,17 @@
 /******************************/
 // connecting to DB on XAMPP (local)
 
-// $username = 'web4640';
-// $password = 'webpl4640fln';
-// $host = 'localhost:3306';
-// $dbname = 'ss3ck_foreign_lang_news_db';
+$username = 'web4640';
+$password = 'webpl4640fln';
+$host = 'localhost:3306';
+$dbname = 'ss3ck_foreign_lang_news_db';
 
-require_once('env.php');
+// require_once('env.php');
 
-$username = getenv('db_username');
-$password = getenv('db_pwd');
-$host = getenv('db_host');
-$dbname = getenv('db_name');
+// $username = getenv('db_username');
+// $password = getenv('db_pwd');
+// $host = getenv('db_host');
+// $dbname = getenv('db_name');
 
 
 /******************************/
