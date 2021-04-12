@@ -1,9 +1,9 @@
 // Megan Reddy (mr8vn)
 
-// redirect user to settings/preferences page for edit preferences button click
+// redirect user to settings/preferences page for save button click
 var save_btn_click = document.getElementById("save-btn");
 save_btn_click.addEventListener('click', () => {
-    window.location.href = "index.html";
+    window.location.href = "settings.php";
 });
 
 // check to make sure that users have selected at least one language, topic, and newspaper
