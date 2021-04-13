@@ -109,6 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
                 </div>
             </form>
+            <h5 class="my-md-0">Hi, <?php if (isset($_COOKIE['user'])) echo getUserFname($_COOKIE['user']) ?></h5>
             <!-- Navbar-->
             <ul class="navbar-nav ml-auto ml-md-0">
                 <li class="nav-item dropdown">
@@ -256,26 +257,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                         <div id="lang-options">
                                                             <input type="checkbox" id="lang1" name="lang[]" value="fr" <?php if(checkBox("fr", $languages)) echo "checked=\"checked\""?>/>
                                                             <label for="lang1">French</label><br>
-                                                            <input type="checkbox" id="lang2" name="lang[]" value="it" <?php if(checkBox("it", $languages)) echo "checked=\"checked\""?>/>
-                                                            <label for="lang2">Italian</label><br>
-                                                            <input type="checkbox" id="lang3" name="lang[]" value="kr" <?php if(checkBox("kr", $languages)) echo "checked=\"checked\""?>/>
-                                                            <label for="lang3">Korean</label><br>
-                                                            <input type="checkbox" id="lang4" name="lang[]" value="jp" <?php if(checkBox("jp", $languages)) echo "checked=\"checked\""?>/>
-                                                            <label for="lang3">Japanese</label><br>
+                                                            <input type="checkbox" id="lang2" name="lang[]" value="de" <?php if(checkBox("de", $languages)) echo "checked=\"checked\""?>/>
+                                                            <label for="lang2">German</label><br>
+                                                            <input type="checkbox" id="lang3" name="lang[]" value="it" <?php if(checkBox("it", $languages)) echo "checked=\"checked\""?>/>
+                                                            <label for="lang3">Italian</label><br>
+                                                            <input type="checkbox" id="lang4" name="lang[]" value="kr" <?php if(checkBox("kr", $languages)) echo "checked=\"checked\""?>/>
+                                                            <label for="lang4">Korean</label><br>
+                                                            <input type="checkbox" id="lang5" name="lang[]" value="jp" <?php if(checkBox("jp", $languages)) echo "checked=\"checked\""?>/>
+                                                            <label for="lang5">Japanese</label><br>
                                                         </div>
                                                         <span class="msg"><p id="lang_error"></p></span>
                                                     </div>
                                                     <div class="column">
                                                         <label for="topic-options" class="pref-label">Topics</label>
                                                         <div id="topic-options">
-                                                            <label><input type="checkbox" id="topic1" name="topic[]" value="sports" <?php if(checkBox("sports", $topics)) echo "checked=\"checked\""?>/>
-                                                            <label for="topic1">Sports</label><br>
-                                                            <label><input type="checkbox" id="topic2" name="topic[]" value="health" <?php if(checkBox("health", $topics)) echo "checked=\"checked\""?>/>
-                                                            <label for="topic2">Health</label><br>
-                                                            <label><input type="checkbox" id="topic3" name="topic[]" value="science" <?php if(checkBox("science", $topics)) echo "checked=\"checked\""?>/>
-                                                            <label for="topic3">Science</label><br>
-                                                            <label><input type="checkbox" id="topic4" name="topic[]" value="business" <?php if(checkBox("business", $topics)) echo "checked=\"checked\""?>/>
-                                                            <label for="topic3">Business</label><br>
+                                                            <label><input type="checkbox" id="topic1" name="topic[]" value="general" <?php if(checkBox("general", $topics)) echo "checked=\"checked\""?>/>
+                                                            <label for="topic1">General</label><br>
+                                                            <label><input type="checkbox" id="topic2" name="topic[]" value="sports" <?php if(checkBox("sports", $topics)) echo "checked=\"checked\""?>/>
+                                                            <label for="topic2">Sports</label><br>
+                                                            <label><input type="checkbox" id="topic3" name="topic[]" value="health" <?php if(checkBox("health", $topics)) echo "checked=\"checked\""?>/>
+                                                            <label for="topic3">Health</label><br>
+                                                            <label><input type="checkbox" id="topic4" name="topic[]" value="science" <?php if(checkBox("science", $topics)) echo "checked=\"checked\""?>/>
+                                                            <label for="topic4">Science</label><br>
+                                                            <label><input type="checkbox" id="topic5" name="topic[]" value="business" <?php if(checkBox("business", $topics)) echo "checked=\"checked\""?>/>
+                                                            <label for="topic5">Business</label><br>
                                                         </div>
                                                         <span class="msg"><p id="topic_error"></p></span>
                                                     </div>

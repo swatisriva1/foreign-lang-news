@@ -6,11 +6,6 @@
 //     window.location.href = "settings.php";
 // });
 
-// var save_btn_click = document.getElementById("save-btn");
-// save_btn_click.addEventListener('click', () => {
-//     console.log('save button clicked');
-// });
-
 // check to make sure that users have selected at least one language, topic, and newspaper
 var check_preferences = setInterval(checkPreferences, 1000);
 

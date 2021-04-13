@@ -3,6 +3,7 @@
 require('connectDB.php');
 
 function loadUserInfo($username) {
+    // load user info to populate account form fields
     global $db, $email, $fname, $lname;
 
     $query = "SELECT *
@@ -20,6 +21,24 @@ function loadUserInfo($username) {
     }
 	
 	$statement->closeCursor();	
+}
+
+function getUserFname($username) {
+    // retrieve first name of given user
+
+    global $db;
+    $Fname = "";
+    $query = "SELECT * FROM user_info
+    WHERE username = :username";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':username',$username);
+    $statement->execute();
+    $user_result=$statement->fetch();
+    if(!empty($user_result)) {
+        $Fname = $user_result['f_name'];
+    }
+    $statement -> closeCursor();
+    return $Fname;
 }
 
 function idToLang($lang_id) {
@@ -93,6 +112,8 @@ function getUserTopics($username) {
 }
 
 function checkBox($box, $preferences) {
+    // determine if box should be checked
+
     $check = false;
     if (in_array($box, $preferences)) {
         $check = true;
@@ -102,6 +123,7 @@ function checkBox($box, $preferences) {
 }
 
 function getCheckedBoxes($preferences) {
+    // get a list of checked boxes
 
     $updated_preferences = array();
     foreach ($preferences as $box){ 
@@ -113,6 +135,8 @@ function getCheckedBoxes($preferences) {
 
 function saveChanges($fname, $lname, $email, $username, $lang_preferences, $topic_preferences)
 {
+    // save all changes on the page
+
 	global $db;
 
 	$account_query = "UPDATE user_info
