@@ -189,7 +189,7 @@
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <!-- learned about target and rel attribute here: https://www.freecodecamp.org/news/how-to-use-html-to-open-link-in-new-tab/ -->
-                                        <a class="small text-white stretched-link" href="https://elpais.com/internacional/2021-03-13/la-escasez-de-diesel-paraliza-una-vez-mas-a-venezuela.html" target="_blank" rel="noopener noreferrer">Read More</a>
+                                        <a class="small text-white stretched-link" href="<?php echo $lang1[0]->url ?>" target="_blank" rel="noopener noreferrer">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -204,7 +204,7 @@
                                         <p><?php echo $lang1[1]->description ?></p>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="https://www.elmundo.es/deportes/futbol/champions-league/2021/03/15/604f3a2afc6c837c2c8b463e.html" target="_blank" rel="noopener noreferrer">Read More</a>
+                                        <a class="small text-white stretched-link" href="<?php echo $lang1[1]->url ?>" target="_blank" rel="noopener noreferrer">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -219,7 +219,7 @@
                                         <p><?php echo $lang1[2]->description ?></p>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="https://elpais.com/elpais/2021/03/15/album/1615777382_203475.html" target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer">Read More</a>
+                                        <a class="small text-white stretched-link" href="<?php echo $lang1[2]->url ?>" target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -234,7 +234,7 @@
                                         <p><?php echo $lang1[3]->description ?></p>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="https://elpais.com/ciencia/2021-03-13/cinco-grandes-enigmas-del-coronavirus-aun-por-resolver.html" target="_blank" rel="noopener noreferrer">Read More</a>
+                                        <a class="small text-white stretched-link" href="<?php echo $lang1[3]->url ?>" target="_blank" rel="noopener noreferrer">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -256,7 +256,7 @@
                                         <p><?php echo $lang2[0]->description ?></p>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="https://www.repubblica.it/sport/calcio/champions/2021/03/15/news/zidane_carica_il_real_con_l_atalanta_e_come_una_finale_ritorna_cr7_puo_darsi_-292346264/" target="_blank" rel="noopener noreferrer">Read More</a>
+                                        <a class="small text-white stretched-link" href="<?php echo $lang2[0]->url ?>" target="_blank" rel="noopener noreferrer">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -271,7 +271,7 @@
                                         <p><?php echo $lang2[1]->description ?></p>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="https://rep.repubblica.it/pwa/robinson/2021/03/14/news/amanda_gorman_ginevra_bompiani_traduttore_identita_-292240255/" target="_blank" rel="noopener noreferrer">Read More</a>
+                                        <a class="small text-white stretched-link" href="<?php echo $lang2[1]->url ?>" target="_blank" rel="noopener noreferrer">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -286,7 +286,7 @@
                                         <p><?php echo $lang2[2]->description ?></p>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="https://www.repubblica.it/cronaca/2021/03/14/news/scuola_da_lunedi_7_milioni_di_studenti_a_casa-292158643/" target="_blank" rel="noopener noreferrer">Read More</a>
+                                        <a class="small text-white stretched-link" href="<?php echo $lang2[2]->url ?>" target="_blank" rel="noopener noreferrer">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -301,7 +301,7 @@
                                         <p><?php echo $lang2[3]->description ?></p>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="https://www.repubblica.it/cultura/2021/03/08/news/giulietta_e_le_altre_ragazze_si_skakespeare_in_love-291083786/" target="_blank" rel="noopener noreferrer">Read More</a>
+                                        <a class="small text-white stretched-link" href="<?php echo $lang2[3]->url ?>" target="_blank" rel="noopener noreferrer">Read More</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
