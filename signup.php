@@ -210,7 +210,7 @@
                                         </form>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <div class="small"><a href="landing.html"><button id="return-btn" type="button">Have an account? Go to login</button></a></div>
+                                        <div class="small"><a href="landing.php"><button id="return-btn" type="button">Have an account? Go to login</button></a></div>
                                     </div>
                                 </div>
                             </div>
