@@ -27,6 +27,7 @@
     if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
       if(!empty($_POST['action']) && $_POST['action'] == "save") { 
+        saveFirstPreferences($username, $_POST['lang'], $_POST['topic']);
         header("Location: home.php");
       }
     }
@@ -52,10 +53,7 @@
             body {
                 background-color: #004346;
             }
-            h1 {
-                color: #eeeeee;
-            }
-            h3 {
+            h1, h3, h4 {
                 color: #eeeeee;
             }
             .account-label, .pref-label {
@@ -184,7 +182,8 @@
                     <div class="container-fluid">
                         <!-- <img src="images/avatar.jpg" alt="Avatar" class="avatar"> -->
                         <h1 style="text-align: center; margin-bottom: 20px;" class="mt-4">Welcome to Foreign News Aggregator, <?php echo $Fname; ?>!</h1>
-                        <h3 style="text-align: center; margin-bottom: 50px;">Mark your preferences here so we can tailor your articles</h3>
+                        <h3 style="text-align: center; margin-bottom: 20px;">Mark your preferences here so we can tailor your articles</h3>
+                        <h4 style="text-align: center; margin-bottom: 20px;">Select 3 for each</h4>
                         <div class="row justify-content-center">
                             <!-- <div class="col-xl-6">
                                 <div style="height: 420px;" class="card mb-4">
@@ -224,7 +223,7 @@
                             </div> -->
                             <div class="col-xl-5">
                                 <form id="first-prefs-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
-                                    <div style="height: 300px;" class="card mb-4">
+                                    <div style="height: 350px;" class="card mb-4">
                                         <div class="card-header">
                                             Preferences
                                         </div>
@@ -233,26 +232,36 @@
                                                 <div class="column">
                                                     <label for="lang-options" class="pref-label">Languages</label>
                                                     <div id="lang-options">
-                                                        <input type="checkbox" id="lang1" name="lang" value="span" checked/>
-                                                        <label for="lang1">Spanish</label><br>
-                                                        <input type="checkbox" id="lang2" name="lang" value="ital"/>
-                                                        <label for="lang2">Italian</label><br>
-                                                        <input type="checkbox" id="lang3" name="lang" value="germ" checked/>
-                                                        <label for="lang3">German</label><br>
+                                                            <input type="checkbox" id="lang1" name="lang[]" value="fr"/>
+                                                            <label for="lang1">French</label><br>
+                                                            <input type="checkbox" id="lang2" name="lang[]" value="de"/>
+                                                            <label for="lang2">German</label><br>
+                                                            <input type="checkbox" id="lang3" name="lang[]" value="it"/>
+                                                            <label for="lang3">Italian</label><br>
+                                                            <input type="checkbox" id="lang4" name="lang[]" value="kr"/>
+                                                            <label for="lang4">Korean</label><br>
+                                                            <input type="checkbox" id="lang5" name="lang[]" value="jp"/>
+                                                            <label for="lang5">Japanese</label><br>
+                                                            <span class="msg"><p id="lang_error"></p></span>
                                                     </div>
-                                                    <span class="msg"><p id="lang_error"></p></span>
+                                                    <!-- <span class="msg"><p id="lang_error"></p></span> -->
                                                 </div>
                                                 <div class="column">
                                                     <label for="topic-options" class="pref-label">Topics</label>
                                                     <div id="topic-options">
-                                                        <label><input type="checkbox" id="topic1" name="topic" value="sports"/>
-                                                        <label for="topic1">Sports</label><br>
-                                                        <label><input type="checkbox" id="topic2" name="topic" value="health" checked/>
-                                                        <label for="topic2">Health/Science</label><br>
-                                                        <label><input type="checkbox" id="topic3" name="topic" value="entertainment" checked/>
-                                                        <label for="topic3">Entertainment</label><br>
+                                                            <label><input type="checkbox" id="topic1" name="topic[]" value="general"/>
+                                                            <label for="topic1">General</label><br>
+                                                            <label><input type="checkbox" id="topic2" name="topic[]" value="sports"/>
+                                                            <label for="topic2">Sports</label><br>
+                                                            <label><input type="checkbox" id="topic3" name="topic[]" value="health"/>
+                                                            <label for="topic3">Health</label><br>
+                                                            <label><input type="checkbox" id="topic4" name="topic[]" value="science"/>
+                                                            <label for="topic4">Science</label><br>
+                                                            <label><input type="checkbox" id="topic5" name="topic[]" value="business"/>
+                                                            <label for="topic5">Business</label><br>
+                                                            <span class="msg"><p id="topic_error"></p></span>
                                                     </div>
-                                                    <span class="msg"><p id="topic_error"></p></span>
+                                                    <!-- <span class="msg"><p id="topic_error"></p></span> -->
                                                 </div>
                                                 <!-- <div class="column">
                                                     <label for="newspaper-options" class="pref-label">Newspapers</label>

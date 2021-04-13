@@ -39,6 +39,9 @@ function checkPreferences()
     if (lang_count < 1) {
         document.getElementById('lang_error').innerHTML = 'Please select at least one language';
     }
+    // else if(lang_count > 3) {
+    //     document.getElementById('lang_error').innerHTML = 'Please select only 3 languages';
+    // }
     else {
         document.getElementById('lang_error').innerHTML = '';
     }

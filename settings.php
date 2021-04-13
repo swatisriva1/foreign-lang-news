@@ -198,7 +198,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <main>
                     <div class="container-fluid">
                         <img src="images/avatar.jpg" alt="Avatar" class="avatar">
-                        <h1 style="text-align: center; margin-bottom: 50px;" class="mt-4">Jane Doe</h1>
+                        <h1 style="text-align: center; margin-bottom: 50px;" class="mt-4"><?php if (!empty($fname) && !empty($lname)) echo $fname . " " . $lname ?></h1>
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                             <div class="row">
                                 <div class="col-xl-6">
