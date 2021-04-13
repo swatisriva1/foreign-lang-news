@@ -27,6 +27,7 @@
     if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
       if(!empty($_POST['action']) && $_POST['action'] == "save") { 
+        saveFirstPreferences($username, $_POST['lang'], $_POST['topic']);
         header("Location: home.php");
       }
     }
@@ -233,24 +234,32 @@
                                                 <div class="column">
                                                     <label for="lang-options" class="pref-label">Languages</label>
                                                     <div id="lang-options">
-                                                        <input type="checkbox" id="lang1" name="lang" value="span" checked/>
-                                                        <label for="lang1">Spanish</label><br>
-                                                        <input type="checkbox" id="lang2" name="lang" value="ital"/>
-                                                        <label for="lang2">Italian</label><br>
-                                                        <input type="checkbox" id="lang3" name="lang" value="germ" checked/>
-                                                        <label for="lang3">German</label><br>
+                                                            <input type="checkbox" id="lang1" name="lang[]" value="fr"/>
+                                                            <label for="lang1">French</label><br>
+                                                            <input type="checkbox" id="lang2" name="lang[]" value="de"/>
+                                                            <label for="lang2">German</label><br>
+                                                            <input type="checkbox" id="lang3" name="lang[]" value="it"/>
+                                                            <label for="lang3">Italian</label><br>
+                                                            <input type="checkbox" id="lang4" name="lang[]" value="kr"/>
+                                                            <label for="lang4">Korean</label><br>
+                                                            <input type="checkbox" id="lang5" name="lang[]" value="jp"/>
+                                                            <label for="lang5">Japanese</label><br>
                                                     </div>
                                                     <span class="msg"><p id="lang_error"></p></span>
                                                 </div>
                                                 <div class="column">
                                                     <label for="topic-options" class="pref-label">Topics</label>
                                                     <div id="topic-options">
-                                                        <label><input type="checkbox" id="topic1" name="topic" value="sports"/>
-                                                        <label for="topic1">Sports</label><br>
-                                                        <label><input type="checkbox" id="topic2" name="topic" value="health" checked/>
-                                                        <label for="topic2">Health/Science</label><br>
-                                                        <label><input type="checkbox" id="topic3" name="topic" value="entertainment" checked/>
-                                                        <label for="topic3">Entertainment</label><br>
+                                                            <label><input type="checkbox" id="topic1" name="topic[]" value="general"/>
+                                                            <label for="topic1">General</label><br>
+                                                            <label><input type="checkbox" id="topic2" name="topic[]" value="sports"/>
+                                                            <label for="topic2">Sports</label><br>
+                                                            <label><input type="checkbox" id="topic3" name="topic[]" value="health"/>
+                                                            <label for="topic3">Health</label><br>
+                                                            <label><input type="checkbox" id="topic4" name="topic[]" value="science"/>
+                                                            <label for="topic4">Science</label><br>
+                                                            <label><input type="checkbox" id="topic5" name="topic[]" value="business"/>
+                                                            <label for="topic5">Business</label><br>
                                                     </div>
                                                     <span class="msg"><p id="topic_error"></p></span>
                                                 </div>
