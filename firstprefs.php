@@ -1,4 +1,5 @@
 <?php
+    require("connectDB.php");
     require("firstprefsDB.php");
     require("homeDB.php");
     session_start();
@@ -21,6 +22,13 @@
     }
     else {
         header("Location: landing.php");    
+    }
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST')
+    {
+      if(!empty($_POST['action']) && $_POST['action'] == "save") { 
+        header("Location: home.php");
+      }
     }
 
 ?>
@@ -215,56 +223,62 @@
                                 </div>
                             </div> -->
                             <div class="col-xl-5">
-                                <div style="height: 300px;" class="card mb-4">
-                                    <div class="card-header">
-                                        Preferences
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="column">
-                                                <label for="lang-options" class="pref-label">Languages</label>
-                                                <div id="lang-options">
-                                                    <input type="checkbox" id="lang1" name="lang" value="span" checked/>
-                                                    <label for="lang1">Spanish</label><br>
-                                                    <input type="checkbox" id="lang2" name="lang" value="ital"/>
-                                                    <label for="lang2">Italian</label><br>
-                                                    <input type="checkbox" id="lang3" name="lang" value="germ" checked/>
-                                                    <label for="lang3">German</label><br>
-                                                </div>
-                                                <span class="msg"><p id="lang_error"></p></span>
-                                            </div>
-                                            <div class="column">
-                                                <label for="topic-options" class="pref-label">Topics</label>
-                                                <div id="topic-options">
-                                                    <label><input type="checkbox" id="topic1" name="topic" value="sports"/>
-                                                    <label for="topic1">Sports</label><br>
-                                                    <label><input type="checkbox" id="topic2" name="topic" value="health" checked/>
-                                                    <label for="topic2">Health/Science</label><br>
-                                                    <label><input type="checkbox" id="topic3" name="topic" value="entertainment" checked/>
-                                                    <label for="topic3">Entertainment</label><br>
-                                                </div>
-                                                <span class="msg"><p id="topic_error"></p></span>
-                                            </div>
-                                            <!-- <div class="column">
-                                                <label for="newspaper-options" class="pref-label">Newspapers</label>
-                                                <div id="newspaper-options">
-                                                    <label><input type="checkbox" id="news1" name="news" value="elpais"/>
-                                                    <label for="topic1">El Pais</label><br>
-                                                    <label><input type="checkbox" id="news2" name="news" value="elmundo" checked/>
-                                                    <label for="topic2">El Mundo</label><br>
-                                                    <label><input type="checkbox" id="news3" name="news" value="bild" checked/>
-                                                    <label for="topic3">Bild</label><br>
-                                                </div>
-                                                <span class="msg"><p id="news_error"></p></span>
-                                            </div> -->
+                                <form id="first-prefs-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+                                    <div style="height: 300px;" class="card mb-4">
+                                        <div class="card-header">
+                                            Preferences
                                         </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="column">
+                                                    <label for="lang-options" class="pref-label">Languages</label>
+                                                    <div id="lang-options">
+                                                        <input type="checkbox" id="lang1" name="lang" value="span" checked/>
+                                                        <label for="lang1">Spanish</label><br>
+                                                        <input type="checkbox" id="lang2" name="lang" value="ital"/>
+                                                        <label for="lang2">Italian</label><br>
+                                                        <input type="checkbox" id="lang3" name="lang" value="germ" checked/>
+                                                        <label for="lang3">German</label><br>
+                                                    </div>
+                                                    <span class="msg"><p id="lang_error"></p></span>
+                                                </div>
+                                                <div class="column">
+                                                    <label for="topic-options" class="pref-label">Topics</label>
+                                                    <div id="topic-options">
+                                                        <label><input type="checkbox" id="topic1" name="topic" value="sports"/>
+                                                        <label for="topic1">Sports</label><br>
+                                                        <label><input type="checkbox" id="topic2" name="topic" value="health" checked/>
+                                                        <label for="topic2">Health/Science</label><br>
+                                                        <label><input type="checkbox" id="topic3" name="topic" value="entertainment" checked/>
+                                                        <label for="topic3">Entertainment</label><br>
+                                                    </div>
+                                                    <span class="msg"><p id="topic_error"></p></span>
+                                                </div>
+                                                <!-- <div class="column">
+                                                    <label for="newspaper-options" class="pref-label">Newspapers</label>
+                                                    <div id="newspaper-options">
+                                                        <label><input type="checkbox" id="news1" name="news" value="elpais"/>
+                                                        <label for="topic1">El Pais</label><br>
+                                                        <label><input type="checkbox" id="news2" name="news" value="elmundo" checked/>
+                                                        <label for="topic2">El Mundo</label><br>
+                                                        <label><input type="checkbox" id="news3" name="news" value="bild" checked/>
+                                                        <label for="topic3">Bild</label><br>
+                                                    </div>
+                                                    <span class="msg"><p id="news_error"></p></span>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                        
                                     </div>
-                                </div>
+                                    <div class="button-wrapper">
+                                        <button style="background-color: #09BC8A; margin-bottom: 30px;" class="btn btn-primary" id="first-prefs-btn" name="action" value="save" type="submit">Save Changes</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                        <div class="button-wrapper">
+                        <!-- <div class="button-wrapper">
                             <button style="background-color: #09BC8A; margin-bottom: 30px;" class="btn btn-primary" id="save-btn" type="button">Save Changes</button>
-                        </div>
+                        </div> -->
                     </div>
                 </main>
                 <!-- Footer-->
