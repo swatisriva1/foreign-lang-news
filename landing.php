@@ -18,7 +18,16 @@
             $_SESSION['user'] = $_POST["inputUsername"];
             $_SESSION['loggedInFNA'] = true;
             setcookie('user', $_POST['inputUsername'], time()+3600);
-            header("Location: home.php");
+            // redirect to first preferences page if first login
+            $login_count = getLoginCount($_POST["inputUsername"]);
+            if($login_count == 0) {
+                header("Location: firstprefs.php");
+            }
+            else {
+                header("Location: home.php");
+            }
+            incLoginCount($_POST["inputUsername"]);
+
         }
         else {
             $login_err = "You entered an incorrect username or password.";
