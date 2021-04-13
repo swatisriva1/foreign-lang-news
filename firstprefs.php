@@ -316,7 +316,7 @@
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/datatables-demo.js"></script>
-        <script src="js/settings.js"></script>
+        <!-- <script src="js/settings.js"></script> -->
         <script src="js/common.js"></script>
     </body>
 </html>
