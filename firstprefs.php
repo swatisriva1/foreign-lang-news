@@ -53,10 +53,7 @@
             body {
                 background-color: #004346;
             }
-            h1 {
-                color: #eeeeee;
-            }
-            h3 {
+            h1, h3, h4 {
                 color: #eeeeee;
             }
             .account-label, .pref-label {
@@ -185,7 +182,8 @@
                     <div class="container-fluid">
                         <!-- <img src="images/avatar.jpg" alt="Avatar" class="avatar"> -->
                         <h1 style="text-align: center; margin-bottom: 20px;" class="mt-4">Welcome to Foreign News Aggregator, <?php echo $Fname; ?>!</h1>
-                        <h3 style="text-align: center; margin-bottom: 50px;">Mark your preferences here so we can tailor your articles</h3>
+                        <h3 style="text-align: center; margin-bottom: 20px;">Mark your preferences here so we can tailor your articles</h3>
+                        <h4 style="text-align: center; margin-bottom: 20px;">Select 3 for each</h4>
                         <div class="row justify-content-center">
                             <!-- <div class="col-xl-6">
                                 <div style="height: 420px;" class="card mb-4">
@@ -225,7 +223,7 @@
                             </div> -->
                             <div class="col-xl-5">
                                 <form id="first-prefs-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
-                                    <div style="height: 300px;" class="card mb-4">
+                                    <div style="height: 350px;" class="card mb-4">
                                         <div class="card-header">
                                             Preferences
                                         </div>
@@ -244,8 +242,9 @@
                                                             <label for="lang4">Korean</label><br>
                                                             <input type="checkbox" id="lang5" name="lang[]" value="jp"/>
                                                             <label for="lang5">Japanese</label><br>
+                                                            <span class="msg"><p id="lang_error"></p></span>
                                                     </div>
-                                                    <span class="msg"><p id="lang_error"></p></span>
+                                                    <!-- <span class="msg"><p id="lang_error"></p></span> -->
                                                 </div>
                                                 <div class="column">
                                                     <label for="topic-options" class="pref-label">Topics</label>
@@ -260,8 +259,9 @@
                                                             <label for="topic4">Science</label><br>
                                                             <label><input type="checkbox" id="topic5" name="topic[]" value="business"/>
                                                             <label for="topic5">Business</label><br>
+                                                            <span class="msg"><p id="topic_error"></p></span>
                                                     </div>
-                                                    <span class="msg"><p id="topic_error"></p></span>
+                                                    <!-- <span class="msg"><p id="topic_error"></p></span> -->
                                                 </div>
                                                 <!-- <div class="column">
                                                     <label for="newspaper-options" class="pref-label">Newspapers</label>
@@ -316,7 +316,7 @@
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/datatables-demo.js"></script>
-        <!-- <script src="js/settings.js"></script> -->
+        <script src="js/settings.js"></script>
         <script src="js/common.js"></script>
     </body>
 </html>
