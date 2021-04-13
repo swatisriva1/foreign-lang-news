@@ -23,12 +23,12 @@ function checkPreferences()
     var news_count = 0;
     for (var i=0; i < inputs.length; i++) {
         if (inputs[i].type == "checkbox") {
-            if (inputs[i].name == "lang") {
+            if (inputs[i].name == "lang[]") {
                 if (inputs[i].checked) {
                     lang_count++;
                 }
             }
-            else if (inputs[i].name == "topic") {
+            else if (inputs[i].name == "topic[]") {
                 if (inputs[i].checked) {
                     topic_count++;
                 }

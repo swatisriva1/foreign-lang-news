@@ -22,28 +22,52 @@ function loadUserInfo($username) {
 	$statement->closeCursor();	
 }
 
+function idToLang($lang_id) {
+    // convert lang_id to language name
+
+    global $db, $newsapi;
+
+    $query = "SELECT language FROM langs WHERE lang_id = :lang_id";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':lang_id', $lang_id);
+    $statement->execute();
+    $language_name = $statement->fetch();
+    $statement->closeCursor();
+
+    return $language_name['language'];
+}
+
+function idToTopic($topic_id) {
+    // convert topic_id to topic name
+
+    global $db, $newsapi;
+
+    $query = "SELECT topic FROM topics WHERE topic_id = :topic_id";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':topic_id', $topic_id);
+    $statement->execute();
+    $topic_name = $statement->fetch();
+    $statement->closeCursor();
+
+    return $topic_name['topic'];
+}
+
 function getUserLanguages($username) {
     // retrieve a list of languages for given user
 
     global $db, $newsapi;
 
-    $query = "SELECT lang_id FROM user_lang WHERE username = :username";
+    $query = "SELECT * FROM user_lang WHERE username = :username";
 	
     // get array of all language ids
     $statement = $db->prepare($query);
     $statement->bindValue(':username', $username);
     $statement->execute();
-    $user_languages = $statement->fetchAll();
+    $user_languages = $statement->fetch();
     $statement->closeCursor();
-
-    $len_lang = count($user_languages);
     
     // make list of ids
-    $language_names = array();
-    for ($i = 0; $i < 3; $i++) {
-        $language_name = $user_languages[$i]['lang_id'];
-        $language_names[] = $language_name;
-    }
+    $language_names = array($user_languages['lang_1'], $user_languages['lang_2'], $user_languages['lang_3']);
 
     return $language_names;
 }
@@ -53,47 +77,78 @@ function getUserTopics($username) {
 
     global $db, $newsapi;
 
-    $query = "SELECT topic_id FROM user_topic WHERE username = :username";   // change to current user session
+    $query = "SELECT * FROM user_topic WHERE username = :username";
 	
     // get array of all topic ids
     $statement = $db->prepare($query);
     $statement->bindValue(':username', $username);
     $statement->execute();
-    $user_topics = $statement->fetchAll();  
+    $user_topics = $statement->fetch();  
     $statement->closeCursor();
     
     // make list of ids
-    $topic_names = array();
-    for ($i = 0; $i < 3; $i++) {
-        $topic_name = $user_topics[$i]['topic_id'];
-        $topic_names[] = $topic_name;
-    }
+    $topic_names = array($user_topics['topic_1'], $user_topics['topic_2'], $user_topics['topic_3']);
 
     return $topic_names;
+}
+
+function checkBox($box, $preferences) {
+    $check = false;
+    if (in_array($box, $preferences)) {
+        $check = true;
+    }
+
+    return $check;
 }
 
 function getCheckedBoxes($preferences) {
 
     $updated_preferences = array();
     foreach ($preferences as $box){ 
-        echo $box."<br />";
+        $updated_preferences[] = $box;
     }    
+
+    return $updated_preferences;
 }
 
-function saveChanges($fname, $lname, $email, $username)
+function saveChanges($fname, $lname, $email, $username, $lang_preferences, $topic_preferences)
 {
 	global $db;
 
-	$query = "UPDATE user_info
+	$account_query = "UPDATE user_info
 			  SET f_name = :fname,
                   l_name = :lname,
                   email = :email
 			  WHERE username = :username";
 	
-	$statement = $db->prepare($query);
+	$statement = $db->prepare($account_query);
     $statement->bindValue(':fname',$fname);
     $statement->bindValue(':lname',$lname);
     $statement->bindValue(':email',$email);
+    $statement->bindValue(':username',$username);
+	$statement->execute();
+
+    $lang_query = "UPDATE user_lang
+                SET lang_1 = :lang_1,
+                    lang_2 = :lang_2,
+                    lang_3 = :lang_3
+                WHERE username = :username";
+    $statement = $db->prepare($lang_query);
+    $statement->bindValue(':lang_1',$lang_preferences[0]);
+    $statement->bindValue(':lang_2',$lang_preferences[1]);
+    $statement->bindValue(':lang_3',$lang_preferences[2]);
+    $statement->bindValue(':username',$username);
+	$statement->execute();
+
+    $topic_query = "UPDATE user_topic
+                SET topic_1 = :topic_1,
+                    topic_2 = :topic_2,
+                    topic_3 = :topic_3
+                WHERE username = :username";
+    $statement = $db->prepare($topic_query);
+    $statement->bindValue(':topic_1',$topic_preferences[0]);
+    $statement->bindValue(':topic_2',$topic_preferences[1]);
+    $statement->bindValue(':topic_3',$topic_preferences[2]);
     $statement->bindValue(':username',$username);
 	$statement->execute();
 
