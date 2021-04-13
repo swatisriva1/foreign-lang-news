@@ -17,7 +17,7 @@
             session_start();
             $_SESSION['user'] = $_POST["inputUsername"];
             $_SESSION['loggedInFNA'] = true;
-            setcookie('user', $_POST['inputUsername'], time()+3600);
+            setcookie('user', $_POST['inputUsername'], time()+3600, "/");
             // redirect to first preferences page if first login
             $login_count = getLoginCount($_POST["inputUsername"]);
             if($login_count == 0) {
