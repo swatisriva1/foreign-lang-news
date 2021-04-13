@@ -1,3 +1,26 @@
+<?php
+require('settingsDB.php');
+
+$username = "jdoe27";  // replace with $_SESSION['user']
+$email = "";
+$fname = "";
+$lname = "";
+
+loadUserInfo($username);
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    if (!empty($_POST['save-action']) && $_POST['save-action'] == "save") {
+        // echo "hi";
+        // saveChanges($_POST['fname'], $_POST['lname'], $_POST['email'], $_POST['username']);
+        header("Location: home.php");
+    } else {
+        // Assume btnSubmit
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -107,7 +130,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-bookmark"></i></div>
                                 Technology
                             </a>
-                            <div class="sb-sidenav-menu-heading">Newspapers</div>
+                            <!-- <div class="sb-sidenav-menu-heading">Newspapers</div>
                             <a class="nav-link" id="menu-label" href="index.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 El Pais
@@ -119,7 +142,7 @@
                             <a class="nav-link" id="menu-label" href="index.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Bild
-                            </a>
+                            </a> -->
                         </div>
                         <button style="margin-left: 15px; margin-top: 20px; margin-bottom: 20px;" class="btn btn-primary" id="preferences-btn" type="button">Edit Preferences</button> 
                     </div>
@@ -127,34 +150,45 @@
             </div>
             <!-- Settings/preferences-->
             <div id="layoutSidenav_content">
+                <?php
+                    // if (isset($_POST['fname'])) echo $_POST['fname'];
+
+                    // getCheckedBoxes($_GET['lang']);
+                ?>
                 <main>
                     <div class="container-fluid">
                         <img src="images/avatar.jpg" alt="Avatar" class="avatar">
                         <h1 style="text-align: center; margin-bottom: 50px;" class="mt-4">Jane Doe</h1>
                         <div class="row">
                             <div class="col-xl-6">
-                                <div style="height: 420px;" class="card mb-4">
+                                <div style="height: 500px;" class="card mb-4">
                                     <div class="card-header">
                                         Account Information
                                     </div>
                                     <div class="card-body">
-                                        <form name="user-settings" >
+                                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" name="user-settings" >
     
                                             <div class="form-group">
-                                              <label for="name" class="account-label">Name</label>
-                                              <input type="text" id="name" class="form-control" value="Jane Doe"/>
+                                              <label for="fname" class="account-label">First Name</label>
+                                              <input type="text" id="fname" name="fname" class="form-control" value="<?php echo $fname ?>"/>
+                                              <span class="error" id="name-note"></span>        
+                                            </div>
+
+                                            <div class="form-group">
+                                              <label for="lname" class="account-label">Last Name</label>
+                                              <input type="text" id="lname" name="lname" class="form-control" value="<?php echo $lname ?>"/>
                                               <span class="error" id="name-note"></span>        
                                             </div>
                                             
                                             <div class="form-group">
                                               <label for="email" class="account-label">Email</label>  
-                                              <input type="text" id="email" class="form-control" value="jdoe@gmail.com"/>  
+                                              <input type="text" id="email" name="email" class="form-control" value="<?php echo $email ?>"/>  
                                               <span class="error" id="email-note"></span>
                                             </div>
                                             
                                             <div class="form-group">
                                               <label for="username" class="account-label">Username</label>
-                                              <input type="text" id="username" class="form-control" value="jdoe27"/>  
+                                              <input type="text" id="username" name="username" class="form-control" value="<?php echo $username ?>"/>  
                                               <span class="error" id="username-note"></span>
                                             </div>  
                                             
@@ -165,60 +199,65 @@
                                                 </form>
                                             </div> 
 
+                                            <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                                                <button style="margin-bottom: 30px;" class="btn btn-primary" id="save-btn" name="save-action" type="submit" value="save">Save Changes</button>
+                                            </div>
+
+                                            <!-- <button style="margin-bottom: 30px;" class="btn btn-primary" id="save-button" name="save-action" type="submit" value="save">Save Changes</button> -->
+
                                         </form>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-6">
-                                <div style="height: 420px;" class="card mb-4">
+                                <div style="height: 500px;" class="card mb-4">
                                     <div class="card-header">
                                         Preferences
                                     </div>
                                     <div class="card-body">
-                                        <div class="row">
-                                            <div class="column">
-                                                <label for="lang-options" class="pref-label">Languages</label>
-                                                <div id="lang-options">
-                                                    <input type="checkbox" id="lang1" name="lang" value="span" checked/>
-                                                    <label for="lang1">Spanish</label><br>
-                                                    <input type="checkbox" id="lang2" name="lang" value="ital"/>
-                                                    <label for="lang2">Italian</label><br>
-                                                    <input type="checkbox" id="lang3" name="lang" value="germ" checked/>
-                                                    <label for="lang3">German</label><br>
+                                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="GET" name="user-preferences" >
+                                            <div class="row">
+                                                <div class="column">
+                                                    <label for="lang-options" class="pref-label">Languages</label>
+                                                    <div id="lang-options">
+                                                        <input type="checkbox" id="lang1" name="lang[]" value="span" checked/>
+                                                        <label for="lang1">Spanish</label><br>
+                                                        <input type="checkbox" id="lang2" name="lang[]" value="ital"/>
+                                                        <label for="lang2">Italian</label><br>
+                                                        <input type="checkbox" id="lang3" name="lang[]" value="germ" checked/>
+                                                        <label for="lang3">German</label><br>
+                                                    </div>
+                                                    <span class="msg"><p id="lang_error"></p></span>
                                                 </div>
-                                                <span class="msg"><p id="lang_error"></p></span>
-                                            </div>
-                                            <div class="column">
-                                                <label for="topic-options" class="pref-label">Topics</label>
-                                                <div id="topic-options">
-                                                    <label><input type="checkbox" id="topic1" name="topic" value="sports"/>
-                                                    <label for="topic1">Sports</label><br>
-                                                    <label><input type="checkbox" id="topic2" name="topic" value="health" checked/>
-                                                    <label for="topic2">Health/Science</label><br>
-                                                    <label><input type="checkbox" id="topic3" name="topic" value="entertainment" checked/>
-                                                    <label for="topic3">Entertainment</label><br>
+                                                <div class="column">
+                                                    <label for="topic-options" class="pref-label">Topics</label>
+                                                    <div id="topic-options">
+                                                        <label><input type="checkbox" id="topic1" name="topic" value="sports"/>
+                                                        <label for="topic1">Sports</label><br>
+                                                        <label><input type="checkbox" id="topic2" name="topic" value="health" checked/>
+                                                        <label for="topic2">Health/Science</label><br>
+                                                        <label><input type="checkbox" id="topic3" name="topic" value="entertainment" checked/>
+                                                        <label for="topic3">Entertainment</label><br>
+                                                    </div>
+                                                    <span class="msg"><p id="topic_error"></p></span>
                                                 </div>
-                                                <span class="msg"><p id="topic_error"></p></span>
+                                                <!-- <div class="column">
+                                                    <label for="newspaper-options" class="pref-label">Newspapers</label>
+                                                    <div id="newspaper-options">
+                                                        <label><input type="checkbox" id="news1" name="news" value="elpais"/>
+                                                        <label for="topic1">El Pais</label><br>
+                                                        <label><input type="checkbox" id="news2" name="news" value="elmundo" checked/>
+                                                        <label for="topic2">El Mundo</label><br>
+                                                        <label><input type="checkbox" id="news3" name="news" value="bild" checked/>
+                                                        <label for="topic3">Bild</label><br>
+                                                    </div>
+                                                    <span class="msg"><p id="news_error"></p></span>
+                                                </div> -->
                                             </div>
-                                            <div class="column">
-                                                <label for="newspaper-options" class="pref-label">Newspapers</label>
-                                                <div id="newspaper-options">
-                                                    <label><input type="checkbox" id="news1" name="news" value="elpais"/>
-                                                    <label for="topic1">El Pais</label><br>
-                                                    <label><input type="checkbox" id="news2" name="news" value="elmundo" checked/>
-                                                    <label for="topic2">El Mundo</label><br>
-                                                    <label><input type="checkbox" id="news3" name="news" value="bild" checked/>
-                                                    <label for="topic3">Bild</label><br>
-                                                </div>
-                                                <span class="msg"><p id="news_error"></p></span>
-                                            </div>
-                                        </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="button-wrapper">
-                            <button style="margin-bottom: 30px;" class="btn btn-primary" id="save-btn" type="submit">Save Changes</button>
                         </div>
                     </div>
                 </main>

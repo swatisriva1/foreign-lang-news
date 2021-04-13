@@ -1,10 +1,15 @@
 // Megan Reddy (mr8vn)
 
 // redirect user to settings/preferences page for save button click
-var save_btn_click = document.getElementById("save-btn");
-save_btn_click.addEventListener('click', () => {
-    window.location.href = "settings.php";
-});
+// var save_btn_click = document.getElementById("save-btn");
+// save_btn_click.addEventListener('click', () => {
+//     window.location.href = "settings.php";
+// });
+
+// var save_btn_click = document.getElementById("save-btn");
+// save_btn_click.addEventListener('click', () => {
+//     console.log('save button clicked');
+// });
 
 // check to make sure that users have selected at least one language, topic, and newspaper
 var check_preferences = setInterval(checkPreferences, 1000);
@@ -48,11 +53,11 @@ function checkPreferences()
     else {
         document.getElementById('topic_error').innerHTML = '';
     }
-    if (news_count < 1) {
-        document.getElementById('news_error').innerHTML = 'Please select at least one newspaper';   
-    }
-    else {
-        document.getElementById('news_error').innerHTML = '';
-    }
+    // if (news_count < 1) {
+    //     document.getElementById('news_error').innerHTML = 'Please select at least one newspaper';   
+    // }
+    // else {
+    //     document.getElementById('news_error').innerHTML = '';
+    // }
 }
 
