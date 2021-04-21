@@ -86,6 +86,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 float: left;
                 width: 33%;
             }
+            .directions {
+                color: black;
+                font-style: italic;
+            } 
             input[type=checkbox] {
                 transform: scale(1.5);
                 margin: .4rem;
@@ -204,7 +208,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                             <div class="row">
                                 <div class="col-xl-6">
-                                    <div style="height: 500px;" class="card mb-4">
+                                    <div style="height: 550px;" class="card mb-4">
                                         <div class="card-header">
                                             Account Information
                                         </div>
@@ -239,35 +243,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     </div>
                                 </div>
                                 <div class="col-xl-6">
-                                    <div style="height: 500px;" class="card mb-4">
+                                    <div style="height: 550px;" class="card mb-4">
                                         <div class="card-header">
                                             Preferences
                                         </div>
                                         <div class="card-body">
-                                            
+                                            <span class="directions">Select three languages and topics</p></span>
                                             <div class="row">
                                                 <div class="column">
                                                     <label for="lang-options" class="pref-label">Languages</label>
                                                     <div id="lang-options">
-                                                        <input type="checkbox" id="lang1" name="lang[]" value="fr" <?php if(checkBox("fr", $languages)) echo "checked=\"checked\""?>/>
+                                                        <input type="checkbox" class="langbox" id="lang1" name="lang[]" value="fr" <?php if(checkBox("fr", $languages)) echo "checked=\"checked\""?>/>
                                                         <label for="lang1">French</label><br>
-                                                        <input type="checkbox" id="lang2" name="lang[]" value="de" <?php if(checkBox("de", $languages)) echo "checked=\"checked\""?>/>
+                                                        <input type="checkbox" class="langbox" id="lang2" name="lang[]" value="de" <?php if(checkBox("de", $languages)) echo "checked=\"checked\""?>/>
                                                         <label for="lang2">German</label><br>
-                                                        <input type="checkbox" id="lang3" name="lang[]" value="it" <?php if(checkBox("it", $languages)) echo "checked=\"checked\""?>/>
+                                                        <input type="checkbox" class="langbox" id="lang3" name="lang[]" value="it" <?php if(checkBox("it", $languages)) echo "checked=\"checked\""?>/>
                                                         <label for="lang3">Italian</label><br>
-                                                        <input type="checkbox" id="lang4" name="lang[]" value="kr" <?php if(checkBox("kr", $languages)) echo "checked=\"checked\""?>/>
+                                                        <input type="checkbox" class="langbox" id="lang4" name="lang[]" value="kr" <?php if(checkBox("kr", $languages)) echo "checked=\"checked\""?>/>
                                                         <label for="lang4">Korean</label><br>
-                                                        <input type="checkbox" id="lang5" name="lang[]" value="jp" <?php if(checkBox("jp", $languages)) echo "checked=\"checked\""?>/>
+                                                        <input type="checkbox" class="langbox" id="lang5" name="lang[]" value="jp" <?php if(checkBox("jp", $languages)) echo "checked=\"checked\""?>/>
                                                         <label for="lang5">Japanese</label><br>
-                                                        <input type="checkbox" id="lang6" name="lang[]" value="cn" <?php if(checkBox("cn", $languages)) echo "checked=\"checked\""?>/>
+                                                        <input type="checkbox" class="langbox" id="lang6" name="lang[]" value="cn" <?php if(checkBox("cn", $languages)) echo "checked=\"checked\""?>/>
                                                         <label for="lang6">Chinese</label><br>
-                                                        <input type="checkbox" id="lang7" name="lang[]" value="nl" <?php if(checkBox("nl", $languages)) echo "checked=\"checked\""?>/>
+                                                        <input type="checkbox" class="langbox" id="lang7" name="lang[]" value="nl" <?php if(checkBox("nl", $languages)) echo "checked=\"checked\""?>/>
                                                         <label for="lang7">Dutch</label><br>
-                                                        <input type="checkbox" id="lang8" name="lang[]" value="no" <?php if(checkBox("no", $languages)) echo "checked=\"checked\""?>/>
+                                                        <input type="checkbox" class="langbox" id="lang8" name="lang[]" value="no" <?php if(checkBox("no", $languages)) echo "checked=\"checked\""?>/>
                                                         <label for="lang8">Norwegian</label><br>
-                                                        <input type="checkbox" id="lang9" name="lang[]" value="pt" <?php if(checkBox("pt", $languages)) echo "checked=\"checked\""?>/>
+                                                        <input type="checkbox" class="langbox" id="lang9" name="lang[]" value="pt" <?php if(checkBox("pt", $languages)) echo "checked=\"checked\""?>/>
                                                         <label for="lang9">Portuguese</label><br>
-                                                        <input type="checkbox" id="lang10" name="lang[]" value="ru" <?php if(checkBox("ru", $languages)) echo "checked=\"checked\""?>/>
+                                                        <input type="checkbox" class="langbox" id="lang10" name="lang[]" value="ru" <?php if(checkBox("ru", $languages)) echo "checked=\"checked\""?>/>
                                                         <label for="lang10">Russian</label><br>
                                                     </div>
                                                     <span class="msg"><p id="lang_error"></p></span>
@@ -275,19 +279,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <div class="column">
                                                     <label for="topic-options" class="pref-label">Topics</label>
                                                     <div id="topic-options">
-                                                        <label><input type="checkbox" id="topic1" name="topic[]" value="general" <?php if(checkBox("general", $topics)) echo "checked=\"checked\""?>/>
+                                                        <label><input type="checkbox" class="topbox" id="topic1" name="topic[]" value="general" <?php if(checkBox("general", $topics)) echo "checked=\"checked\""?>/>
                                                         <label for="topic1">General</label><br>
-                                                        <label><input type="checkbox" id="topic2" name="topic[]" value="sports" <?php if(checkBox("sports", $topics)) echo "checked=\"checked\""?>/>
+                                                        <label><input type="checkbox" class="topbox" id="topic2" name="topic[]" value="sports" <?php if(checkBox("sports", $topics)) echo "checked=\"checked\""?>/>
                                                         <label for="topic2">Sports</label><br>
-                                                        <label><input type="checkbox" id="topic3" name="topic[]" value="health" <?php if(checkBox("health", $topics)) echo "checked=\"checked\""?>/>
+                                                        <label><input type="checkbox" class="topbox" id="topic3" name="topic[]" value="health" <?php if(checkBox("health", $topics)) echo "checked=\"checked\""?>/>
                                                         <label for="topic3">Health</label><br>
-                                                        <label><input type="checkbox" id="topic4" name="topic[]" value="science" <?php if(checkBox("science", $topics)) echo "checked=\"checked\""?>/>
+                                                        <label><input type="checkbox" class="topbox" id="topic4" name="topic[]" value="science" <?php if(checkBox("science", $topics)) echo "checked=\"checked\""?>/>
                                                         <label for="topic4">Science</label><br>
-                                                        <label><input type="checkbox" id="topic5" name="topic[]" value="business" <?php if(checkBox("business", $topics)) echo "checked=\"checked\""?>/>
+                                                        <label><input type="checkbox" class="topbox" id="topic5" name="topic[]" value="business" <?php if(checkBox("business", $topics)) echo "checked=\"checked\""?>/>
                                                         <label for="topic5">Business</label><br>
-                                                        <label><input type="checkbox" id="topic5" name="topic[]" value="entertainment" <?php if(checkBox("entertainment", $topics)) echo "checked=\"checked\""?>/>
+                                                        <label><input type="checkbox" class="topbox" id="topic5" name="topic[]" value="entertainment" <?php if(checkBox("entertainment", $topics)) echo "checked=\"checked\""?>/>
                                                         <label for="topic6">Entertainment</label><br>
-                                                        <label><input type="checkbox" id="topic5" name="topic[]" value="technology" <?php if(checkBox("technology", $topics)) echo "checked=\"checked\""?>/>
+                                                        <label><input type="checkbox" class="topbox" id="topic5" name="topic[]" value="technology" <?php if(checkBox("technology", $topics)) echo "checked=\"checked\""?>/>
                                                         <label for="topic7">Technology</label><br>
                                                     </div>
                                                     <span class="msg"><p id="topic_error"></p></span>
