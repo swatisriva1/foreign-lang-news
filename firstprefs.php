@@ -89,7 +89,7 @@
                 margin: .4rem;
             }
             .msg {
-                color: red;
+                color: #bf3317;
                 font-style: italic;
             }     
             .card {
@@ -223,7 +223,7 @@
                             </div> -->
                             <div class="col-xl-5">
                                 <form id="first-prefs-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
-                                    <div style="height: 350px;" class="card mb-4">
+                                    <div style="height: 500px;" class="card mb-4">
                                         <div class="card-header">
                                             Preferences
                                         </div>
@@ -232,16 +232,26 @@
                                                 <div class="column">
                                                     <label for="lang-options" class="pref-label">Languages</label>
                                                     <div id="lang-options">
-                                                            <input type="checkbox" id="lang1" name="lang[]" value="fr"/>
+                                                            <input type="checkbox" class="langbox" id="lang1" name="lang[]" value="fr"/>
                                                             <label for="lang1">French</label><br>
-                                                            <input type="checkbox" id="lang2" name="lang[]" value="de"/>
+                                                            <input type="checkbox" class="langbox" id="lang2" name="lang[]" value="de"/>
                                                             <label for="lang2">German</label><br>
-                                                            <input type="checkbox" id="lang3" name="lang[]" value="it"/>
+                                                            <input type="checkbox" class="langbox" id="lang3" name="lang[]" value="it"/>
                                                             <label for="lang3">Italian</label><br>
-                                                            <input type="checkbox" id="lang4" name="lang[]" value="kr"/>
+                                                            <input type="checkbox" class="langbox" id="lang4" name="lang[]" value="kr"/>
                                                             <label for="lang4">Korean</label><br>
-                                                            <input type="checkbox" id="lang5" name="lang[]" value="jp"/>
+                                                            <input type="checkbox" class="langbox" id="lang5" name="lang[]" value="jp"/>
                                                             <label for="lang5">Japanese</label><br>
+                                                            <input type="checkbox" class="langbox" id="lang6" name="lang[]" value="cn"/>
+                                                            <label for="lang5">Chinese</label><br>
+                                                            <input type="checkbox" class="langbox" id="lang7" name="lang[]" value="nl"/>
+                                                            <label for="lang5">Dutch</label><br>
+                                                            <input type="checkbox" class="langbox" id="lang8" name="lang[]" value="no"/>
+                                                            <label for="lang5">Norwegian</label><br>
+                                                            <input type="checkbox" class="langbox" id="lang9" name="lang[]" value="pt"/>
+                                                            <label for="lang5">Portuguese</label><br>
+                                                            <input type="checkbox" class="langbox" id="lang10" name="lang[]" value="ru"/>
+                                                            <label for="lang5">Russian</label><br>
                                                             <span class="msg"><p id="lang_error"></p></span>
                                                     </div>
                                                     <!-- <span class="msg"><p id="lang_error"></p></span> -->
@@ -249,16 +259,20 @@
                                                 <div class="column">
                                                     <label for="topic-options" class="pref-label">Topics</label>
                                                     <div id="topic-options">
-                                                            <label><input type="checkbox" id="topic1" name="topic[]" value="general"/>
+                                                            <label><input type="checkbox" class="topbox" id="topic1" name="topic[]" value="general"/>
                                                             <label for="topic1">General</label><br>
-                                                            <label><input type="checkbox" id="topic2" name="topic[]" value="sports"/>
+                                                            <label><input type="checkbox" class="topbox" id="topic2" name="topic[]" value="sports"/>
                                                             <label for="topic2">Sports</label><br>
-                                                            <label><input type="checkbox" id="topic3" name="topic[]" value="health"/>
+                                                            <label><input type="checkbox" class="topbox" id="topic3" name="topic[]" value="health"/>
                                                             <label for="topic3">Health</label><br>
-                                                            <label><input type="checkbox" id="topic4" name="topic[]" value="science"/>
+                                                            <label><input type="checkbox" class="topbox" id="topic4" name="topic[]" value="science"/>
                                                             <label for="topic4">Science</label><br>
-                                                            <label><input type="checkbox" id="topic5" name="topic[]" value="business"/>
+                                                            <label><input type="checkbox" class="topbox" id="topic5" name="topic[]" value="business"/>
                                                             <label for="topic5">Business</label><br>
+                                                            <label><input type="checkbox" class="topbox" id="topic6" name="topic[]" value="entertainment"/>
+                                                            <label for="topic6">Entertainment</label><br>
+                                                            <label><input type="checkbox" class="topbox" id="topic7" name="topic[]" value="technology"/>
+                                                            <label for="topic7">Technology</label><br>
                                                             <span class="msg"><p id="topic_error"></p></span>
                                                     </div>
                                                     <!-- <span class="msg"><p id="topic_error"></p></span> -->
@@ -316,7 +330,7 @@
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/datatables-demo.js"></script>
-        <script src="js/settings.js"></script>
-        <script src="js/common.js"></script>
+        <script src="js/firstprefs.js"></script>
+        <!-- <script src="js/common.js"></script> -->
     </body>
 </html>
