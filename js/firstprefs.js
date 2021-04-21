@@ -1,11 +1,5 @@
 // Megan Reddy (mr8vn)
 
-// redirect user to settings/preferences page for save button click
-// var save_btn_click = document.getElementById("save-btn");
-// save_btn_click.addEventListener('click', () => {
-//     window.location.href = "settings.php";
-// });
-
 // prevent user from selecting more than three checkboxes or less than one checkbox
 // adapted from https://stackoverflow.com/questions/43456868/javascript-limit-selected-checkboxes-to-2 
 var max_checked = 3;
@@ -21,14 +15,14 @@ for (var i = 0; i < topic_checkboxes.length; i++)
 function limitLangCheck() 
 {
   var lang_checked_boxes = document.querySelectorAll(".langbox:checked"); 
-  if (lang_checked_boxes.length > max_checked || lang_checked_boxes.length < 1)
+  if (lang_checked_boxes.length > max_checked)
     return false;
 }
 
 function limitTopicCheck() 
 {
   var topic_checked_boxes = document.querySelectorAll(".topbox:checked"); 
-  if (topic_checked_boxes.length > max_checked || topic_checked_boxes.length < 1)
+  if (topic_checked_boxes.length > max_checked)
     return false;
 }
 

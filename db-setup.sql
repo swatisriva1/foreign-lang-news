@@ -30,19 +30,26 @@ CREATE TABLE `ss3ck_foreign_lang_news_db`.`langs`
 -- ENGINE = InnoDB;
 
 INSERT INTO `langs` (`language`, `lang_id`) VALUES
+('Chinese', 'cn'),
 ('German', 'de'),
 ('French', 'fr'),
 ('Italian', 'it'),
 ('Japanese', 'jp'),
-('Korean', 'kr');
+('Korean', 'kr'),
+('Dutch', 'nl'),
+('Norwegian', 'no'),
+('Portuguese', 'pt'),
+('Russian', 'ru');
 
 CREATE TABLE `ss3ck_foreign_lang_news_db`.`topics` 
-( `topic` VARCHAR(255) NOT NULL , `topic_id` VARCHAR(10) NOT NULL , PRIMARY KEY(`topic_id`));
+( `topic` VARCHAR(255) NOT NULL , `topic_id` VARCHAR(255) NOT NULL , PRIMARY KEY(`topic_id`));
 -- ENGINE = InnoDB;
 
 INSERT INTO `topics` (`topic`, `topic_id`) VALUES
 ('Business', 'business'),
+('Entertainment', 'entertainment'),
 ('General', 'general'),
 ('Health', 'health'),
 ('Science', 'science'),
-('Sports', 'sports');
+('Sports', 'sports'),
+('Technology', 'technology');

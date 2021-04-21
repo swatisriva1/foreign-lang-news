@@ -37,8 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];
         $email = $_POST['email'];
-        $username = $_POST['username'];
+        // $username = $_POST['username'];
         saveChanges($fname, $lname, $email, $username, $_POST['lang'], $_POST['topic']);
+        header("Location: home.php");
     } else {
         $save_err = "Unable to submit. Please try again";
     }
@@ -85,6 +86,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 float: left;
                 width: 33%;
             }
+            .directions {
+                color: black;
+                font-style: italic;
+            } 
             input[type=checkbox] {
                 transform: scale(1.5);
                 margin: .4rem;
@@ -198,106 +203,113 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <main>
                     <div class="container-fluid">
                         <img src="images/avatar.jpg" alt="Avatar" class="avatar">
-                        <h1 style="text-align: center; margin-bottom: 50px;" class="mt-4"><?php if (!empty($fname) && !empty($lname)) echo $fname . " " . $lname ?></h1>
+                        <h1 style="text-align: center;" class="mt-4"><?php if (!empty($fname) && !empty($lname)) echo $fname . " " . $lname ?></h1>
+                        <h3 style="text-align: center; margin-bottom: 50px;" class="mt-4"><?php if (!empty($username)) echo $username ?></h3>
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                             <div class="row">
                                 <div class="col-xl-6">
-                                    <div style="height: 500px;" class="card mb-4">
+                                    <div style="height: 550px;" class="card mb-4">
                                         <div class="card-header">
                                             Account Information
                                         </div>
                                         <div class="card-body">
-                                            <!-- <form action="" method="POST"> -->
-        
-                                                <div class="form-group">
-                                                <label for="fname" class="account-label">First Name</label>
-                                                <input type="text" id="fname" name="fname" class="form-control" value="<?php if (!empty($fname)) echo $fname ?>"/>
-                                                <span class="error" id="name-note"></span>        
-                                                </div>
+                                            
+                                            <div class="form-group">
+                                            <label for="fname" class="account-label">First Name</label>
+                                            <input type="text" id="fname" name="fname" class="form-control" value="<?php if (!empty($fname)) echo $fname ?>"/>
+                                            <span class="error" id="name-note"></span>        
+                                            </div>
 
-                                                <div class="form-group">
-                                                <label for="lname" class="account-label">Last Name</label>
-                                                <input type="text" id="lname" name="lname" class="form-control" value="<?php if (!empty($lname)) echo $lname ?>"/>
-                                                <span class="error" id="name-note"></span>        
-                                                </div>
-                                                
-                                                <div class="form-group">
-                                                <label for="email" class="account-label">Email</label>  
-                                                <input type="text" id="email" name="email" class="form-control" value="<?php if (!empty($email)) echo $email ?>"/>  
-                                                <span class="error" id="email-note"></span>
-                                                </div>
-                                                
-                                                <div class="form-group">
-                                                <label for="username" class="account-label">Username</label>
-                                                <input type="text" id="username" name="username" class="form-control" value="<?php if (!empty($username)) echo $username ?>"/>  
-                                                <span class="error" id="username-note"></span>
-                                                </div>  
-                                                
-                                                <!-- <label for="changeavatar" class="account-label">Avatar</label>
-                                                <div class="form-group">
-                                                    <form action="change_avatar.php">
-                                                        <input type="file" id="changeavatar" name="avatar-file">
-                                                    </form>
-                                                </div>  -->
-
-                                            <!-- </form> -->
+                                            <div class="form-group">
+                                            <label for="lname" class="account-label">Last Name</label>
+                                            <input type="text" id="lname" name="lname" class="form-control" value="<?php if (!empty($lname)) echo $lname ?>"/>
+                                            <span class="error" id="name-note"></span>        
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                            <label for="email" class="account-label">Email</label>  
+                                            <input type="text" id="email" name="email" class="form-control" value="<?php if (!empty($email)) echo $email ?>"/>  
+                                            <span class="error" id="email-note"></span>
+                                            </div>
+                                            
+                                            <!-- <label for="changeavatar" class="account-label">Avatar</label>
+                                            <div class="form-group">
+                                                <form action="change_avatar.php">
+                                                    <input type="file" id="changeavatar" name="avatar-file">
+                                                </form>
+                                            </div>  -->
+                                            
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-6">
-                                    <div style="height: 500px;" class="card mb-4">
+                                    <div style="height: 550px;" class="card mb-4">
                                         <div class="card-header">
                                             Preferences
                                         </div>
                                         <div class="card-body">
-                                            <!-- <form action="" method="GET" name="user-preferences" > -->
-                                                <div class="row">
-                                                    <div class="column">
-                                                        <label for="lang-options" class="pref-label">Languages</label>
-                                                        <div id="lang-options">
-                                                            <input type="checkbox" id="lang1" name="lang[]" value="fr" <?php if(checkBox("fr", $languages)) echo "checked=\"checked\""?>/>
-                                                            <label for="lang1">French</label><br>
-                                                            <input type="checkbox" id="lang2" name="lang[]" value="de" <?php if(checkBox("de", $languages)) echo "checked=\"checked\""?>/>
-                                                            <label for="lang2">German</label><br>
-                                                            <input type="checkbox" id="lang3" name="lang[]" value="it" <?php if(checkBox("it", $languages)) echo "checked=\"checked\""?>/>
-                                                            <label for="lang3">Italian</label><br>
-                                                            <input type="checkbox" id="lang4" name="lang[]" value="kr" <?php if(checkBox("kr", $languages)) echo "checked=\"checked\""?>/>
-                                                            <label for="lang4">Korean</label><br>
-                                                            <input type="checkbox" id="lang5" name="lang[]" value="jp" <?php if(checkBox("jp", $languages)) echo "checked=\"checked\""?>/>
-                                                            <label for="lang5">Japanese</label><br>
-                                                        </div>
+                                            <span class="directions">Select three languages and topics</p></span>
+                                            <div class="row">
+                                                <div class="column">
+                                                    <label for="lang-options" class="pref-label">Languages</label>
+                                                    <div id="lang-options">
+                                                        <input type="checkbox" class="langbox" id="lang1" name="lang[]" value="fr" <?php if(checkBox("fr", $languages)) echo "checked=\"checked\""?>/>
+                                                        <label for="lang1">French</label><br>
+                                                        <input type="checkbox" class="langbox" id="lang2" name="lang[]" value="de" <?php if(checkBox("de", $languages)) echo "checked=\"checked\""?>/>
+                                                        <label for="lang2">German</label><br>
+                                                        <input type="checkbox" class="langbox" id="lang3" name="lang[]" value="it" <?php if(checkBox("it", $languages)) echo "checked=\"checked\""?>/>
+                                                        <label for="lang3">Italian</label><br>
+                                                        <input type="checkbox" class="langbox" id="lang4" name="lang[]" value="kr" <?php if(checkBox("kr", $languages)) echo "checked=\"checked\""?>/>
+                                                        <label for="lang4">Korean</label><br>
+                                                        <input type="checkbox" class="langbox" id="lang5" name="lang[]" value="jp" <?php if(checkBox("jp", $languages)) echo "checked=\"checked\""?>/>
+                                                        <label for="lang5">Japanese</label><br>
+                                                        <input type="checkbox" class="langbox" id="lang6" name="lang[]" value="cn" <?php if(checkBox("cn", $languages)) echo "checked=\"checked\""?>/>
+                                                        <label for="lang6">Chinese</label><br>
+                                                        <input type="checkbox" class="langbox" id="lang7" name="lang[]" value="nl" <?php if(checkBox("nl", $languages)) echo "checked=\"checked\""?>/>
+                                                        <label for="lang7">Dutch</label><br>
+                                                        <input type="checkbox" class="langbox" id="lang8" name="lang[]" value="no" <?php if(checkBox("no", $languages)) echo "checked=\"checked\""?>/>
+                                                        <label for="lang8">Norwegian</label><br>
+                                                        <input type="checkbox" class="langbox" id="lang9" name="lang[]" value="pt" <?php if(checkBox("pt", $languages)) echo "checked=\"checked\""?>/>
+                                                        <label for="lang9">Portuguese</label><br>
+                                                        <input type="checkbox" class="langbox" id="lang10" name="lang[]" value="ru" <?php if(checkBox("ru", $languages)) echo "checked=\"checked\""?>/>
+                                                        <label for="lang10">Russian</label><br>
                                                         <span class="msg"><p id="lang_error"></p></span>
                                                     </div>
-                                                    <div class="column">
-                                                        <label for="topic-options" class="pref-label">Topics</label>
-                                                        <div id="topic-options">
-                                                            <label><input type="checkbox" id="topic1" name="topic[]" value="general" <?php if(checkBox("general", $topics)) echo "checked=\"checked\""?>/>
-                                                            <label for="topic1">General</label><br>
-                                                            <label><input type="checkbox" id="topic2" name="topic[]" value="sports" <?php if(checkBox("sports", $topics)) echo "checked=\"checked\""?>/>
-                                                            <label for="topic2">Sports</label><br>
-                                                            <label><input type="checkbox" id="topic3" name="topic[]" value="health" <?php if(checkBox("health", $topics)) echo "checked=\"checked\""?>/>
-                                                            <label for="topic3">Health</label><br>
-                                                            <label><input type="checkbox" id="topic4" name="topic[]" value="science" <?php if(checkBox("science", $topics)) echo "checked=\"checked\""?>/>
-                                                            <label for="topic4">Science</label><br>
-                                                            <label><input type="checkbox" id="topic5" name="topic[]" value="business" <?php if(checkBox("business", $topics)) echo "checked=\"checked\""?>/>
-                                                            <label for="topic5">Business</label><br>
-                                                        </div>
+                                                </div>
+                                                <div class="column">
+                                                    <label for="topic-options" class="pref-label">Topics</label>
+                                                    <div id="topic-options">
+                                                        <label><input type="checkbox" class="topbox" id="topic1" name="topic[]" value="general" <?php if(checkBox("general", $topics)) echo "checked=\"checked\""?>/>
+                                                        <label for="topic1">General</label><br>
+                                                        <label><input type="checkbox" class="topbox" id="topic2" name="topic[]" value="sports" <?php if(checkBox("sports", $topics)) echo "checked=\"checked\""?>/>
+                                                        <label for="topic2">Sports</label><br>
+                                                        <label><input type="checkbox" class="topbox" id="topic3" name="topic[]" value="health" <?php if(checkBox("health", $topics)) echo "checked=\"checked\""?>/>
+                                                        <label for="topic3">Health</label><br>
+                                                        <label><input type="checkbox" class="topbox" id="topic4" name="topic[]" value="science" <?php if(checkBox("science", $topics)) echo "checked=\"checked\""?>/>
+                                                        <label for="topic4">Science</label><br>
+                                                        <label><input type="checkbox" class="topbox" id="topic5" name="topic[]" value="business" <?php if(checkBox("business", $topics)) echo "checked=\"checked\""?>/>
+                                                        <label for="topic5">Business</label><br>
+                                                        <label><input type="checkbox" class="topbox" id="topic5" name="topic[]" value="entertainment" <?php if(checkBox("entertainment", $topics)) echo "checked=\"checked\""?>/>
+                                                        <label for="topic6">Entertainment</label><br>
+                                                        <label><input type="checkbox" class="topbox" id="topic5" name="topic[]" value="technology" <?php if(checkBox("technology", $topics)) echo "checked=\"checked\""?>/>
+                                                        <label for="topic7">Technology</label><br>
                                                         <span class="msg"><p id="topic_error"></p></span>
                                                     </div>
-                                                    <!-- <div class="column">
-                                                        <label for="newspaper-options" class="pref-label">Newspapers</label>
-                                                        <div id="newspaper-options">
-                                                            <label><input type="checkbox" id="news1" name="news" value="elpais"/>
-                                                            <label for="topic1">El Pais</label><br>
-                                                            <label><input type="checkbox" id="news2" name="news" value="elmundo" checked/>
-                                                            <label for="topic2">El Mundo</label><br>
-                                                            <label><input type="checkbox" id="news3" name="news" value="bild" checked/>
-                                                            <label for="topic3">Bild</label><br>
-                                                        </div>
-                                                        <span class="msg"><p id="news_error"></p></span>
-                                                    </div> -->
                                                 </div>
-                                            <!-- </form> -->
+                                                <!-- <div class="column">
+                                                    <label for="newspaper-options" class="pref-label">Newspapers</label>
+                                                    <div id="newspaper-options">
+                                                        <label><input type="checkbox" id="news1" name="news" value="elpais"/>
+                                                        <label for="topic1">El Pais</label><br>
+                                                        <label><input type="checkbox" id="news2" name="news" value="elmundo" checked/>
+                                                        <label for="topic2">El Mundo</label><br>
+                                                        <label><input type="checkbox" id="news3" name="news" value="bild" checked/>
+                                                        <label for="topic3">Bild</label><br>
+                                                    </div>
+                                                    <span class="msg"><p id="news_error"></p></span>
+                                                </div> -->
+                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>

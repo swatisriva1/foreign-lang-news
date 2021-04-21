@@ -7,6 +7,10 @@
 
     $newsapi = new NewsApi($api_key);
 
+    // $possible_languages = $newsapi->getLanguages();
+
+    // $possible_countries = $newsapi->getCountries();
+
     // !!! remove once connected to login
     // $_SESSION['loggedInFNA'] = true;
     // $_SESSION['user'] = 'jdoe27';
@@ -159,7 +163,9 @@
 
                     // for testing
 
-                    // var_dump($languages);
+                    // var_dump($possible_languages);
+
+                    // var_dump($possible_countries);
 
                     // foreach ($languages as $language) {
                     //     echo $language;
