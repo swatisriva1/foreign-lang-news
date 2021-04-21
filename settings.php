@@ -273,8 +273,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                         <label for="lang9">Portuguese</label><br>
                                                         <input type="checkbox" class="langbox" id="lang10" name="lang[]" value="ru" <?php if(checkBox("ru", $languages)) echo "checked=\"checked\""?>/>
                                                         <label for="lang10">Russian</label><br>
+                                                        <span class="msg"><p id="lang_error"></p></span>
                                                     </div>
-                                                    <span class="msg"><p id="lang_error"></p></span>
                                                 </div>
                                                 <div class="column">
                                                     <label for="topic-options" class="pref-label">Topics</label>
@@ -293,8 +293,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                         <label for="topic6">Entertainment</label><br>
                                                         <label><input type="checkbox" class="topbox" id="topic5" name="topic[]" value="technology" <?php if(checkBox("technology", $topics)) echo "checked=\"checked\""?>/>
                                                         <label for="topic7">Technology</label><br>
+                                                        <span class="msg"><p id="topic_error"></p></span>
                                                     </div>
-                                                    <span class="msg"><p id="topic_error"></p></span>
                                                 </div>
                                                 <!-- <div class="column">
                                                     <label for="newspaper-options" class="pref-label">Newspapers</label>
