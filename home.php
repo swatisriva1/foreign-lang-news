@@ -39,9 +39,19 @@
 
     $languages = getUserLanguages($username);
     $topics = getUserTopics($username);
-    $lang1 = getArticles($languages[0]);
-    $lang2 = getArticles($languages[1]);
-    $lang3 = getArticles($languages[2]);
+    // $lang1 = getArticles($languages[0]);
+    // $lang2 = getArticles($languages[1]);
+    // $lang3 = getArticles($languages[2]);
+    if(!empty($languages)) {
+        $lang1 = getArticles($languages[0]);
+        $lang2 = getArticles($languages[1]);
+        $lang3 = getArticles($languages[2]);
+    }
+    else echo "Error: No language preferences marked!";
+    if(empty($topics)) {
+        echo "Error: No topic preferences marked!";
+    }
+
 
 ?>
 
