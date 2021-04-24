@@ -71,7 +71,13 @@
                 /* color: #74b3ce; */
                 text-align: center;
             }
-            #save-btn:hover:enabled {
+            #first-prefs-btn {
+                color: #eeeeee;
+                background-color: #09BC8A;
+                border-color: #09BC8A; 
+                margin-bottom: 30px;
+            }
+            #first-prefs-btn:hover:enabled {
                 background-color: #12aa7f;
                 border-color: #12aa7f;
             }
@@ -185,42 +191,6 @@
                         <h3 style="text-align: center; margin-bottom: 20px;">Mark your preferences here so we can tailor your articles</h3>
                         <h4 style="text-align: center; margin-bottom: 20px;">Select 3 for each</h4>
                         <div class="row justify-content-center">
-                            <!-- <div class="col-xl-6">
-                                <div style="height: 420px;" class="card mb-4">
-                                    <div class="card-header">
-                                        Account Information
-                                    </div>
-                                    <div class="card-body">
-                                        <form name="user-settings" >
-    
-                                            <div class="form-group">
-                                              <label for="name" class="account-label">Name</label>
-                                              <input type="text" id="name" class="form-control" value="Jane Doe"/>
-                                              <span class="error" id="name-note"></span>        
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                              <label for="email" class="account-label">Email</label>  
-                                              <input type="text" id="email" class="form-control" value="jdoe@gmail.com"/>  
-                                              <span class="error" id="email-note"></span>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                              <label for="username" class="account-label">Username</label>
-                                              <input type="text" id="username" class="form-control" value="jdoe27"/>  
-                                              <span class="error" id="username-note"></span>
-                                            </div>  
-                                            
-                                            <label for="changeavatar" class="account-label">Avatar</label>
-                                            <div class="form-group">
-                                                <form action="change_avatar.php">
-                                                    <input type="file" id="changeavatar" name="avatar-file">
-                                                </form>
-                                            </div> 
-                                        </form>
-                                    </div>
-                                </div>
-                            </div> -->
                             <div class="col-xl-5">
                                 <form id="first-prefs-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                                     <div style="height: 500px;" class="card mb-4">
@@ -277,24 +247,12 @@
                                                     </div>
                                                     <!-- <span class="msg"><p id="topic_error"></p></span> -->
                                                 </div>
-                                                <!-- <div class="column">
-                                                    <label for="newspaper-options" class="pref-label">Newspapers</label>
-                                                    <div id="newspaper-options">
-                                                        <label><input type="checkbox" id="news1" name="news" value="elpais"/>
-                                                        <label for="topic1">El Pais</label><br>
-                                                        <label><input type="checkbox" id="news2" name="news" value="elmundo" checked/>
-                                                        <label for="topic2">El Mundo</label><br>
-                                                        <label><input type="checkbox" id="news3" name="news" value="bild" checked/>
-                                                        <label for="topic3">Bild</label><br>
-                                                    </div>
-                                                    <span class="msg"><p id="news_error"></p></span>
-                                                </div> -->
                                             </div>
                                         </div>
                                         
                                     </div>
                                     <div class="button-wrapper">
-                                        <button style="background-color: #09BC8A; margin-bottom: 30px;" class="btn btn-primary" id="first-prefs-btn" name="action" value="save" type="submit">Save Changes</button>
+                                        <button class="btn btn-primary" id="first-prefs-btn" name="action" value="save" type="submit">Save Changes</button>
                                     </div>
                                 </form>
                             </div>
