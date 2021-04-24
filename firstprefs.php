@@ -2,16 +2,9 @@
     require("connectDB.php");
     require("firstprefsDB.php");
     require("homeDB.php");
+    require("loginDB.php");
     session_start();
-
-    // !!! remove once connected to login
-    // $_SESSION['loggedInFNA'] = true;
-    // $_SESSION['user'] = 'jdoe27';
-
-    //REPLACE WITH COOKIE
-    // $_SESSION['Fname'] = 'Jane';
  
-
     if(!$_SESSION['loggedInFNA']) {
       header("Location: landing.php");
     }
@@ -22,6 +15,13 @@
     }
     else {
         header("Location: landing.php");    
+    }
+
+    // if user has already marked preferences, don't allow them to visit first prefs page
+    $user_langs = getUserLanguages($username);
+    $user_topics = getUserTopics($username);
+    if(!empty($user_langs) && !empty($user_topics)) {
+        header("Location: home.php");
     }
 
     if($_SERVER['REQUEST_METHOD'] == 'POST')
