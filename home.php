@@ -1,6 +1,7 @@
 <?php                     
     use jcobhams\NewsApi\NewsApi;
     require("homeDB.php");
+    require("loginDB.php");
     session_start();
 
     $api_key = getenv("api_key");
