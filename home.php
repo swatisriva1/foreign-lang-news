@@ -1,6 +1,7 @@
 <?php                     
     use jcobhams\NewsApi\NewsApi;
     require("homeDB.php");
+    require("loginDB.php");
     session_start();
 
     $api_key = getenv("api_key");
@@ -15,7 +16,7 @@
     // $_SESSION['loggedInFNA'] = true;
     // $_SESSION['user'] = 'jdoe27';
 
-    if(!$_SESSION['loggedInFNA']) {
+    if(!$_SESSION['loggedInFNA'] || !isset($_COOKIE['user'])) {
       header("Location: landing.php");
     }
 
@@ -38,9 +39,19 @@
 
     $languages = getUserLanguages($username);
     $topics = getUserTopics($username);
-    $lang1 = getArticles($languages[0]);
-    $lang2 = getArticles($languages[1]);
-    $lang3 = getArticles($languages[2]);
+    // $lang1 = getArticles($languages[0]);
+    // $lang2 = getArticles($languages[1]);
+    // $lang3 = getArticles($languages[2]);
+    if(!empty($languages)) {
+        $lang1 = getArticles($languages[0]);
+        $lang2 = getArticles($languages[1]);
+        $lang3 = getArticles($languages[2]);
+    }
+    else header("Location: firstprefs.php");
+    if(empty($topics)) {
+        echo header("Location: firstprefs.php");
+    }
+
 
 ?>
 

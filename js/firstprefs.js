@@ -1,4 +1,4 @@
-// Megan Reddy (mr8vn)
+// Megan Reddy (mr8vn) and Swati Srivastava (ss3ck)
 
 // prevent user from selecting more than three checkboxes or less than one checkbox
 // adapted from https://stackoverflow.com/questions/43456868/javascript-limit-selected-checkboxes-to-2 
@@ -27,7 +27,7 @@ function limitTopicCheck()
 }
 
 // alert users to select three languages and topics
-var check_preferences = setInterval(checkPreferences, 1000);
+var check_preferences = setInterval(checkPreferences, 200);
 
 function checkPreferences()
 {
@@ -68,6 +68,14 @@ function checkPreferences()
     else {
         document.getElementById('topic_error').innerHTML = '';
     }
+
+    // keep save button disabled until input is valid
+    var save_btn = document.getElementById("first-prefs-btn");
+    save_btn.disabled = true;
+    if(lang_count == 3 && topic_count == 3) {  // once valid input, allow save
+        save_btn.disabled = false;
+    }
+    
     // if (news_count < 1) {
     //     document.getElementById('news_error').innerHTML = 'Please select at least one newspaper';   
     // }

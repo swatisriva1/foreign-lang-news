@@ -69,9 +69,12 @@ function getUserLanguages($username) {
     $user_languages = $statement->fetch();
     $statement->closeCursor();
     
-    // make list of ids
-    $language_names = array($user_languages['lang_1'], $user_languages['lang_2'], $user_languages['lang_3']);
-
+    $language_names = array();
+    if(!empty($user_languages)) {
+        // make list of ids
+        array_push($language_names, $user_languages['lang_1'], $user_languages['lang_2'], $user_languages['lang_3']);
+        // $language_names = array($user_languages['lang_1'], $user_languages['lang_2'], $user_languages['lang_3']);
+    }
     return $language_names;
 }
 
@@ -89,9 +92,11 @@ function getUserTopics($username) {
     $user_topics = $statement->fetch();  
     $statement->closeCursor();
     
-    // make list of ids
-    $topic_names = array($user_topics['topic_1'], $user_topics['topic_2'], $user_topics['topic_3']);
-
+    $topic_names = array();
+    if(!empty($user_topics)) {
+        // make list of ids
+        array_push($topic_names, $user_topics['topic_1'], $user_topics['topic_2'], $user_topics['topic_3']);
+    }
     return $topic_names;
 }
 
@@ -118,20 +123,20 @@ function getArticles($language) {
     return $list_articles;
 }
 
-function getUserFname($username) {
-    global $db;
-    $Fname = "";
-    $query = "SELECT * FROM user_info
-    WHERE username = :username";
-    $statement = $db->prepare($query);
-    $statement->bindValue(':username',$username);
-    $statement->execute();
-    $user_result=$statement->fetch();
-    if(!empty($user_result)) {
-        $Fname = $user_result['f_name'];
-    }
-    $statement -> closeCursor();
-    return $Fname;
-}
+// function getUserFname($username) {
+//     global $db;
+//     $Fname = "";
+//     $query = "SELECT * FROM user_info
+//     WHERE username = :username";
+//     $statement = $db->prepare($query);
+//     $statement->bindValue(':username',$username);
+//     $statement->execute();
+//     $user_result=$statement->fetch();
+//     if(!empty($user_result)) {
+//         $Fname = $user_result['f_name'];
+//     }
+//     $statement -> closeCursor();
+//     return $Fname;
+// }
 
 ?>
