@@ -47,9 +47,9 @@
         $lang2 = getArticles($languages[1]);
         $lang3 = getArticles($languages[2]);
     }
-    else echo "Error: No language preferences marked!";
+    else header("Location: firstprefs.php");
     if(empty($topics)) {
-        echo "Error: No topic preferences marked!";
+        echo header("Location: firstprefs.php");
     }
 
 
