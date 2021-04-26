@@ -5,9 +5,13 @@ session_start();
 $username = $email = $fname = $lname = "";
 $save_err = "";
 
-if(!$_SESSION['loggedInFNA']) {
+// if(!$_SESSION['loggedInFNA']) {
+//     header("Location: landing.php");
+// }
+
+if(!$_SESSION['loggedInFNA'] || !isset($_COOKIE['user'])) {
     header("Location: landing.php");
-}
+  }
 
 if ($_SESSION['user']) {
     $username = $_SESSION['user'];

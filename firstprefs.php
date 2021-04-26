@@ -5,8 +5,12 @@
     require("loginDB.php");
     session_start();
  
-    if(!$_SESSION['loggedInFNA']) {
-      header("Location: landing.php");
+    // if(!$_SESSION['loggedInFNA']) {
+    //   header("Location: landing.php");
+    // }
+
+    if(!$_SESSION['loggedInFNA'] || !isset($_COOKIE['user'])) {
+        header("Location: landing.php");
     }
 
     if ($_SESSION['user'] && $_COOKIE['user']){

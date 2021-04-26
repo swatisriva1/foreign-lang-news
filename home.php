@@ -16,7 +16,7 @@
     // $_SESSION['loggedInFNA'] = true;
     // $_SESSION['user'] = 'jdoe27';
 
-    if(!$_SESSION['loggedInFNA']) {
+    if(!$_SESSION['loggedInFNA'] || !isset($_COOKIE['user'])) {
       header("Location: landing.php");
     }
 
