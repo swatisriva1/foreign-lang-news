@@ -14,14 +14,16 @@ class Article {
     public $url;
     public $image;
     public $date;
+    public $time;
 
-    function __construct($source_name, $title, $description, $url, $image, $date) {
+    function __construct($source_name, $title, $description, $url, $image, $date, $time) {
         $this->source_name = $source_name;
         $this->title = $title;
         $this->description = $description;
         $this->url = $url;
         $this->image = $image;
         $this->date = $date;
+        $this->time = $time;
     }
 }
 
@@ -53,6 +55,22 @@ function idToTopic($topic_id) {
     $statement->closeCursor();
 
     return $topic_name['topic'];
+}
+
+function getArticleDate($published_at) {
+    // get date from timestamp
+
+    $date = substr($published_at, 0, strpos($published_at, "T"));
+    return $date;
+}
+
+function getArticleTime($published_at) {
+    // get time from timestamp
+
+    $t = strpos($published_at, "T");
+    $z = strpos($published_at, "Z");
+    $time = substr($published_at, $t + 1, $z - $t - 1);
+    return $time;
 }
 
 function getUserLanguages($username) {
@@ -117,7 +135,13 @@ function getArticles($language) {
     // Make list of top 4 articles
     $list_articles = array();
     foreach ($top_headlines->articles as $article) {
-        $list_articles[] = new Article($article->source->name, $article->title, $article->description, $article->url, $article->urlToImage, $article->publishedAt);
+        if (empty($article->urlToImage)) {
+            $article->urlToImage = "images/image_placeholder.jpg";
+        }
+        $article_date = getArticleDate($article->publishedAt);
+        $article_time = getArticleTime($article->publishedAt);
+        $article_description = substr($article->description, 0, 200);
+        $list_articles[] = new Article($article->source->name, $article->title, $article_description, $article->url, $article->urlToImage, $article_date, $article_time);
     }
 
     return $list_articles;
