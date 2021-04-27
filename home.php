@@ -65,6 +65,7 @@
             }
             .card {
                 background-color: #3e6486 !important;
+                /* height: 800px; */
             }
             @media only screen and (max-width: 768px) {
                 .breadcrumb-item {
@@ -189,7 +190,7 @@
                                     <div class="card-body">
                                         <p><?php echo $lang1[0]->source_name ?></p>
                                         <img src="<?php echo $lang1[0]->image ?>" style="width: 100%; height: auto;">
-                                        <h3><?php echo $lang1[0]->title ?></h3>
+                                        <h5><?php echo $lang1[0]->title ?></h5>
                                         <p><?php echo $lang1[0]->date ?></p>
                                         <p><?php echo $lang1[0]->description ?></p>
                                     </div>
@@ -205,7 +206,7 @@
                                     <div class="card-body">
                                         <p><?php echo $lang1[1]->source_name ?></p>
                                         <img src="<?php echo $lang1[1]->image ?>" style="width: 100%; height: auto;">
-                                        <h3><?php echo $lang1[1]->title ?></h3>
+                                        <h5><?php echo $lang1[1]->title ?></h5>
                                         <p><?php echo $lang1[1]->date ?></p>
                                         <p><?php echo $lang1[1]->description ?></p>
                                     </div>
@@ -220,7 +221,7 @@
                                     <div class="card-body">
                                         <p><?php echo $lang1[2]->source_name ?></p>
                                         <img src="<?php echo $lang1[2]->image ?>" style="width: 100%; height: auto;">
-                                        <h3><?php echo $lang1[2]->title ?></h3>
+                                        <h5><?php echo $lang1[2]->title ?></h5>
                                         <p><?php echo $lang1[2]->date ?></p>
                                         <p><?php echo $lang1[2]->description ?></p>
                                     </div>
@@ -235,7 +236,7 @@
                                     <div class="card-body">
                                         <p><?php echo $lang1[3]->source_name ?></p>
                                         <img src="<?php echo $lang1[3]->image ?>" style="width: 100%; height: auto;">
-                                        <h3><?php echo $lang1[3]->title ?></h3>
+                                        <h5><?php echo $lang1[3]->title ?></h5>
                                         <p><?php echo $lang1[3]->date ?></p>
                                         <p><?php echo $lang1[3]->description ?></p>
                                     </div>
@@ -257,7 +258,7 @@
                                     <div class="card-body">
                                         <p><?php echo $lang2[0]->source_name ?></p>
                                         <img src="<?php echo $lang2[0]->image ?>" style="width: 100%; height: auto;">
-                                        <h3><?php echo $lang2[0]->title ?></h3>
+                                        <h5><?php echo $lang2[0]->title ?></h5>
                                         <p><?php echo $lang2[0]->date ?></p>
                                         <p><?php echo $lang2[0]->description ?></p>
                                     </div>
@@ -272,7 +273,7 @@
                                     <div class="card-body">
                                         <p><?php echo $lang2[1]->source_name ?></p>
                                         <img src="<?php echo $lang2[1]->image ?>" style="width: 100%; height: auto;">
-                                        <h3><?php echo $lang2[1]->title ?></h3>
+                                        <h5><?php echo $lang2[1]->title ?></h5>
                                         <p><?php echo $lang2[1]->date ?></p>
                                         <p><?php echo $lang2[1]->description ?></p>
                                     </div>
@@ -287,7 +288,7 @@
                                     <div class="card-body">
                                         <p><?php echo $lang2[2]->source_name ?></p>
                                         <img src="<?php echo $lang2[2]->image ?>" style="width: 100%; height: auto;">
-                                        <h3><?php echo $lang2[2]->title ?></h3>
+                                        <h5><?php echo $lang2[2]->title ?></h5>
                                         <p><?php echo $lang2[2]->date ?></p>
                                         <p><?php echo $lang2[2]->description ?></p>
                                     </div>
@@ -302,7 +303,7 @@
                                     <div class="card-body">
                                         <p><?php echo $lang2[3]->source_name ?></p>
                                         <img src="<?php echo $lang2[3]->image ?>" style="width: 100%; height: auto;">
-                                        <h3><?php echo $lang2[3]->title ?></h3>
+                                        <h5><?php echo $lang2[3]->title ?></h5>
                                         <p><?php echo $lang2[3]->date ?></p>
                                         <p><?php echo $lang2[3]->description ?></p>
                                     </div>
@@ -324,7 +325,7 @@
                                     <div class="card-body">
                                         <p><?php echo $lang3[0]->source_name ?></p>
                                         <img src="<?php echo $lang3[0]->image ?>" style="width: 100%; height: auto;">
-                                        <h3><?php echo $lang3[0]->title ?></h3>
+                                        <h5><?php echo $lang3[0]->title ?></h5>
                                         <p><?php echo $lang3[0]->date ?></p>
                                         <p><?php echo $lang3[0]->description ?></p>
                                     </div>
@@ -339,7 +340,7 @@
                                     <div class="card-body">
                                         <p><?php echo $lang3[1]->source_name ?></p>
                                         <img src="<?php echo $lang3[1]->image ?>" style="width: 100%; height: auto;">
-                                        <h3><?php echo $lang3[1]->title ?></h3>
+                                        <h5><?php echo $lang3[1]->title ?></h5>
                                         <p><?php echo $lang3[1]->date ?></p>
                                         <p><?php echo $lang3[1]->description ?></p>
                                     </div>
@@ -354,7 +355,7 @@
                                     <div class="card-body">
                                         <p><?php echo $lang3[2]->source_name ?></p>
                                         <img src="<?php echo $lang3[2]->image ?>" style="width: 100%; height: auto;">
-                                        <h3><?php echo $lang3[2]->title ?></h3>
+                                        <h5><?php echo $lang3[2]->title ?></h5>
                                         <p><?php echo $lang3[2]->date ?></p>
                                         <p><?php echo $lang3[2]->description ?></p>
                                     </div>
@@ -369,7 +370,7 @@
                                     <div class="card-body">
                                         <p><?php echo $lang3[3]->source_name ?></p>
                                         <img src="<?php echo $lang3[3]->image ?>" style="width: 100%; height: auto;">
-                                        <h3><?php echo $lang3[3]->title ?></h3>
+                                        <h5><?php echo $lang3[3]->title ?></h5>
                                         <p><?php echo $lang3[3]->date ?></p>
                                         <p><?php echo $lang3[3]->description ?></p>
                                     </div>
