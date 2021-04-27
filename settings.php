@@ -86,6 +86,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 background-color: #74b3ce; 
                 border-color:  #74b3ce;
             }
+            #save-btn:enabled {
+                color: white; 
+            }
             #save-btn:hover:enabled {
                 background-color: #508991 !important; 
                 border-color: #508991 !important; 

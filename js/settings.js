@@ -21,14 +21,14 @@ for (var i = 0; i < topic_checkboxes.length; i++)
 function limitLangCheck() 
 {
   var lang_checked_boxes = document.querySelectorAll(".langbox:checked"); 
-  if (lang_checked_boxes.length > max_checked || lang_checked_boxes.length < 1)
+  if (lang_checked_boxes.length > max_checked)
     return false;
 }
 
 function limitTopicCheck() 
 {
   var topic_checked_boxes = document.querySelectorAll(".topbox:checked"); 
-  if (topic_checked_boxes.length > max_checked || topic_checked_boxes.length < 1)
+  if (topic_checked_boxes.length > max_checked)
     return false;
 }
 
