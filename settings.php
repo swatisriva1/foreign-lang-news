@@ -78,8 +78,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 border-radius: 50%;
             }
             .button-wrapper {
-                color: #74b3ce;
+                /* color: #74b3ce; */
                 text-align: center;
+            }
+            #save-btn {
+                color: #eeeeee;
+                background-color: #74b3ce; 
+                border-color:  #74b3ce;
+            }
+            #save-btn:enabled {
+                color: white; 
+            }
+            #save-btn:hover:enabled {
+                background-color: #508991 !important; 
+                border-color: #508991 !important; 
             }
             .card-header {
                 font-size: 20px;
@@ -209,7 +221,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <img src="images/avatar.jpg" alt="Avatar" class="avatar">
                         <h1 style="text-align: center;" class="mt-4"><?php if (!empty($fname) && !empty($lname)) echo $fname . " " . $lname ?></h1>
                         <h3 style="text-align: center; margin-bottom: 50px;" class="mt-4"><?php if (!empty($username)) echo $username ?></h3>
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+                        <form id="settings-info" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                             <div class="row">
                                 <div class="col-xl-6">
                                     <div style="height: 550px;" class="card mb-4">
@@ -221,19 +233,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             <div class="form-group">
                                             <label for="fname" class="account-label">First Name</label>
                                             <input type="text" id="fname" name="fname" class="form-control" value="<?php if (!empty($fname)) echo $fname ?>"/>
-                                            <span class="error" id="name-note"></span>        
+                                            <span class="error msg" id="fname-note"></span>        
                                             </div>
 
                                             <div class="form-group">
                                             <label for="lname" class="account-label">Last Name</label>
                                             <input type="text" id="lname" name="lname" class="form-control" value="<?php if (!empty($lname)) echo $lname ?>"/>
-                                            <span class="error" id="name-note"></span>        
+                                            <span class="error msg" id="lname-note"></span>        
                                             </div>
                                             
                                             <div class="form-group">
                                             <label for="email" class="account-label">Email</label>  
                                             <input type="text" id="email" name="email" class="form-control" value="<?php if (!empty($email)) echo $email ?>"/>  
-                                            <span class="error" id="email-note"></span>
+                                            <span class="error msg" id="email-note"></span>
                                             </div>
                                             
                                             <!-- <label for="changeavatar" class="account-label">Avatar</label>
