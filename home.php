@@ -109,7 +109,7 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                         <a class="dropdown-item" href="settings.php">Settings</a>
                         <a class="dropdown-item" href="#">Activity Log</a>
-                        <a class="dropdown-item" href="http://localhost:4200/">Contact</a>
+                        <a class="dropdown-item" href="http://localhost:4200/">Questions</a>
                         <div class="dropdown-divider"></div>
                         <!-- <a class="dropdown-item" href="landing.html">Logout</a> -->
                         <form action="<?php $_SERVER['PHP_SELF'] ?>" method="GET">
