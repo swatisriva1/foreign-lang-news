@@ -51,7 +51,7 @@
         <title>Language Information - Foreign Language News Aggregator</title> 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="View aggregated news in multiple languages" />
-        <meta name="author" content="Megan Reddy (mr8vn)" />
+        <meta name="author" content="Megan Reddy (mr8vn) and Swati Srivastava (ss3ck)" />
         <link href="css/stylesheet.css" rel="stylesheet" />
         <link href="css/common.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
@@ -164,7 +164,7 @@
                     <div class="container-fluid">
                         <h1 class="mt-4">Language Information</h1>
                         <form>
-                            <select name="languages" onchange="showLanguage(this.value)"> <!-- ajax function, in langinfo.js -->
+                            <select id="lang-dropdown" name="languages" onchange="showLanguage(this.value)"> <!-- ajax function, in langinfo.js -->
                                 <option value="">Select a language:</option>
                                 <option value="fr">French</option>
                                 <option value="de">German</option>
@@ -181,7 +181,15 @@
 
                         <!-- Table will be displayed here -->
                         <br>
-                        <div id="tableFiller"><b>Table goes here</b></div>
+                        <!-- <div id="tableFiller"><b>Table goes here</b></div> -->
+                        <h4 id="selected-lang"></h4>
+                        <ul>
+                            <li id="fact1"></li>
+                            <li id="fact2"></li>
+                            <li id="fact3"></li>
+                            <li id="fact4"></li>
+                        </ul>  
+                            
 
                     </div>
                 </main>
