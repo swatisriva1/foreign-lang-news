@@ -1,71 +1,91 @@
-<div class="container">
-  <h1>{{ title }}</h1>
-  <form #questionForm="ngForm" (ngSubmit)="onSubmit(questionForm.value)"> <!-- edit this function when we do PHP -->
-     <div class="form-group">
-      <label>First Name: </label>
-      <input type="text"
-           required minlength="1"
-           #fname="ngModel"
-           [class.is-invalid]="(fname.invalid && fname.touched)"
-           class="form-control is-invalid" [(ngModel)]="questionModel.fname"
-           name="fname">  
-      <small class="text-danger" [class.d-none]="fname.valid || fname.untouched">
-        Please enter a first name.
-      </small>
+<div class="card" style="width: 50rem;">
+  <div class="card-body">
+    <div class="container">
+      <h1>{{ title }}</h1>
+      <form #questionForm="ngForm" (ngSubmit)="onSubmit(questionForm.value)"> 
+        <div class="form-row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>First Name: </label>
+              <input type="text"
+                  required minlength="1"
+                  #fname="ngModel"
+                  [class.is-invalid]="(fname.invalid && fname.touched)"
+                  class="form-control is-invalid" [(ngModel)]="questionModel.fname"
+                  name="fname">  
+              <small class="text-danger" [class.d-none]="fname.valid || fname.untouched">
+                Please enter a first name.
+              </small>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Last Name: </label>
+              <input type="text"
+                  required minlength="1"
+                  #lname="ngModel"
+                  [class.is-invalid]="(lname.invalid && lname.touched)"
+                  class="form-control is-invalid" [(ngModel)]="questionModel.lname"
+                  name="lname">
+              <small class="text-danger" [class.d-none]="lname.valid || lname.untouched">
+                Please enter a last name.
+              </small>
+            </div>
+          </div>
+       </div>
+
+        <div class="form-group">
+          <label>Email: </label>
+          <input type="email" class="form-control" required
+                #email="ngModel"
+                pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                [class.is-invalid]="email.invalid && email.touched"
+                [(ngModel)]="questionModel.email" name="email">
+          <small class="text-danger" [class.d-none]="email.valid || email.untouched">Please enter an email.</small>
+        </div>
+
+        <div class="form-group">
+        <label>Type: </label>
+          <select required class="custom-select" [(ngModel)]="questionModel.type" name="type">
+            <option value="">Choose question type </option>
+            <option *ngFor="let type of types"> {{type}} </option>
+          </select>
+        </div>
+      
+      <div class="form-group">
+        <label>Question: </label>
+        <textarea required class="form-control" [(ngModel)]="questionModel.qText" name="qText" rows="4" cols="50">
+        Enter question here.
+        </textarea>
+        </div>
+
+        
+        <div class="button-toolbar">
+          <button class="btn btn-primary" type="submit"
+                [disabled]="!questionForm.form.valid"
+                (click)="confirmQuestion(questionForm.value)"
+                title="always enabled"
+                id="submit-btn" name="btn" value="submitquestion">
+            Submit
+          </button>
+          <button class="btn btn-primary" type="button"
+              onclick="window.location.href='http://localhost/cs4640/foreign-lang-news/home.php'"
+              id="exit-btn" value="exitform">
+            Exit
+          </button>
+        </div>
+
+      </form>
+
+    <!-- <p>From form: {{ questionForm.value | json }} </p> -->
+    <!-- <p>From model: {{ questionModel | json }} </p> -->
+    <!-- <p>Confirmation: {{ confirm_msg }} </p> -->
+    <br/>
+    <p style="color: green; font-style: italic; "> 
+      {{ responsedata }} 
+    </p>
+
     </div>
-	
-	<div class="form-group">
-      <label>Last Name: </label>
-      <input type="text"
-           required minlength="1"
-           #lname="ngModel"
-           [class.is-invalid]="(lname.invalid && lname.touched)"
-           class="form-control is-invalid" [(ngModel)]="questionModel.lname"
-           name="lname">
-      <small class="text-danger" [class.d-none]="lname.valid || lname.untouched">
-        Please enter a last name.
-      </small>
-    </div>
-
-    <div class="form-group">
-      <label>Email: </label>
-      <input type="email" class="form-control" required
-             #email="ngModel"
-             pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
-             [class.is-invalid]="email.invalid && email.touched"
-             [(ngModel)]="questionModel.email" name="email">
-      <small class="text-danger" [class.d-none]="email.valid || email.untouched">Please enter an email in the proper format.</small>
-    </div>
-
-    <div class="form-group">
-	  <label>Type: </label>
-      <select required class="custom-select" [(ngModel)]="questionModel.type" name="type">
-        <option value="">Choose question type </option>
-        <option *ngFor="let type of types"> {{type}} </option>
-      </select>
-    </div>
-	
-	<div class="form-group">
-	  <label>Question: </label>
-	  <textarea required class="form-control" [(ngModel)]="questionModel.qText" name="qText" rows="4" cols="50">
-		Enter question here.
-	  </textarea>
-    </div>
-
-    <button class="btn btn-primary" type="submit"
-          [disabled]="!questionForm.form.valid"
-          (click)="confirmQuestion(questionForm.value)"
-          title="always enabled"
-          name="btn" value="submitquestion">
-      Submit
-    </button>
-
-  </form>
-
-
-<!--<p>Response from PHP: {{ responsedata | json }} </p>-->
-<p>From form: {{ questionForm.value | json }} </p>
-<p>From model: {{ questionModel | json }} </p>
-<p>Confirmation: {{ confirm_msg }} </p>
-
+  </div>
 </div>

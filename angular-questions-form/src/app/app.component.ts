@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-// import { Order } from './order';
 import { Question } from './question';
 
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
@@ -23,8 +22,8 @@ export class AppComponent {
   data_submitted = '';
 
 
-  // create an instance of an Question
-  questionModel = new Question('', '', '', '', '');
+  // create an instance of a Question
+  questionModel = new Question('', '', '', '', '', '');
   
   confirmQuestion(data: any): void {
      console.log(data);
@@ -33,9 +32,10 @@ export class AppComponent {
   }
 
 
-  responsedata = new Question('', '', '', '', '');   // to store a response from the backend
+//   responsedata = new Question('', '', '', '', '', '');   // to store a response from the backend
+  responsedata = '';
 
-  // passing in a form variable of type any, no return result
+  // pass in a form variable of type any, no return result
   onSubmit(form: any): void {
      console.log('You submitted value: ', form);
      this.data_submitted = form;
@@ -46,20 +46,15 @@ export class AppComponent {
      // 1. Convert the form data to JSON format
      let params = JSON.stringify(form);
 
-     // 2. Send an HTTP request to a backend
-
-     this.http.post<Question>('http://localhost/cs4640/ng-php/ng-post.php', params)
+     // 2. Send an HTTP request to the backend
+     this.http.post<string>('http://localhost/cs4640/foreign-lang-news/questionsDB.php', params)
      .subscribe((response_from_php) => {
-        // Receive a response successfully, do something here
 
-        // Suppose we just want to assign a response from a PHP backend
-        // to a responsedata property of this controller,
-        // so that we can use it (or bind it) to display on screen
-
-        this.responsedata = response_from_php;
+        // Assign response from PHP backend to a responsedata property 
+        this.responsedata = "Thank you, " + form.fname + ". " + response_from_php + " Please click 'Exit' to close the form. ";
 
      }, (error_in_communication) => {
-        // An error occurs, handle an error in some way.
+        // An error occurs, handle here
         console.log('Error ', error_in_communication);
      })
 
