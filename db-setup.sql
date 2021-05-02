@@ -53,3 +53,7 @@ INSERT INTO `topics` (`topic`, `topic_id`) VALUES
 ('Science', 'science'),
 ('Sports', 'sports'),
 ('Technology', 'technology');
+
+CREATE TABLE `ss3ck_foreign_lang_news_db`.`questions` 
+( `question_id` int(4) NOT NULL AUTO_INCREMENT , `fname` VARCHAR(255) NOT NULL , `lname` VARCHAR(255) NOT NULL , `email` VARCHAR(255) NOT NULL , `type` VARCHAR(255) NOT NULL , `qText` VARCHAR(255) NOT NULL , PRIMARY KEY (`question_id`)); 
+-- ENGINE = InnoDB;
