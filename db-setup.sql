@@ -79,3 +79,20 @@ INSERT INTO `lang_info` (`lang_id`, `fact1`, `fact2`, `fact3`, `fact4`) VALUES
 ('no', 'Norwegian is a \"pitch accent\" language, which is similar to tonal languages but tones do not vary per syllable like in tonal languages.', 'Norwegian has a specific word to refer to binge drinking on weekends: \"Helgefylla\".', 'Norwegian has two official forms of written language.', 'There is no word for \"please\" in Norwegian.'),
 ('pt', 'Portuguese is the official language of nine countries.', 'Portuguese is the fastest-growing European language in the world behind English.', 'Portuguese is heavily influenced by Arabic.', 'Several English words have Portuguese origins, including \"embarrass\", \"cobra,\" and \"fetish\".'),
 ('ru', 'Russian is the 6th most natively spoken language in the world.', 'In Russian, where the emphasis falls on a word is important in determining its meaning. ', 'Russian names include a patronymic name, which is the father’s name plus the ending -ovich for a son and -ovna for a daughter.', 'The Russian language splits the color blue into two words for dark and light shades. As a result, it’s been found that Russian speakers can distinguish and categorize different shades of blue more accurately than English speakers.');
+
+CREATE TABLE `flags` (
+  `image_id` varchar(10) NOT NULL,
+  `image_path` varchar(255) NOT NULL
+);
+
+INSERT INTO `flags` (`image_id`, `image_path`) VALUES
+('cn', 'china-flag.jpg'),
+('de', 'germany-flag.jpg'),
+('fr', 'france-flag.jpg'),
+('it', 'italy-flag.jpg'),
+('jp', 'japan-flag.jpg'),
+('kr', 'korea-flag.jpg'),
+('nl', 'netherlands-flag.jpg'),
+('no', 'norway-flag.jpg'),
+('pt', 'portugal-flag.jpg'),
+('ru', 'russia-flag.jpg');

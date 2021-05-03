@@ -31,12 +31,12 @@
 
     $languages = getUserLanguages($username);
     $topics = getUserTopics($username);
-    if(!empty($languages)) {
-        $lang1 = getArticles($languages[0]);
-        $lang2 = getArticles($languages[1]);
-        $lang3 = getArticles($languages[2]);
-    }
-    else header("Location: firstprefs.php");
+    // if(!empty($languages)) {
+    //     $lang1 = getArticles($languages[0]);
+    //     $lang2 = getArticles($languages[1]);
+    //     $lang3 = getArticles($languages[2]);
+    // }
+    // else header("Location: firstprefs.php");
     if(empty($topics)) {
         echo header("Location: firstprefs.php");
     }
@@ -62,9 +62,15 @@
                 font-size: 20px;
                 font-weight: bold;
             }
-            .card {
-                background-color: #3e6486 !important;
-                /* height: 800px; */
+            .center {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+            }
+            img {
+                max-width: 100%;
+                max-height: 100%;
             }
             @media only screen and (max-width: 768px) {
                 .breadcrumb-item {
@@ -163,8 +169,9 @@
                 <main>
                     <div class="container-fluid">
                         <h1 class="mt-4">Language Information</h1>
+                        <br>
                         <form>
-                            <select id="lang-dropdown" name="languages" onchange="showLanguage(this.value)"> <!-- ajax function, in langinfo.js -->
+                            <select id="lang-dropdown" name="languages" onchange="showLanguage(this.value)">
                                 <option value="">Select a language:</option>
                                 <option value="fr">French</option>
                                 <option value="de">German</option>
@@ -179,16 +186,44 @@
                             </select>
                         </form>
 
-                        <!-- Table will be displayed here -->
                         <br>
-                        <!-- <div id="tableFiller"><b>Table goes here</b></div> -->
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div style="height: 300px;" class="card mb-4">
+                                    <div class="card-header">
+                                        <h4 id="selected-lang">Language Facts</h4>
+                                    </div>
+                                    <div class="card-body">   
+                                        <ul>
+                                            <li id="fact1">Select a language to display fact 1.</li>
+                                            <li id="fact2">Select a language to display fact 2.</li>
+                                            <li id="fact3">Select a language to display fact 3.</li>
+                                            <li id="fact4">Select a language to display fact 4.</li>
+                                        </ul>  
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div style="height: 300px;" class="card mb-4">
+                                    <div class="card-header">
+                                        <h4>Country Flag</h4>
+                                    </div>
+                                    <div class="card-body">    
+                                        <img src="images/world-map.jpg" alt="Country Flag" id="flag-img" class="center">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Language facts -->
+                        <!-- <br>
                         <h4 id="selected-lang"></h4>
                         <ul>
                             <li id="fact1"></li>
                             <li id="fact2"></li>
                             <li id="fact3"></li>
                             <li id="fact4"></li>
-                        </ul>  
+                        </ul>   -->
                             
 
                     </div>

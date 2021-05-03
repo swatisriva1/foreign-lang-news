@@ -45,6 +45,7 @@ function serverResponse() {
          document.getElementById("fact2").textContent = splitResponse[2];
          document.getElementById("fact3").textContent = splitResponse[3];
          document.getElementById("fact4").textContent = splitResponse[4];
+         document.getElementById("flag-img").src = splitResponse[5];
       }
   }
 }

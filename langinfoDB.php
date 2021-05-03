@@ -14,6 +14,8 @@
         $response_result = $response_result . $fact3 . "\n";
         $fact4 = getLangF4($_GET["selectedLang"]);
         $response_result = $response_result . $fact4 . "\n";
+        $flag = getLangFlag($_GET["selectedLang"]);
+        $response_result = $response_result . $flag . "\n";
         
         echo $response_result;
     }
@@ -113,6 +115,21 @@
         }
         $statement -> closeCursor();
         return $Fname;
+    }
+
+    function getLangFlag($lang) {
+        global $db;
+        $image_path = "";
+        $query = "SELECT * FROM flags WHERE image_id = :lang";
+        $statement = $db->prepare($query);
+        $statement->bindValue(':lang', $lang);
+        $statement->execute();
+        $user_result=$statement->fetch();
+        if(!empty($user_result)) {
+            $image_path = $user_result['image_path'];
+        }
+        $statement->closeCursor();
+        return "images/" . $image_path;
     }
 
 ?>
