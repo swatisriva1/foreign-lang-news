@@ -16,6 +16,8 @@ export class AppComponent {
   title = 'Questions?';
   author = 'Swati Srivastava (ss3ck) and Megan Reddy (mr8vn)';
 
+  show_directions = false;
+
   types = ['General', 'Account', 'Content'];
 
   confirm_msg = '';
@@ -24,6 +26,10 @@ export class AppComponent {
 
   // create an instance of a Question
   questionModel = new Question('', '', '', '', '', '');
+
+  toggleDirections() {
+     this.show_directions = !this.show_directions;
+  }
   
   confirmQuestion(data: any): void {
      console.log(data);

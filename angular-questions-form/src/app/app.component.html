@@ -2,8 +2,18 @@
   <div class="card-body">
     <div class="container">
       <h1>{{ title }}</h1>
+     
+      <div class="form-check mb-3">
+        <input (click)="toggleDirections()" class="form-check-input" type="checkbox" name="showdir">
+        <label class="form-check-label"> Show directions </label>
+        <div [style.color]="'red'" [style.font-style]="'italic'" *ngIf="show_directions">
+          Please fill out all of the fields below to submit your question. 
+        </div>
+      </div>
+      
       <form #questionForm="ngForm" (ngSubmit)="onSubmit(questionForm.value)"> 
         <div class="form-row">
+
           <div class="col-md-6">
             <div class="form-group">
               <label>First Name: </label>
@@ -82,7 +92,7 @@
     <!-- <p>From model: {{ questionModel | json }} </p> -->
     <!-- <p>Confirmation: {{ confirm_msg }} </p> -->
     <br/>
-    <p style="color: green; font-style: italic; "> 
+    <p [style.color]="'green'" [style.font-style]="'italic'"> 
       {{ responsedata }} 
     </p>
 
