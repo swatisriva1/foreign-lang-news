@@ -123,12 +123,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <a class="navbar-brand" href="home.php">Hello World</a>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-                <div class="input-group">
+                <!-- <div class="input-group">
                     <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
                     </div>
-                </div>
+                </div> -->
             </form>
             <h5 class="my-md-0">Hi, <?php if (isset($_COOKIE['user'])) echo getUserFname($_COOKIE['user']) ?></h5>
             <!-- Navbar-->
