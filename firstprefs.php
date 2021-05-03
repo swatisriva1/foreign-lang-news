@@ -44,7 +44,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Settings</title> 
+        <title>Choose Preferences - Hello World</title> 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="Allow users to pick preferred languages and topics upon first login" />
         <meta name="author" content="Megan Reddy (mr8vn) and Swati Srivastava (ss3ck)" />
@@ -191,7 +191,7 @@
                 <main>
                     <div class="container-fluid">
                         <!-- <img src="images/avatar.jpg" alt="Avatar" class="avatar"> -->
-                        <h1 style="text-align: center; margin-bottom: 20px;" class="mt-4">Welcome to Foreign News Aggregator, <?php echo $Fname; ?>!</h1>
+                        <h1 style="text-align: center; margin-bottom: 20px;" class="mt-4">Welcome to Hello World, <?php echo $Fname; ?>!</h1>
                         <h3 style="text-align: center; margin-bottom: 20px;">Mark your preferences here so we can tailor your articles</h3>
                         <h4 style="text-align: center; margin-bottom: 20px;">Select 3 for each</h4>
                         <div class="row justify-content-center">
@@ -271,7 +271,7 @@
                     <footer class="py-4 mt-auto">
                         <div class="container-fluid">
                             <div class="d-flex align-items-center justify-content-between small">
-                                <div class="text-muted">Copyright &copy; Foreign Language News Aggregator 2021</div>
+                                <div class="text-muted">Copyright &copy; Hello World 2021</div>
                                 <div>
                                     <a href="#">Privacy Policy</a>
                                     &middot;
