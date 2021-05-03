@@ -52,7 +52,7 @@
                 pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
                 [class.is-invalid]="email.invalid && email.touched"
                 [(ngModel)]="questionModel.email" name="email">
-          <small class="text-danger" [class.d-none]="email.valid || email.untouched">Please enter an email.</small>
+          <small class="text-danger" [class.d-none]="email.valid || email.untouched">Please enter an email in the proper format.</small>
         </div>
 
         <div class="form-group">

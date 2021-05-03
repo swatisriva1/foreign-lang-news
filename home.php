@@ -60,7 +60,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Home - Foreign Language News Aggregator</title> 
+        <title>Home - Hello World</title> 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="View aggregated news in multiple languages" />
         <meta name="author" content="Megan Reddy (mr8vn)" />
@@ -91,15 +91,15 @@
         <!-- <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark"> -->
         <nav class="sb-topnav navbar navbar-expand navbar-dark">
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
-            <a class="navbar-brand" href="home.php">Foreign Language News Aggregator</a>
+            <a style="font-size: 30px;" class="navbar-brand" href="home.php">Hello World</a>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-                <div class="input-group">
+                <!-- <div class="input-group">
                     <input class="form-control" type="text" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2" />
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
                     </div>
-                </div>
+                </div> -->
             </form>
             <h5 class="my-md-0">Hi, <?php if (isset($_COOKIE['user'])) echo getUserFname($_COOKIE['user']) ?></h5>
             <!-- Navbar-->
@@ -402,7 +402,7 @@
                     <footer class="py-4 mt-auto">
                         <div class="container-fluid">
                             <div class="d-flex align-items-center justify-content-between small">
-                                <div class="text-muted">Copyright &copy; Foreign Language News Aggregator 2021</div>
+                                <div class="text-muted">Copyright &copy; Hello World 2021</div>
                                 <div>
                                     <a href="#">Privacy Policy</a>
                                     &middot;

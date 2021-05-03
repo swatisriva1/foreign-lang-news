@@ -1,4 +1,6 @@
 <?php
+// Swati Srivastava (ss3ck)
+
 putenv("db_username=XXXX");
 putenv("db_pwd=XXXX");
 putenv("db_host=XXXX");

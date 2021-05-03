@@ -1,4 +1,5 @@
 <?php
+// Swati Srivastava (ss3ck) and Megan Reddy (mr8vn)
 
 require('connectDB.php');
 

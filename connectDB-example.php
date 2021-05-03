@@ -1,4 +1,5 @@
 <?php
+// Swati Srivastava (ss3ck)
 
 // Change credentials as necessary and rename to connectDB.php to ensure SQL queries work
 
