@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>Settings</title> 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="View aggregated news in multiple languages" />
+        <meta name="description" content="Allow user to edit language and topic preferences" />
         <meta name="author" content="Megan Reddy (mr8vn)" />
         <link href="css/stylesheet.css" rel="stylesheet" />
         <link href="css/common.css" rel="stylesheet" />

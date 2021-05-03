@@ -46,8 +46,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>Settings</title> 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="View aggregated news in multiple languages" />
-        <meta name="author" content="Megan Reddy (mr8vn)" />
+        <meta name="description" content="Allow users to pick preferred languages and topics upon first login" />
+        <meta name="author" content="Megan Reddy (mr8vn) and Swati Srivastava (ss3ck)" />
         <link href="css/stylesheet.css" rel="stylesheet" />
         <link href="css/common.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />

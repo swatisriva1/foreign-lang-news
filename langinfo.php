@@ -50,7 +50,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>Language Information - Foreign Language News Aggregator</title> 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="View aggregated news in multiple languages" />
+        <meta name="description" content="Display language facts" />
         <meta name="author" content="Megan Reddy (mr8vn) and Swati Srivastava (ss3ck)" />
         <link href="css/stylesheet.css" rel="stylesheet" />
         <link href="css/common.css" rel="stylesheet" />

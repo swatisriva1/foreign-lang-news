@@ -14,7 +14,7 @@ export class AppComponent {
   constructor(private http: HttpClient) {  }
 
   title = 'Questions?';
-  author = 'Swati Srivastava (ss3ck) and Megan Reddy (mr8vn)';
+  author = 'Megan Reddy (mr8vn)';
 
   show_directions = false;
 

@@ -1,4 +1,6 @@
 <?php
+// Swati Srivastava (ss3ck)
+
 require("connectDB.php");
 
 function checkUserCredentials($username, $pwd){

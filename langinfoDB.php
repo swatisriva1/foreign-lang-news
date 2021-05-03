@@ -1,4 +1,6 @@
 <?php
+    // Swati Srivastava (ss3ck) and Megan Reddy (mr8vn)
+
     require("connectDB.php");
 
     if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["selectedLang"])) {

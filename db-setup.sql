@@ -1,3 +1,6 @@
+-- Database tables and values
+-- Megan Reddy (mr8vn) and Swati Srivastava (ss3ck)
+
 CREATE DATABASE ss3ck_foreign_lang_news_db;
 
 USE ss3ck_foreign_lang_news_db;
