@@ -107,9 +107,10 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="settings.php">Settings</a>
-                        <a class="dropdown-item" href="#">Activity Log</a>
+                        <a class="dropdown-item" href="langinfo.php">Language Info</a>
                         <a class="dropdown-item" href="http://localhost:4200/">Questions</a>
+                        <a class="dropdown-item" href="settings.php">Settings</a>
+                        <!-- <a class="dropdown-item" href="#">Activity Log</a> -->
                         <div class="dropdown-divider"></div>
                         <!-- <a class="dropdown-item" href="landing.html">Logout</a> -->
                         <form action="<?php $_SERVER['PHP_SELF'] ?>" method="GET">
